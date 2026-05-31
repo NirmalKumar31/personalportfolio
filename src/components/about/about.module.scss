@@ -22,6 +22,17 @@
     }
 }
 
+.experienceCard {
+    padding: 20px 24px;
+    border-left: 1px solid var(--brand-border-medium);
+    transition: border-left-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+        border-left-color: var(--brand-solid-strong);
+        transform: scale(1.02);
+    }
+}
+
 .hover {
     transition: var(--transition-micro-medium);
 

@@ -74,7 +74,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: "About Me",
-  description: `${person.name} – Data Analytics Engineer based in Boston, MA`,
+  description: `${person.name} – ${person.role} based in Boston, MA`,
   tableOfContent: {
     display: true,
     subItems: false,

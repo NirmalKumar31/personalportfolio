@@ -13,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import styles from "@/components/about/about.module.scss";
+import TableOfContents from "@/components/about/TableOfContents";
 import React from "react";
 
 export async function generateMetadata() {
@@ -40,6 +41,32 @@ export default function About() {
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
+      />
+
+      <TableOfContents
+        about={about}
+        structure={[
+          {
+            title: about.intro.title,
+            display: about.intro.display,
+            items: [],
+          },
+          {
+            title: about.work.title,
+            display: about.work.display,
+            items: about.work.experiences.map((e) => e.company),
+          },
+          {
+            title: about.studies.title,
+            display: about.studies.display,
+            items: about.studies.institutions.map((i) => i.name),
+          },
+          {
+            title: about.technical.title,
+            display: about.technical.display,
+            items: about.technical.skills.map((s) => s.title),
+          },
+        ]}
       />
 
       <Row fillWidth s={{ direction: "column" }} horizontal="center">
@@ -130,7 +157,7 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" style={{ textAlign: "justify" }}>
               {about.intro.description}
             </Column>
           )}
@@ -140,9 +167,9 @@ export default function About() {
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="m" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                  <div key={`${experience.company}-${experience.role}-${index}`} className={styles.experienceCard}>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.role}
@@ -161,7 +188,7 @@ export default function About() {
                         </Text>
                       ))}
                     </Column>
-                  </Column>
+                  </div>
                 ))}
               </Column>
             </>
@@ -172,16 +199,16 @@ export default function About() {
               <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
                 {about.studies.title}
               </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
+              <Column fillWidth gap="m" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
+                  <div key={`${institution.name}-${index}`} className={styles.experienceCard}>
                     <Text id={institution.name} variant="heading-strong-l">
                       {institution.name}
                     </Text>
                     <Text variant="heading-default-xs" onBackground="neutral-weak">
                       {institution.description}
                     </Text>
-                  </Column>
+                  </div>
                 ))}
               </Column>
             </>
@@ -197,25 +224,24 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="m">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill.title}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
+                  <div key={`${skill.title}-${index}`} className={styles.experienceCard}>
+                    <Column fillWidth gap="12">
+                      <Text id={skill.title} variant="heading-strong-l">
+                        {skill.title}
+                      </Text>
+                      {skill.tags && skill.tags.length > 0 && (
+                        <Row wrap gap="8">
+                          {skill.tags.map((tag, tagIndex) => (
+                            <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                              {tag.name}
+                            </Tag>
+                          ))}
+                        </Row>
+                      )}
+                    </Column>
+                  </div>
                 ))}
               </Column>
             </>
