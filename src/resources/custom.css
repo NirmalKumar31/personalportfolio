@@ -1,3 +1,25 @@
+/* Body & label font sizes — each shifted up one step in the scale */
+:root {
+  --font-size-body-xs: 0.875rem;
+  --font-size-body-s:  1rem;
+  --font-size-body-m:  1.125rem;
+  --font-size-body-l:  1.25rem;
+  --font-size-body-xl: 1.375rem;
+
+  --font-size-label-xs: 0.825rem;
+  --font-size-label-s:  0.925rem;
+  --font-size-label-m:  1rem;
+  --font-size-label-l:  1.125rem;
+  --font-size-label-xl: 1.25rem;
+}
+
+/* Dark navy background override */
+[data-theme="dark"] {
+  --scheme-neutral-100: #05091a;
+  --scheme-neutral-200: #080e22;
+  --scheme-neutral-300: #111830;
+}
+
 /* :root {
   /*
   /* Override default variables here */

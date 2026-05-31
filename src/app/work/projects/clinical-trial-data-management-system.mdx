@@ -1,0 +1,47 @@
+---
+title: "Clinical Trial Data Management System"
+publishedAt: "2025-03-01"
+summary: "Hybrid MySQL + MongoDB system managing patient data, treatments, clinical trials, researchers, and outcomes – with Python analytics covering demographics, adverse events, and drug utilization."
+images: []
+projectType: "Academic Project"
+tags: ["MySQL", "MongoDB", "Python", "SQL"]
+link: "https://github.com/NirmalKumar31/Clinical-Trial-Data-Management-System"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+Designed a database system to manage clinical trial operations – patients, researchers, treatments, outcomes, suppliers, the works. Clinical data doesn't always fit neatly into a single model, so I used MySQL for the structured relational stuff and MongoDB for flexible clinical notes and documentation that don't belong in a rigid schema. Added a Python analytics layer on top to surface trends across demographics, adverse events, and drug utilization.
+
+## Data Architecture
+
+Seven core entities make up the system: patients, researchers, clinical trials, treatments, outcomes, products, and suppliers. All the relationships between them are documented through EER and UML diagrams, with referential integrity enforced at the database level so nothing breaks silently when data changes.
+
+**EER Diagram** – shows entity relationships, cardinalities, and key attributes across all seven entities:
+
+![EER Model](/images/projects/clinical-trial/eer-model.png)
+
+**UML Class Diagram** – shows the object-oriented view with attributes, methods, and access modifiers:
+
+![UML Diagram](/images/projects/clinical-trial/uml-diagram.png)
+
+## Why Two Databases?
+
+**MySQL** handles everything with a clear structure – patient records, trial protocols, treatment schedules, and researcher assignments. Constraints and indexes keep queries fast and the data consistent.
+
+**MongoDB Atlas** takes care of the stuff that doesn't fit neatly into rows and columns – unstructured clinical notes, variable-length documentation, and anything that changes format between trials. Having both lets the system stay flexible where it needs to be without sacrificing integrity where it matters.
+
+## Analytics
+
+The Python layer pulls from both databases and surfaces the trends that matter clinically – patient demographic distributions, treatment timelines, adverse event patterns across drug types, drug utilization rates by category, and outcome tracking across cohorts.
+
+## Technologies Used
+
+- **MySQL** – relational database, enforced constraints, indexed queries
+- **MongoDB Atlas** – NoSQL document storage for unstructured clinical data
+- **Python** – analytics, visualization, and reporting
+- **EER / UML** – data modeling and schema documentation

@@ -2,48 +2,33 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Nirmalkumar",
+  lastName: "Thirupallikrishnan Kesavan",
+  name: `Nirmalkumar Thirupallikrishnan Kesavan`,
+  role: "Data Engineer | Data Analyst",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "thirupallikrishnan.n@northeastern.edu",
+  location: "America/New_York",
+  languages: [],
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>Updates on data engineering, analytics, and machine learning.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/NirmalKumar31",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/nirmalkumartk/",
     essential: true,
   },
   {
@@ -60,32 +45,36 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Data Engineer and Data Analyst</>,
   featured: {
-    display: true,
+    display: false,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Vacation Rental Platform</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured project
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/data-platform-vacation-rental-marketplace",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I build pipelines, models, and dashboards that make data useful. I like going
+      end-to-end – getting raw data into shape, finding what's worth knowing, and
+      delivering something people can actually act on.
+      <br /><br />
+      Previously @<Text as="span" size="xl" weight="strong">Fidelity Investments</Text>
+    </>
   ),
 };
 
 const about: About = {
   path: "/about",
   label: "About",
-  title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  title: "About Me",
+  description: `${person.name} – Data Analytics Engineer based in Boston, MA`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -94,7 +83,7 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -102,52 +91,115 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Hey, I'm Nirmal – glad you're here. I'm a data professional, and this is the part where
+        I tell you a bit about myself.
+        <br /><br />
+        Over the last year and a half I've built things and worked across some pretty different
+        spaces – predictive maintenance on factory machines, medical imaging models, data pipelines
+        and marketing analytics at a financial firm. Not the most linear path, but the domains kept
+        changing, which I think is what kept it interesting.
+        <br /><br />
+        My experience sits somewhere between data engineering, analytics, and ML. I've moved between
+        all three depending on what the problem needed, and honestly I think that's made me better
+        at each of them.
+        <br /><br />
+        I'm finishing up my master's at Northeastern this summer and actively looking for full-time
+        opportunities. Please go through the site to explore my work – if something I've built looks
+        interesting to you, I'd love to talk. Reach out through my socials.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Fidelity Investments",
+        timeframe: "July 2025 – December 2025",
+        role: "Data Analyst",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Built a two-layer SQL data quality framework for social media data – cut quality
+            incidents by <strong>60%</strong> across 10+ downstream dashboards.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Automated daily reporting using Snowflake TASK, replacing a manual query process –
+            took report prep time down by <strong>95%</strong>.
+          </>,
+          <>
+            Dug into 250K+ social interactions using SQL and Power BI to figure out what content
+            was actually working – surfaced opportunities that drove a{" "}
+            <strong>20% engagement lift</strong>.
+          </>,
+          <>
+            Traced high-value conversion paths tied to <strong>$35.6B in New Money</strong> using
+            Marketing Mix Model outputs – put together 6 recommendations to sharpen the acquisition
+            strategy.
+          </>,
+          <>
+            Reconciled paid media data weekly across 20+ channels and caught discrepancies in about
+            10% of them – kept budget tracking accurate and flagged issues before they compounded.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Ideatec Softwares",
+        timeframe: "January 2024 – May 2024",
+        role: "Data Science Intern",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Built an LSTM-Autoencoder to detect anomalies in time-series telemetry from 4
+            industrial stenter machines – hit <strong>89% precision and 82% recall</strong>,
+            catching failures 24 hours before they happened.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Backtested against 12 months of maintenance logs and projected a{" "}
+            <strong>31% drop</strong> in unplanned downtime.
+          </>,
+          <>
+            Built a Plotly Dash dashboard so operators could see real-time sensor metrics, anomaly
+            scores, and alerts all in one place.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Qwings",
+        timeframe: "July 2023 – November 2023",
+        role: "AI and Machine Learning Intern",
+        achievements: [
+          <>
+            Built a pneumonia detection model using GradCAM on 5,800 chest X-rays – got to{" "}
+            <strong>93% accuracy</strong> and wrapped it in a Streamlit app with heatmaps so
+            clinicians could see exactly what the model was flagging.
+          </>,
+          <>
+            Built a sign language recognition system using MediaPipe and LSTM – hit{" "}
+            <strong>94% accuracy</strong> on ASL gestures and deployed it as a learning tool for
+            school students.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Diggibyte Technologies Pvt Ltd",
+        timeframe: "March 2023 – April 2023",
+        role: "Data Engineering Intern",
+        achievements: [
+          <>
+            Built an Azure Data Factory pipeline to pull nested JSON from a REST API – cut
+            processing time by <strong>40%</strong> by flattening the schema and parallelizing
+            Copy Activities across 4 partitions.
+          </>,
+          <>
+            Set up Delta Lake with date-partitioned Parquet in Databricks – brought Spark read
+            volume down from <strong>500 GB to 350 GB</strong> for time-range queries using
+            partition pruning.
+          </>,
+          <>
+            Wired up Airflow DAGs to coordinate daily PySpark jobs across staging and serving
+            layers.
           </>,
         ],
         images: [],
@@ -155,78 +207,103 @@ const about: About = {
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Northeastern University",
+        description: (
+          <>
+            Master of Science – Data Analytics Engineering · CGPA: 3.8 · Expected August 2026
+            <br /><br />
+            <strong>Coursework</strong>
+            <br />
+            Data Management for Analytics (IE6700)
+            <br />
+            Data Mining in Engineering (IE7275)
+            <br />
+            Machine Learning 1 (MATH7243)
+            <br />
+            Parallel Processing for Data Analytics (EECE5645)
+            <br />
+            Time Series and Geospatial Data Science (CIVE7100)
+          </>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Sri Venkateswara College of Engineering (Anna University)",
+        description: (
+          <>
+            Bachelor of Engineering – Electronics and Communication · May 2024
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Technical Skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Analytics & Visualization",
+        description: <></>,
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Python", icon: "python" },
+          { name: "R", icon: "r" },
+          { name: "Pandas", icon: "pandas" },
+          { name: "NumPy", icon: "numpy" },
+          { name: "SciPy", icon: "scipy" },
+          { name: "Plotly", icon: "plotly" },
+          { name: "Tableau", icon: "tableau" },
+          { name: "SQL", icon: "document" },
+          { name: "Jupyter", icon: "jupyter" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Cloud & Data Engineering",
+        description: <></>,
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "AWS", icon: "aws" },
+          { name: "S3", icon: "s3" },
+          { name: "Redshift", icon: "redshift" },
+          { name: "Snowflake", icon: "snowflake" },
+          { name: "Databricks", icon: "databricks" },
+          { name: "dbt", icon: "dbt" },
+          { name: "Airflow", icon: "airflow" },
+          { name: "Spark", icon: "spark" },
+          { name: "Hadoop", icon: "hadoop" },
+          { name: "Kafka", icon: "kafka" },
+          { name: "Kubernetes", icon: "kubernetes" },
+          { name: "Docker", icon: "docker" },
+          { name: "Git", icon: "git" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "Machine Learning",
+        description: <></>,
+        tags: [
+          { name: "TensorFlow", icon: "tensorflow" },
+          { name: "Keras", icon: "keras" },
+          { name: "PyTorch", icon: "pytorch" },
+          { name: "Scikit-learn", icon: "sklearn" },
+          { name: "Python", icon: "python" },
+          { name: "Pandas", icon: "pandas" },
+          { name: "Jupyter", icon: "jupyter" },
         ],
+        images: [],
+      },
+      {
+        title: "Databases",
+        description: <></>,
+        tags: [
+          { name: "PostgreSQL", icon: "postgresql" },
+          { name: "MySQL", icon: "mysql" },
+          { name: "MongoDB", icon: "mongodb" },
+          { name: "SQL", icon: "document" },
+        ],
+        images: [],
       },
     ],
   },
@@ -235,19 +312,15 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing about data engineering and analytics...",
   description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
 };
 
 const work: Work = {
   path: "/work",
-  label: "Work",
+  label: "Projects",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Data engineering and ML projects by ${person.name}`,
 };
 
 const gallery: Gallery = {
@@ -255,50 +328,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+  images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };

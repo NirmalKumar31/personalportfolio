@@ -1,0 +1,52 @@
+---
+title: "Data Platform for Vacation Rental Marketplace"
+publishedAt: "2025-07-01"
+summary: "Event-driven AWS ELT pipeline with Snowflake, dbt Medallion architecture, SCD Type 2 snapshots, and a 7-task fail-fast Airflow DAG with 64 automated data quality tests."
+images:
+  - "/images/projects/vacation-rental/architecture.jpeg"
+projectType: "Personal Project"
+tags: ["AWS", "Snowflake", "dbt", "Airflow", "Python"]
+link: "https://github.com/NirmalKumar31/airbnb-de-project-aws-dbt-snowflake-airflow-"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+I built a full data platform for a vacation rental marketplace – event-driven ingestion on AWS, a 21-model dbt Medallion pipeline, and an Airflow DAG that gates each layer behind data quality checks before anything moves downstream. The whole thing runs without manual intervention once it's set up.
+
+## Ingestion Layer
+
+EventBridge Scheduler kicks off a Lambda function on a schedule. Lambda is the data generator here – it produces raw booking and property event records and pushes them straight into Kinesis Data Streams. From there, Kinesis Firehose picks up the stream, buffers it, and writes time-partitioned files to S3. The moment files land in S3, SQS fires an event notification that triggers Snowpipe, which loads the data into Snowflake within seconds. The whole ingestion path is serverless and event-driven – nothing needs to be manually kicked off.
+
+## Transformation – 21 dbt Models
+
+Once data is in Snowflake, it moves through a Bronze → Silver → Gold Medallion architecture across 21 dbt models. Bronze is just the raw Snowpipe-loaded records. Silver does the heavy lifting – cleaning, deduplication, and business logic. Gold outputs a BI-ready star schema and a metadata-driven One Big Table that's ready to plug into any dashboard tool.
+
+SCD Type 2 snapshots handle slowly changing dimensions like host profiles and property details, so you always have the full history for time-travel queries or auditing.
+
+The data is modelled across 7 entities – hosts, listings, guests, bookings, reviews, availability_calendar, and listing_events – all with enforced foreign key relationships:
+
+![Entity Relationship Diagram – Airbnb Dataset](/images/projects/vacation-rental/erd.png)
+
+![dbt Lineage Graph](/images/projects/vacation-rental/dbt-lineage.png)
+
+## Orchestration
+
+A 7-task Airflow DAG ties the whole thing together. Each task is either a dbt layer run or an inter-layer test gate – if any dbt test fails, the DAG stops right there and nothing downstream gets loaded. No silent bad data making it into production.
+
+![Airflow DAG](/images/projects/vacation-rental/airflow-dag.png)
+
+## Data Quality
+
+There are 64 dbt tests spread across every model – standard schema tests plus custom ones that encode actual business rules. Combined with the Airflow gates, you get an end-to-end quality guarantee from the moment data hits S3 all the way through to the Gold layer.
+
+## Technologies Used
+
+- **AWS** – EventBridge, Lambda, Kinesis Data Streams, Kinesis Firehose, SQS, S3
+- **Snowflake** – Snowpipe, staging schemas, production data warehouse
+- **dbt** – 21 Medallion models, SCD Type 2 snapshots, One Big Table
+- **Apache Airflow** – 7-task fail-fast DAG with inter-layer test gates

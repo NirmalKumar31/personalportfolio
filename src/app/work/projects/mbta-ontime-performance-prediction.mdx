@@ -1,0 +1,112 @@
+---
+title: "MBTA On-Time Performance Prediction with ML and Parallel Processing"
+publishedAt: "2025-06-01"
+summary: "Distributed PySpark pipeline on Databricks ingesting 150M+ records across 5 sources, training 4 MLlib regression models, and benchmarking parallelism scaling from single-node to multi-node Spark – achieving 2.73x speedup."
+images: []
+projectType: "Academic Project"
+tags: ["PySpark", "Databricks", "MLlib", "Python"]
+link: "https://github.com/NirmalKumar31/MBTA-On-Time-Performance-Prediction"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+The MBTA serves ~300,000 daily riders across seven rail routes. On-time performance (OTP) – the fraction of scheduled trips completed within tolerance – is the agency's primary reliability metric. Being able to predict it ahead of a service day has real operational value.
+
+This project builds a distributed ML pipeline on Apache Spark to predict daily OTP and to study how much parallelism actually improves training time. Five years of operational data across train events, passenger demand, service alerts, weather, and reliability records amount to over 150 million raw records. I handled the ML modeling and parallelism benchmarking; data preprocessing was done collaboratively with teammates Pradnyesh Choudhari and Raveendra Sanapala.
+
+## Data & Pipeline
+
+Five data sources, all from the MBTA Open Data portal and NOAA:
+
+- **Train events** – 151M rows of individual arrival/departure events; used to derive headway statistics (mean and max headway, peak vs off-peak) as a measure of service frequency
+- **Gated entries** – 65M fare-gate tap counts across 131 stations; aggregated to daily per-route demand totals
+- **Service alerts** – 3.8M disruption records; encoded into three severity indices (tiered, quadratic, and a Disruption Burden Score) to capture both volume and intensity
+- **Reliability** – 1M rows of daily OTP numerator/denominator by route; source of the target variable
+- **Weather (NOAA)** – 2,269 daily records from Boston Logan Airport: temperature (avg/min/max), precipitation, snowfall
+
+Each source was cleaned independently into Parquet, then joined on `(service_date, route)` to produce a master table of **19,229 rows × 20 columns** with zero nulls. The final 28-feature vector covers weather (5), demand (2), headway (4), alerts (3), temporal (6), and one-hot route encodings (8).
+
+The raw data flows through a Bronze → Silver → Gold medallion pipeline on Databricks. Silver does the heavy lifting – schema alignment across different yearly formats, headway computation using Spark window functions, and alert severity aggregation. Gold outputs the clean, model-ready feature set.
+
+## Models
+
+Four PySpark MLlib regression models covering the main families of supervised learning:
+
+- **Linear Regression** – L2-regularised (λ=0.01), optimised via L-BFGS. A smooth global function that extrapolates gracefully when the test distribution shifts.
+- **Decision Tree** – max depth 10. Fast, but prone to high variance; serves as a non-linear baseline.
+- **Random Forest** – 100 trees, max depth 10, feature bagging at ⅓ per split. Reduces variance via averaging across decorrelated trees.
+- **Gradient Boosted Trees (GBT)** – 50 rounds, max depth 5, learning rate η=0.1. Generally the strongest model on tabular data under IID conditions, but inherently sequential by round.
+
+## Results
+
+The models were evaluated under two strategies to isolate where performance differences actually come from.
+
+**Honest time-based split** (train 2020–2023, test Jan–May 2024) – the realistic forecasting scenario:
+
+| Model | RMSE | R² |
+|---|---|---|
+| **Linear Regression** | **0.0628** | **0.540** |
+| Random Forest | 0.0678 | 0.462 |
+| GBT | 0.0683 | 0.455 |
+| Decision Tree | 0.0798 | 0.255 |
+
+**Random 90/10 split** (IID control):
+
+| Model | RMSE | R² |
+|---|---|---|
+| **GBT** | **0.0352** | **0.833** |
+| Random Forest | 0.0359 | 0.826 |
+| Decision Tree | 0.0395 | 0.790 |
+| Linear Regression | 0.0522 | 0.632 |
+
+## The Key Finding – Temporal Distribution Shift
+
+Linear Regression beating GBT on the time-based split is the opposite of what you'd normally expect. The explanation is temporal distribution shift: the test window (Jan–May 2024) is colder (~20% lower temps), has 11–17% higher ridership from post-pandemic recovery, and a 62% drop in the quadratic alert severity index because the training set contains the 2022 Orange Line shutdowns with no equivalent in early 2024.
+
+Tree models are piecewise-constant – they can't extrapolate beyond the feature ranges they saw in training. When the test distribution shifts, entire subtrees go inactive and the model defaults to miscalibrated leaf predictions. Linear Regression handles the same shift gracefully because its response is a continuous global function; a systematic change in any feature produces a proportional, bounded change in the prediction.
+
+## Lag Features – Closing the Drift Gap
+
+Adding three backward-looking rolling OTP averages per route (`otp_lag_7d`, `otp_lag_30d`, `otp_lag_90d`) gives every model a self-calibrating temporal anchor. Instead of splitting on "is temperature below 45°F?" – a threshold whose meaning shifts over time – trees can now split on "is this route's recent average OTP above 0.85?", which always refers to the route's own recent state.
+
+Results on the time-based split with lag features (32-dimensional feature vector):
+
+| Model | Original R² | With Lag R² | Gain |
+|---|---|---|---|
+| Linear Regression | 0.540 | **0.686** | +0.146 |
+| Random Forest | 0.462 | **0.638** | +0.176 |
+| GBT | 0.455 | **0.620** | +0.165 |
+| Decision Tree | 0.255 | **0.431** | +0.176 |
+
+Every model gains +0.146 to +0.176 in R², with RMSE dropping ~16–17% across the board. Lag features close roughly half the drift gap in a single intervention. LR still wins on the time-split even with lag features, because some residual shift over weather and alert distributions remains that lag features alone can't absorb.
+
+## Distributed Parallelism – Single-Node vs Multi-Node
+
+Spark's `CrossValidator` accepts a `parallelism` parameter N that runs N fold evaluations concurrently. Benchmarked at N ∈ {1, 2, 4} across two grid sizes (Stage 1: 6 trainings/run; Stage 2: 12 trainings/run) on two cluster configs:
+
+**Single-node** (m5.xlarge, 4 vCPUs): each model training already saturates all 4 cores internally. Concurrent CV folds compete for the same physical resources. Best observed: LR at **1.51×**, GBT never exceeded **1.15×**.
+
+**Multi-node** (m5d.2xlarge workers, 8 vCPUs each): concurrent CV trainings land on different workers with independent cores. The two levels of parallelism (intra-model and across-CV) no longer compete.
+
+Stage 2 speedups at N=4 on the multi-node cluster:
+
+| Model | Time-Split | Random-Split |
+|---|---|---|
+| Random Forest | 2.26× | 2.19× |
+| Linear Regression | 2.12× | 1.83× |
+| GBT | 1.84× | **2.73×** |
+| Decision Tree | 1.91× | 1.89× |
+
+GBT on random-split reaches **2.73×** – the highest observed across the entire benchmark, and a +1.58 absolute gain over its single-node ceiling of 1.15×. This is counterintuitive because GBT has the strongest sequential dependency (each boosting round waits on the previous), yet it benefits most from multi-node. The reason: removing the shared-core bottleneck uncovers the parallelism that was always available *across* CV folds, which GBT could never use on single-node. Speedups don't reach the theoretical 4× because of Amdahl's Law (serial job-submission overhead), uneven workload distribution, and shuffle/cache cost across workers.
+
+## Technologies Used
+
+- **Databricks** – multi-node managed Spark cluster, notebook orchestration
+- **PySpark** – distributed data processing and feature engineering across 150M+ records
+- **PySpark MLlib** – CrossValidator, ParamGridBuilder, Linear Regression, Random Forest, GBT, Decision Tree
+- **Python** – data cleaning, lag feature engineering, benchmark analysis

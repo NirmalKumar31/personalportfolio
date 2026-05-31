@@ -1,0 +1,64 @@
+---
+title: "Los Angeles Crime Analysis and Predictive Modeling"
+publishedAt: "2025-01-01"
+summary: "Python-based EDA and ARIMA time-series forecasting on LA crime data from 2020–2024, identifying vehicle theft as the top crime category and projecting a 14.89% crime reduction through late 2025."
+images:
+  - "/images/projects/la-crime/crime-forecasting.png"
+projectType: "Academic Project"
+tags: ["Python", "Pandas", "ARIMA", "Matplotlib", "Statsmodels"]
+link: "https://github.com/NirmalKumar31/Los-Angeles-Crime-Analysis-and-Predictive-Modeling"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+Looked into five years of LA crime data (2020–2024) to understand what the patterns actually looked like and try to forecast where things were heading. Vehicle theft came out as the top category by a wide margin – 110K+ incidents – crime dropped 25% during COVID lockdowns, climbed back up, peaked in 2022, and has been trending down since. Trained an ARIMA model on the monthly time series and projected about a 15% further decline through late 2025.
+
+## Key Findings
+
+**Volume & Geography**
+- Vehicle theft is the single biggest category – **110,000+ incidents** over the five-year window
+- Central LA had the highest concentration – around **70,000 incidents**
+
+**COVID-19 Impact**
+
+Crime rates fell sharply during the 2020 lockdown waves, then rebounded as restrictions eased. The chart below tracks crime rates across all three COVID-19 waves:
+
+![Crime Rates Before, During, and After COVID-19 Waves](/images/projects/la-crime/covid-crime-analysis.png)
+
+**Temporal Patterns**
+- Crime peaked in **2022**, then started declining
+- Highest rates in **January** and on **weekends**
+
+**Top Crime Types**
+1. Vehicle Theft
+2. Simple Assault / Battery
+3. Burglary from Vehicle
+4. Identity Theft
+5. Vandalism
+
+## Predictive Modeling
+
+Ran an ARIMA (1,1,1) model on the monthly crime count series. Before fitting, tested for stationarity with the ADF test, differenced the series, and selected parameters from ACF/PACF plots.
+
+The model projected a **14.89% reduction** in crime from October 2024 through September 2025 – continuing the post-2022 downward trend. Confidence intervals widen over longer horizons, which is expected for autoregressive models.
+
+![Crime Forecasting – ARIMA Projection with Confidence Intervals](/images/projects/la-crime/crime-forecasting.png)
+
+## Methodology
+
+1. Pulled the LA Crime Dataset (2020–Present) from LA Open Data
+2. Cleaned and normalized with Pandas – null handling, date parsing, category standardization
+3. Explored patterns with Matplotlib and Seaborn – distributions, heatmaps, geographic breakdowns
+4. Fit ARIMA with Statsmodels and visualized the forecast with confidence bands
+
+## Technologies Used
+
+- **Python** – end-to-end analysis
+- **Pandas / NumPy** – data cleaning and aggregation
+- **Matplotlib / Seaborn** – EDA and visualization
+- **Statsmodels** – ARIMA modeling and stationarity testing

@@ -30,11 +30,12 @@ export function Projects({ range, exclude }: ProjectsProps) {
           priority={index < 2}
           key={post.slug}
           href={`/work/${post.slug}`}
-          images={post.metadata.images}
+          images={[]}
           title={post.metadata.title}
           description={post.metadata.summary}
           content={post.content}
           avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}
+          tags={post.metadata.tags || []}
           link={post.metadata.link || ""}
         />
       ))}

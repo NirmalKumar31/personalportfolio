@@ -1,0 +1,50 @@
+---
+title: "Apple Retail Sales Analysis with Advanced SQL"
+publishedAt: "2025-02-01"
+summary: "High-performance PostgreSQL analytics across 1M+ Apple retail transactions – solving 23 business problems with query optimizations delivering up to 95% faster execution and 54% performance gains."
+images: []
+projectType: "Personal Project"
+tags: ["PostgreSQL", "SQL", "Query Optimization"]
+link: "https://github.com/NirmalKumar31/Apple-data-Analysis-with-SQL"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+Took a 1M+ row Apple retail dataset and worked through 23 SQL problems – from basic store counts to year-over-year growth analysis and price-to-warranty correlations. The more interesting part was the optimization work. Getting one query from 266ms down to 2.73ms just by adding an index on the right column is the kind of thing that makes you appreciate how much execution plans matter.
+
+## Database Structure
+
+Five tables: `category`, `products`, `stores`, `sales` (1M+ records), and `warranty`. Strategic indexes on `sales.sale_date`, `sales.product_id`, and `warranty.claim_date` are what drive most of the performance improvements.
+
+## Business Problems
+
+**Basic** – store counts by country, product availability by category, monthly and quarterly aggregations.
+
+**Intermediate** – product lifecycle analysis, warranty claim rates by price tier, store-level ranking with window functions.
+
+**Advanced** – year-over-year growth with LAG, price-to-warranty correlation, running totals and moving averages, CTE-based cohort analysis for product launches.
+
+## Performance Wins
+
+- **CTE consolidation** on a multi-join query: 688ms → 316ms – **54% faster**
+- **Index on `warranty.claim_date`**: 266.3ms → 2.73ms – **~99% faster**
+
+The key was eliminating redundant CTEs and avoiding full-table scans on the million-row sales table.
+
+## What the Data Shows
+
+- Products under **$500** generate way more warranty claims (13,292 vs. higher tiers) – probably a mix of volume and build quality worth digging into
+- **AirTag** hit 82,549 units in its first six months – the highest launch velocity in the dataset
+- Sales drop off pretty consistently after **12–18 months** on market, which maps cleanly to Apple's refresh cycles
+- New launches spike overall volume reliably – the product cadence strategy clearly works
+
+## Technologies Used
+
+- **PostgreSQL** – database and query engine
+- **SQL** – window functions, CTEs, correlated subqueries, index optimization
+- **pgAdmin** – query profiling and execution plan analysis

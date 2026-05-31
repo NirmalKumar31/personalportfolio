@@ -9,6 +9,7 @@ import {
   Flex,
   Heading,
   Media,
+  Tag,
   Text,
   SmartLink,
   Row,
@@ -96,10 +97,19 @@ export default async function Project({
         <SmartLink href="/work">
           <Text variant="label-strong-m">Projects</Text>
         </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        <Row gap="12" wrap horizontal="center" vertical="center">
+          {post.metadata.projectType && (
+            <Tag size="s">{post.metadata.projectType}</Tag>
+          )}
+          {post.metadata.link && (
+            <SmartLink href={post.metadata.link}>
+              <Text variant="label-default-s" onBackground="brand-medium">
+                GitHub ↗
+              </Text>
+            </SmartLink>
+          )}
+        </Row>
       </Column>
       <Row marginBottom="32" horizontal="center">
         <Row gap="16" vertical="center">
@@ -119,7 +129,7 @@ export default async function Project({
         </Row>
       </Row>
       {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
+        <Media priority radius="m" alt="Project Architecture" src={post.metadata.images[0]} />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />

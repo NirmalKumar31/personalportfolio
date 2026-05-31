@@ -1,0 +1,51 @@
+---
+title: "End-to-End Azure Data Factory & Databricks Incremental Data Pipeline"
+publishedAt: "2025-04-01"
+summary: "ADF-orchestrated Databricks pipeline with parameterized incremental loads, star schema in Delta Lake with SCD Type 1, Unity Catalog governance, and high-water mark ingestion."
+images:
+  - "/images/projects/azure-databricks/adf-pipeline-model.png"
+projectType: "Personal Project"
+tags: ["Azure ADF", "Databricks", "PySpark", "Delta Lake", "Unity Catalog"]
+link: "https://github.com/NirmalKumar31/E-commerce-sales--Azure-data-pipeline"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "Data Analytics Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+Wanted to build a proper incremental pipeline that didn't just reload everything from scratch every time it ran. Used ADF's high-water mark pattern to pull only net-new records each run, fed them into Databricks for transformation, and built a star schema in Delta Lake with Unity Catalog handling all the access control.
+
+## Architecture
+
+**Ingestion (Bronze Layer)** – ADF uses a high-water mark pattern with Lookup, Copy, and Stored Procedure activities to identify and extract only delta records since the last successful run. Bronze Parquet files land in Azure Data Lake Storage (ADLS) partitioned by ingestion date, keeping the raw layer append-only and auditable.
+
+The watermark mechanism – two Lookup activities read the last and current load timestamps, a Copy activity pulls only the delta records, and a Stored Procedure updates the watermark on success:
+
+![Incremental Load Pipeline – Watermark Update](/images/projects/azure-databricks/incremental-load-pipeline.png)
+
+**Transformation (Silver → Gold)** – PySpark notebooks in Databricks transform raw Bronze records into a normalized Silver layer, then materialize a star schema in the Gold layer using Delta Lake. SCD Type 1 logic handles upserts on dimension tables, ensuring the latest state is always reflected without duplicates.
+
+The full Databricks model run showing Silver → Dimensions (Brand, Date, Dealer, Model) → Facts_Sales:
+
+![Databricks Pipeline – Model Execution](/images/projects/azure-databricks/databricks-pipeline.png)
+
+**Governance** – Unity Catalog manages all table access control, lineage tracking, and data discovery across Bronze, Silver, and Gold layers. Any new consumer of the Gold layer inherits access policies automatically.
+
+**Orchestration** – The ADF pipeline ties ingestion and Databricks notebook execution together with parameterized triggers. Incremental logic ensures only changed records flow through on each run, keeping compute costs proportional to change volume.
+
+## Key Design Decisions
+
+- **High-water mark over full load** – the ADF Lookup activity reads the last watermark, Copy fetches only newer records, and the Stored Procedure updates the watermark on success – avoiding full reprocessing on every run
+- **Delta Lake for ACID transactions** – reliable upserts and SCD handling without data duplication or race conditions, even under concurrent writes
+- **Unity Catalog** – centralizes governance so table-level access policies are inherited automatically by all downstream consumers
+
+## Technologies Used
+
+- **Azure Data Factory** – orchestration, Lookup + Copy + Stored Procedure, high-water mark pattern
+- **Azure Databricks** – PySpark transformation notebooks, Delta Lake, Unity Catalog
+- **Azure Data Lake Storage (ADLS)** – Bronze layer Parquet storage
+- **Delta Lake** – ACID-compliant storage for Silver and Gold layers
+- **PySpark** – distributed transformation and SCD logic
