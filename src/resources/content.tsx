@@ -133,8 +133,9 @@ const about: About = {
             and surfaced a 20% engagement lift opportunity.
           </>,
           <>
-            Traced high-value conversion paths tied to $35.6B in New Money using Marketing Mix
-            Model outputs, and put together 6 recommendations to sharpen the acquisition strategy.
+            Used Marketing Mix Model outputs to map how each owned media channel was actually
+            converting, found segment-level gaps that weren't visible in top-line numbers, and
+            delivered 6 recommendations to sharpen customer acquisition tied to $35.6B in New Money.
           </>,
           <>
             Reconciled MTA paid media data weekly across 20+ channels against internal benchmarks.
@@ -149,13 +150,10 @@ const about: About = {
         role: "Data Science Intern",
         achievements: [
           <>
-            Built an LSTM-Autoencoder to detect anomalies in time-series telemetry from 4
-            industrial stenter machines, hitting 89% precision and 82% recall, and catching
-            failures 24 hours before they happened.
-          </>,
-          <>
-            Backtested against 12 months of maintenance logs and projected a 31% drop in
-            unplanned downtime.
+            Built an LSTM-Autoencoder on multivariate telemetry from 4 industrial stenter machines
+            to flag anomalies before they became failures — hit 89% precision and 82% recall,
+            catching issues 24 hours out. Ran it against 12 months of maintenance history and
+            projected a 31% reduction in unplanned downtime.
           </>,
           <>
             Built a Plotly Dash dashboard so operators could see real-time sensor metrics, anomaly
