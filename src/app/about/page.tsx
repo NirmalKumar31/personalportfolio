@@ -47,7 +47,6 @@ export default function About() {
 
         {/* LEFT: profile + intro */}
         <Column
-          className={styles.stickyLeft}
           flex={4}
           gap="l"
           paddingRight="l"
@@ -91,7 +90,7 @@ export default function About() {
 
           {/* Intro summary */}
           {about.intro.display && (
-            <Column textVariant="body-default-m" gap="m" style={{ textAlign: "justify" }}>
+            <Column textVariant="body-default-s" gap="m" style={{ textAlign: "justify" }}>
               {about.intro.description}
             </Column>
           )}
