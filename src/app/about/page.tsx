@@ -28,7 +28,7 @@ export async function generateMetadata() {
 
 export default function About() {
   return (
-    <Column maxWidth="m">
+    <Column maxWidth="m" paddingX="l">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -48,20 +48,20 @@ export default function About() {
         {/* LEFT: sticky profile + intro */}
         <Column
           className={styles.stickyLeft}
-          flex={4}
+          flex={5}
           gap="m"
-          paddingRight="l"
+          paddingRight="xl"
           s={{ paddingRight: "0" }}
         >
           <Avatar
             src={person.avatar}
             size="l"
-            style={{ width: "120px", height: "120px" }}
+            style={{ width: "130px", height: "130px" }}
             className={styles.profileAvatar}
           />
 
           <Column gap="4">
-            <Heading variant="heading-strong-xl">{person.name}</Heading>
+            <Heading variant="display-strong-xs">{person.name}</Heading>
             <Text variant="body-default-l" onBackground="neutral-weak">
               {person.role}
             </Text>
@@ -98,7 +98,7 @@ export default function About() {
         </Column>
 
         {/* RIGHT: bento grid */}
-        <Column flex={6} gap="xl">
+        <Column flex={6} gap="xl" paddingLeft="l">
 
           {/* Work Experience - tabbed */}
           {about.work.display && (
