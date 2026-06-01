@@ -119,9 +119,9 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Wrote a double-layer SQL quality framework on top of the social media pipeline – caught
-            issues before they reached reporting and brought quality incidents down by{" "}
-            <strong>60%</strong> across 10+ downstream dashboards.
+            The social media pipeline had a data quality problem – bad data kept making it into 10+
+            downstream dashboards. Built a two-layer SQL check to catch it earlier, cut incidents
+            by <strong>60%</strong>.
           </>,
           <>
             Set up a Snowflake TASK to auto-generate daily social metrics – replaced a fully manual
