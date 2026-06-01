@@ -44,7 +44,7 @@ export function TabbedWork({ experiences }: { experiences: WorkExperience[] }) {
         <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
           {exp.company}
         </Text>
-        <Column as="ul" gap="8" className={styles.list}>
+        <Column as="ul" gap="4" className={styles.list}>
           {exp.achievements.map((achievement, i) => (
             <Text as="li" variant="body-default-s" key={i}>
               {achievement}

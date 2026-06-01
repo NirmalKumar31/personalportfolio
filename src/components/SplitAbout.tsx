@@ -39,7 +39,7 @@ export function SplitAbout() {
         </Row>
 
         {/* Intro */}
-        <Column textVariant="body-default-s" gap="xs" style={{ lineHeight: "1.5" }}>
+        <Column textVariant="body-default-s" gap="xs" style={{ lineHeight: "1.4" }}>
           {about.intro.description}
         </Column>
 
