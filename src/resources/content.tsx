@@ -132,8 +132,8 @@ const about: About = {
             and surfaced a 20% engagement lift opportunity.
           </>,
           <>
-            Used Marketing Mix Model outputs to map how each owned media channel was actually
-            converting, found segment-level gaps that weren't visible in top-line numbers, and
+            Mapped high-value conversion paths across owned media channels using Marketing Mix
+            Model outputs, found segment-level gaps that weren't visible in top-line numbers, and
             delivered 6 recommendations to sharpen customer acquisition tied to $35.6B in New Money.
           </>,
           <>
