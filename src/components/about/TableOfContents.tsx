@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Column, Flex, Text } from "@once-ui-system/core";
 import styles from "./about.module.scss";
 
@@ -19,29 +19,49 @@ interface TableOfContentsProps {
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) => {
+  const [activeSection, setActiveSection] = useState<string>("");
+
   const scrollTo = (id: string, offset: number) => {
     const element = document.getElementById(id);
     if (element) {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
   };
+
+  useEffect(() => {
+    const sections = structure.filter((s) => s.display).map((s) => s.title);
+    const observers: IntersectionObserver[] = [];
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (!element) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        { rootMargin: "-10% 0px -75% 0px", threshold: 0 }
+      );
+
+      observer.observe(element);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [structure]);
 
   if (!about.tableOfContent.display) return null;
 
   return (
     <Column
       left="0"
-      style={{
-        top: "50%",
-        transform: "translateY(-50%)",
-        whiteSpace: "nowrap",
-      }}
+      style={{ top: "50%", transform: "translateY(-50%)", whiteSpace: "nowrap" }}
       position="fixed"
       paddingLeft="24"
       gap="32"
@@ -49,39 +69,41 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
     >
       {structure
         .filter((section) => section.display)
-        .map((section, sectionIndex) => (
-          <Column key={sectionIndex} gap="12">
+        .map((section, index) => {
+          const isActive = activeSection === section.title;
+          return (
             <Flex
+              key={index}
               cursor="interactive"
-              className={styles.hover}
               gap="8"
               vertical="center"
               onClick={() => scrollTo(section.title, 80)}
+              style={{
+                transform: isActive ? "scale(1.15)" : "scale(1)",
+                transformOrigin: "left center",
+                transition: "transform 0.3s ease",
+              }}
             >
-              <Flex height="1" minWidth="16" background="neutral-strong"></Flex>
-              <Text>{section.title}</Text>
+              <Flex
+                height="1"
+                background={isActive ? "brand-strong" : "neutral-weak"}
+                style={{
+                  minWidth: isActive ? "28px" : "16px",
+                  transition: "min-width 0.3s ease, background 0.3s ease",
+                }}
+              />
+              <Text
+                style={{
+                  fontWeight: isActive ? 600 : 400,
+                  transition: "color 0.3s ease, font-weight 0.3s ease",
+                }}
+                onBackground={isActive ? "neutral-strong" : "neutral-weak"}
+              >
+                {section.title}
+              </Text>
             </Flex>
-            {about.tableOfContent.subItems && (
-              <>
-                {section.items.map((item, itemIndex) => (
-                  <Flex
-                    l={{ hide: true }}
-                    key={itemIndex}
-                    style={{ cursor: "pointer" }}
-                    className={styles.hover}
-                    gap="12"
-                    paddingLeft="24"
-                    vertical="center"
-                    onClick={() => scrollTo(item, 80)}
-                  >
-                    <Flex height="1" minWidth="8" background="neutral-strong"></Flex>
-                    <Text>{item}</Text>
-                  </Flex>
-                ))}
-              </>
-            )}
-          </Column>
-        ))}
+          );
+        })}
     </Column>
   );
 };
