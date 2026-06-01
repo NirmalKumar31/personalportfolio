@@ -13,6 +13,21 @@
   --font-size-label-xl: 1.25rem;
 }
 
+/* Gradient shimmer headline */
+.gradientHeadline {
+  background: linear-gradient(90deg, #ffffff 0%, #67e8f9 30%, #a78bfa 60%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: headlineShimmer 5s linear infinite;
+}
+
+@keyframes headlineShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
 /* Dark navy background override */
 [data-theme="dark"] {
   --scheme-neutral-100: #05091a;

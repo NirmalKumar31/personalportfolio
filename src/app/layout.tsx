@@ -13,7 +13,7 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers, CursorDots, PageTransition } from "@/components";
+import { Footer, Header, RouteGuard, Providers, CursorDots } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
@@ -160,7 +160,7 @@ export default async function RootLayout({
           <Header />
           <Flex zIndex={4} fillWidth padding="l" horizontal="center" flex={1}>
             <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard><PageTransition>{children}</PageTransition></RouteGuard>
+              <RouteGuard>{children}</RouteGuard>
             </Flex>
           </Flex>
           <Flex zIndex={4} fillWidth><Footer /></Flex>
