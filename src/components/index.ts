@@ -9,6 +9,7 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { CursorDots } from "@/components/CursorDots";
+export { BentoWorkCard } from "@/components/BentoWorkCard";
 export { PageTransition } from "@/components/PageTransition";
 export { ScrollReveal } from "@/components/ScrollReveal";
 export { TypewriterHeadline } from "@/components/TypewriterHeadline";

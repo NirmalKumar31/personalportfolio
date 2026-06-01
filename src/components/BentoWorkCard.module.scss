@@ -1,0 +1,61 @@
+.card {
+    padding: 20px 22px;
+    border: 1px solid var(--neutral-border-weak);
+    border-left: 1px solid var(--brand-border-medium);
+    border-radius: var(--radius-l);
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    user-select: none;
+
+    &:hover {
+        border-color: var(--brand-border-medium);
+        transform: scale(1.01);
+    }
+}
+
+.cardOpen {
+    border-left-color: var(--brand-solid-strong);
+    box-shadow: 0 4px 24px var(--brand-alpha-weak);
+}
+
+.toggle {
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--neutral-on-background-weak);
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.toggleOpen {
+    transform: rotate(45deg);
+    color: var(--brand-on-background-weak);
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.contentOpen {
+    max-height: 1200px;
+    opacity: 1;
+    margin-top: 16px;
+}
+
+.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+
+    li {
+        padding-left: 0.25rem;
+
+        &::marker {
+            color: var(--brand-on-background-weak);
+        }
+    }
+}

@@ -33,6 +33,40 @@
     }
 }
 
+.bentoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+
+    @media (max-width: breakpoints.$s) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bentoFull {
+    grid-column: 1 / -1;
+}
+
+.bentoCard {
+    padding: 20px 22px;
+    border: 1px solid var(--neutral-border-weak);
+    border-left: 1px solid var(--brand-border-medium);
+    border-radius: var(--radius-l);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+        border-color: var(--brand-border-medium);
+        transform: scale(1.01);
+    }
+}
+
+.stickyLeft {
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+    height: fit-content;
+}
+
 .hover {
     transition: var(--transition-micro-medium);
 
