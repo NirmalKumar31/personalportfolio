@@ -19,24 +19,16 @@ export function SplitAbout() {
         <Row gap="l" vertical="center">
           <Avatar
             src={person.avatar}
-            size="l"
-            style={{ width: "88px", height: "88px", flexShrink: 0 }}
+            size="xl"
+            style={{ width: "120px", height: "120px", flexShrink: 0 }}
             className={profileStyles.profileAvatar}
           />
           <Column gap="4">
-            <Heading variant="heading-strong-xl">{person.name}</Heading>
+            <Heading variant="display-strong-xs">{person.name}</Heading>
             <Text variant="body-default-m" onBackground="neutral-weak">
               {person.role}
             </Text>
           </Column>
-        </Row>
-
-        {/* Location */}
-        <Row gap="8" vertical="center">
-          <Icon onBackground="neutral-weak" name="globe" />
-          <Text variant="body-default-s" onBackground="neutral-weak">
-            Boston, MA
-          </Text>
         </Row>
 
         {/* Socials */}
@@ -78,12 +70,12 @@ export function SplitAbout() {
         <div className={styles.section}>
           <Heading variant="display-strong-s">{about.studies.title}</Heading>
           {about.studies.institutions.map((inst, i) => (
-            <Column key={i} gap="4">
+            <div key={i} className={styles.educationCard}>
               <Text variant="heading-strong-l">{inst.name}</Text>
               <Text variant="heading-default-xs" onBackground="neutral-weak">
                 {inst.description}
               </Text>
-            </Column>
+            </div>
           ))}
         </div>
 

@@ -7,10 +7,26 @@
 }
 
 /* ── Left panel ── */
+.educationCard {
+    border: 1px solid var(--neutral-border-weak);
+    border-left: 1px solid var(--brand-border-medium);
+    border-radius: var(--radius-l);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        border-color: var(--brand-border-medium);
+        box-shadow: 0 4px 24px var(--brand-alpha-weak);
+    }
+}
+
 .leftPanel {
     position: sticky;
     top: 80px;
-    flex: 0 0 340px;
+    flex: 0 0 380px;
     max-height: calc(100vh - 96px);
     overflow-y: auto;
     scrollbar-width: none;
