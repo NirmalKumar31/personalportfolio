@@ -15,22 +15,34 @@ export function TabbedWork({ experiences }: { experiences: WorkExperience[] }) {
   const [active, setActive] = useState(0);
   const exp = experiences[active];
 
+  const prev = () => setActive((a) => (a - 1 + experiences.length) % experiences.length);
+  const next = () => setActive((a) => (a + 1) % experiences.length);
+
   const shortName = (name: string) =>
     name.replace(" Pvt Ltd", "").replace(" Technologies", "").replace(" Softwares", "");
 
   return (
     <div className={styles.container}>
-      {/* Tab bar */}
-      <div className={styles.tabBar}>
-        {experiences.map((e, i) => (
-          <button
-            key={i}
-            className={`${styles.tab} ${active === i ? styles.tabActive : ""}`}
-            onClick={() => setActive(i)}
-          >
-            {shortName(e.company)}
-          </button>
-        ))}
+
+      {/* Tab bar + arrows */}
+      <div className={styles.tabHeader}>
+        <button className={styles.arrow} onClick={prev} aria-label="Previous">
+          ‹
+        </button>
+        <div className={styles.tabBar}>
+          {experiences.map((e, i) => (
+            <button
+              key={i}
+              className={`${styles.tab} ${active === i ? styles.tabActive : ""}`}
+              onClick={() => setActive(i)}
+            >
+              {shortName(e.company)}
+            </button>
+          ))}
+        </div>
+        <button className={styles.arrow} onClick={next} aria-label="Next">
+          ›
+        </button>
       </div>
 
       {/* Content */}
@@ -52,6 +64,19 @@ export function TabbedWork({ experiences }: { experiences: WorkExperience[] }) {
           ))}
         </Column>
       </div>
+
+      {/* Dot indicators */}
+      <div className={styles.dots}>
+        {experiences.map((_, i) => (
+          <button
+            key={i}
+            className={`${styles.dot} ${active === i ? styles.dotActive : ""}`}
+            onClick={() => setActive(i)}
+            aria-label={`Go to ${experiences[i].company}`}
+          />
+        ))}
+      </div>
+
     </div>
   );
 }
