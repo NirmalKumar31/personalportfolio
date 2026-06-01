@@ -1,5 +1,5 @@
 import {
-  Avatar, Button, Column, Heading,
+  Avatar, Column, Heading,
   Icon, IconButton, Row, Tag, Text,
 } from "@once-ui-system/core";
 import { about, person, social } from "@/resources";
@@ -16,7 +16,7 @@ export function SplitAbout() {
       <aside className={styles.leftPanel}>
 
         {/* Profile pic + name + role + socials */}
-        <Row gap="l" vertical="center">
+        <Row gap="l" vertical="start">
           <Avatar
             src={person.avatar}
             size="xl"
@@ -28,18 +28,10 @@ export function SplitAbout() {
             <Text variant="heading-default-s" onBackground="neutral-weak">
               {person.role}
             </Text>
-            <Row gap="8" wrap data-border="rounded">
+            <Row gap="8">
               {social.filter((i) => i.essential && i.link).map((item) =>
                 item.link && (
-                  <React.Fragment key={item.name}>
-                    <Row s={{ hide: true }}>
-                      <Button href={item.link} prefixIcon={item.icon} label={item.name}
-                        size="s" weight="default" variant="secondary" />
-                    </Row>
-                    <Row hide s={{ hide: false }}>
-                      <IconButton size="s" href={item.link} icon={item.icon} variant="secondary" />
-                    </Row>
-                  </React.Fragment>
+                  <IconButton key={item.name} size="m" href={item.link} icon={item.icon} variant="secondary" tooltip={item.name} />
                 )
               )}
             </Row>
@@ -47,7 +39,7 @@ export function SplitAbout() {
         </Row>
 
         {/* Intro */}
-        <Column textVariant="body-default-m" gap="m" style={{ lineHeight: "1.75" }}>
+        <Column textVariant="body-default-s" gap="m" style={{ lineHeight: "1.75" }}>
           {about.intro.description}
         </Column>
 
