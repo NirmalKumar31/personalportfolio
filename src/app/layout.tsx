@@ -81,9 +81,9 @@ export default async function RootLayout({
                     return themeValue;
                   };
                   
-                  // Apply saved theme — default to dark if no preference saved
+                  // Always dark unless user explicitly chose light
                   const savedTheme = localStorage.getItem('data-theme');
-                  const resolvedTheme = savedTheme ? resolveTheme(savedTheme) : 'dark';
+                  const resolvedTheme = savedTheme === 'light' ? 'light' : 'dark';
                   root.setAttribute('data-theme', resolvedTheme);
                   
                   // Apply any saved style overrides

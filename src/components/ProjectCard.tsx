@@ -36,11 +36,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Flex
         s={{ direction: "column" }}
         fillWidth
-        gap="xs"
         vertical="center"
+        style={{ gap: "16px" }}
       >
         {title && (
-          <Column flex={5} gap="16">
+          <Column flex={5} gap="8">
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
               {title}
             </Heading>
@@ -54,7 +54,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           </Column>
         )}
         {(description?.trim() || content?.trim()) && (
-          <Column flex={7} gap="16">
+          <Column flex={7} gap="8">
             {description?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
                 {description}
