@@ -59,7 +59,7 @@ export default function Home() {
 
           <RevealFx translateY="4" fillWidth paddingBottom="4">
             <Heading wrap="balance" variant="display-strong-l">
-              <span className="gradientHeadline">{home.headline}</span>
+              {home.headline}
             </Heading>
           </RevealFx>
 

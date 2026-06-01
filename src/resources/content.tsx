@@ -63,7 +63,7 @@ const home: Home = {
     <>
       I build pipelines, models, and dashboards that make data useful. I like going
       end-to-end: getting raw data into shape, finding what's worth knowing, and
-      delivering something people can actually act on.
+      delivering something people can actually act on
       <br /><br />
       Previously @<Text as="span" size="xl" weight="strong">Fidelity Investments</Text>
     </>
