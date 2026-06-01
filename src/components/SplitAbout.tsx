@@ -15,7 +15,7 @@ export function SplitAbout() {
       {/* ══════════════ LEFT: always visible ══════════════ */}
       <aside className={styles.leftPanel}>
 
-        {/* Profile pic + name side by side */}
+        {/* Profile pic + name + role + socials */}
         <Row gap="l" vertical="center">
           <Avatar
             src={person.avatar}
@@ -23,33 +23,31 @@ export function SplitAbout() {
             style={{ width: "120px", height: "120px", flexShrink: 0 }}
             className={profileStyles.profileAvatar}
           />
-          <Column gap="4">
+          <Column gap="8">
             <Heading variant="display-strong-xs">{person.name}</Heading>
-            <Text variant="body-default-m" onBackground="neutral-weak">
+            <Text variant="heading-default-s" onBackground="neutral-weak">
               {person.role}
             </Text>
+            <Row gap="8" wrap data-border="rounded">
+              {social.filter((i) => i.essential && i.link).map((item) =>
+                item.link && (
+                  <React.Fragment key={item.name}>
+                    <Row s={{ hide: true }}>
+                      <Button href={item.link} prefixIcon={item.icon} label={item.name}
+                        size="s" weight="default" variant="secondary" />
+                    </Row>
+                    <Row hide s={{ hide: false }}>
+                      <IconButton size="s" href={item.link} icon={item.icon} variant="secondary" />
+                    </Row>
+                  </React.Fragment>
+                )
+              )}
+            </Row>
           </Column>
         </Row>
 
-        {/* Socials */}
-        <Row gap="8" wrap data-border="rounded">
-          {social.filter((i) => i.essential && i.link).map((item) =>
-            item.link && (
-              <React.Fragment key={item.name}>
-                <Row s={{ hide: true }}>
-                  <Button href={item.link} prefixIcon={item.icon} label={item.name}
-                    size="s" weight="default" variant="secondary" />
-                </Row>
-                <Row hide s={{ hide: false }}>
-                  <IconButton size="s" href={item.link} icon={item.icon} variant="secondary" />
-                </Row>
-              </React.Fragment>
-            )
-          )}
-        </Row>
-
         {/* Intro */}
-        <Column textVariant="body-default-s" gap="m">
+        <Column textVariant="body-default-m" gap="m" style={{ lineHeight: "1.75" }}>
           {about.intro.description}
         </Column>
 

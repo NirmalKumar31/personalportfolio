@@ -206,14 +206,14 @@ const about: About = {
     title: "Education",
     institutions: [
       {
-        name: "Northeastern University",
+        name: "Northeastern University · Boston, MA",
         description: (
           <>
             Master of Science – Data Analytics Engineering
             <br />
             CGPA: 3.8 · Expected August 2026
             <br /><br />
-            Coursework
+            <strong>Coursework</strong>
             <br />
             Data Management for Analytics (IE6700)
             <br />
@@ -228,7 +228,7 @@ const about: About = {
         ),
       },
       {
-        name: "Sri Venkateswara College of Engineering (Anna University)",
+        name: "Sri Venkateswara College of Engineering · Chennai, India",
         description: (
           <>
             Bachelor of Engineering – Electronics and Communication
