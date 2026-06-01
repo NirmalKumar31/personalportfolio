@@ -119,26 +119,29 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Built a two-layer SQL data quality framework for social media data – cut quality
-            incidents by <strong>60%</strong> across 10+ downstream dashboards.
+            Built a double-layer SQL statistical data quality framework for social media data –
+            reduced quality incidents by <strong>60%</strong> across 10+ downstream dashboards
+            by catching schema drift and value anomalies before they hit reporting.
           </>,
           <>
-            Automated daily reporting using Snowflake TASK, replacing a manual query process –
-            took report prep time down by <strong>95%</strong>.
+            Automated daily social metrics reporting using scheduled Snowflake TASK – eliminated
+            manual query workflows entirely and cut report preparation time by <strong>95%</strong>.
           </>,
           <>
-            Dug into 250K+ social interactions using SQL and Power BI to figure out what content
-            was actually working – surfaced opportunities that drove a{" "}
-            <strong>20% engagement lift</strong>.
+            Analyzed <strong>250K+</strong> social interactions and sentiment patterns using SQL
+            and Power BI for channel and content optimization – surfaced opportunities that drove a{" "}
+            <strong>20% engagement lift</strong> and informed platform-specific posting strategy.
           </>,
           <>
-            Traced high-value conversion paths tied to <strong>$35.6B in New Money</strong> using
-            Marketing Mix Model outputs – put together 6 recommendations to sharpen the acquisition
-            strategy.
+            Identified high-value conversion paths across owned media channels tied to{" "}
+            <strong>$35.6B in New Money</strong> using Marketing Mix Model outputs – uncovered
+            segment-level effectiveness gaps and delivered <strong>6 recommendations</strong> to
+            sharpen customer acquisition and drive New Money growth.
           </>,
           <>
-            Reconciled paid media data weekly across 20+ channels and caught discrepancies in about
-            10% of them – kept budget tracking accurate and flagged issues before they compounded.
+            Reconciled paid media (MTA) data weekly across <strong>20+ channels</strong> against
+            internal benchmarks – flagged discrepancies in 10% of channels, keeping budget
+            tracking accurate and surfacing issues before they compounded.
           </>,
         ],
         images: [],
