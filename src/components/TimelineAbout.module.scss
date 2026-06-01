@@ -1,0 +1,91 @@
+.profileSection {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--neutral-border-weak);
+    margin-bottom: 48px;
+}
+
+/* ── Timeline grid ── */
+.row {
+    display: grid;
+    grid-template-columns: 130px 28px 1fr;
+}
+
+.dateCell {
+    padding-top: 3px;
+    text-align: right;
+    padding-right: 0;
+}
+
+.lineCell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--brand-solid-strong);
+    flex-shrink: 0;
+    margin-top: 5px;
+    z-index: 1;
+}
+
+.dotSmall {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--neutral-border-medium);
+    flex-shrink: 0;
+    margin-top: 6px;
+    z-index: 1;
+}
+
+.line {
+    width: 1px;
+    flex: 1;
+    background: var(--neutral-border-weak);
+    min-height: 20px;
+}
+
+.contentCell {
+    padding-left: 24px;
+    padding-bottom: 36px;
+}
+
+/* ── Section label rows ── */
+.sectionRow {
+    display: grid;
+    grid-template-columns: 130px 28px 1fr;
+    margin-bottom: 4px;
+}
+
+.sectionDot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--brand-solid-strong);
+    background: var(--page-background);
+    flex-shrink: 0;
+    margin-top: 4px;
+    z-index: 1;
+}
+
+.sectionLineCell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ── Skills (no timeline) ── */
+.skillsSection {
+    padding-top: 8px;
+    padding-left: calc(130px + 28px + 24px);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

@@ -1,6 +1,6 @@
-import { Column, Meta, Schema } from "@once-ui-system/core";
+import { Meta, Schema } from "@once-ui-system/core";
 import { baseURL, about, person } from "@/resources";
-import { VerticalTabsAbout } from "@/components/VerticalTabsAbout";
+import { TimelineAbout } from "@/components/TimelineAbout";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -14,7 +14,7 @@ export async function generateMetadata() {
 
 export default function About() {
   return (
-    <Column maxWidth="m" paddingY="24">
+    <>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -28,7 +28,7 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <VerticalTabsAbout />
-    </Column>
+      <TimelineAbout />
+    </>
   );
 }
