@@ -45,23 +45,24 @@ export default function About() {
 
       <Row fillWidth gap="xl" s={{ direction: "column" }}>
 
-        {/* LEFT: profile + intro */}
+        {/* LEFT: sticky profile + intro */}
         <Column
+          className={styles.stickyLeft}
           flex={4}
-          gap="l"
+          gap="m"
           paddingRight="l"
           s={{ paddingRight: "0" }}
         >
           <Avatar
             src={person.avatar}
-            size="xl"
-            style={{ width: "160px", height: "160px" }}
+            size="l"
+            style={{ width: "120px", height: "120px" }}
             className={styles.profileAvatar}
           />
 
           <Column gap="4">
-            <Heading variant="display-strong-l">{person.name}</Heading>
-            <Text variant="display-default-xs" onBackground="neutral-weak">
+            <Heading variant="heading-strong-xl">{person.name}</Heading>
+            <Text variant="body-default-l" onBackground="neutral-weak">
               {person.role}
             </Text>
           </Column>
