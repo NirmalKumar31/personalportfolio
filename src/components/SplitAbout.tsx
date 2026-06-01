@@ -25,7 +25,7 @@ export function SplitAbout() {
           />
           <Column gap="8">
             <Heading variant="display-strong-xs">{person.name}</Heading>
-            <Text variant="heading-default-l" onBackground="neutral-weak">
+            <Text variant="heading-default-m" onBackground="neutral-weak">
               {person.role}
             </Text>
             <Row gap="8">
