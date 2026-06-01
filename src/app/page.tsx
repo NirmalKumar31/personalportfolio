@@ -1,5 +1,4 @@
 import {
-  Heading,
   Text,
   Button,
   Avatar,
@@ -10,8 +9,10 @@ import {
   IconButton,
   Schema,
   Meta,
+  Heading,
 } from "@once-ui-system/core";
 import { home, about, work, person, social, baseURL } from "@/resources";
+import { TypewriterHeadline, CountUp } from "@/components";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -22,6 +23,13 @@ export async function generateMetadata() {
     image: home.image,
   });
 }
+
+const stats = [
+  { value: 60,    suffix: "%",  label: "Quality incidents reduced" },
+  { value: 95,    suffix: "%",  label: "Report prep time saved"     },
+  { value: 150,   suffix: "M+", label: "Records processed"          },
+  { value: 93,    suffix: "%",  label: "ML model accuracy"          },
+];
 
 export default function Home() {
   return (
@@ -57,9 +65,10 @@ export default function Home() {
             </RevealFx>
           )}
 
+          {/* Typewriter + gradient headline */}
           <RevealFx translateY="4" fillWidth paddingBottom="4">
             <Heading wrap="balance" variant="display-strong-l">
-              {home.headline}
+              <TypewriterHeadline text="Data Engineer and Data Analyst" />
             </Heading>
           </RevealFx>
 
@@ -73,7 +82,23 @@ export default function Home() {
             </Text>
           </RevealFx>
 
-          <RevealFx delay={0.35} paddingBottom="8">
+          {/* CountUp stats strip */}
+          <RevealFx delay={0.3} fillWidth paddingBottom="24">
+            <Row gap="l" wrap>
+              {stats.map((s) => (
+                <Column key={s.label} gap="4">
+                  <Text variant="display-strong-xs" onBackground="brand-weak">
+                    <CountUp end={s.value} suffix={s.suffix} />
+                  </Text>
+                  <Text variant="label-default-s" onBackground="neutral-weak">
+                    {s.label}
+                  </Text>
+                </Column>
+              ))}
+            </Row>
+          </RevealFx>
+
+          <RevealFx delay={0.45} paddingBottom="8">
             <Row gap="16" wrap>
               <Button
                 data-border="rounded"
@@ -107,7 +132,7 @@ export default function Home() {
             </Row>
           </RevealFx>
 
-          <RevealFx delay={0.5}>
+          <RevealFx delay={0.6}>
             <Row gap="8" wrap>
               {social
                 .filter((item) => item.essential && item.link)

@@ -9,3 +9,7 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { CursorDots } from "@/components/CursorDots";
+export { PageTransition } from "@/components/PageTransition";
+export { ScrollReveal } from "@/components/ScrollReveal";
+export { TypewriterHeadline } from "@/components/TypewriterHeadline";
+export { CountUp } from "@/components/CountUp";

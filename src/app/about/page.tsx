@@ -14,6 +14,7 @@ import {
 import { baseURL, about, person, social } from "@/resources";
 import styles from "@/components/about/about.module.scss";
 import TableOfContents from "@/components/about/TableOfContents";
+import { ScrollReveal } from "@/components";
 import React from "react";
 
 export async function generateMetadata() {
@@ -157,19 +158,24 @@ export default function About() {
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" style={{ textAlign: "justify" }}>
-              {about.intro.description}
-            </Column>
+            <ScrollReveal>
+              <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" style={{ textAlign: "justify" }}>
+                {about.intro.description}
+              </Column>
+            </ScrollReveal>
           )}
 
           {about.work.display && (
             <>
+              <ScrollReveal>
               <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
                 {about.work.title}
               </Heading>
+              </ScrollReveal>
               <Column fillWidth gap="m" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
-                  <div key={`${experience.company}-${experience.role}-${index}`} className={styles.experienceCard}>
+                  <ScrollReveal key={`reveal-${experience.company}-${index}`} delay={index * 80}>
+                  <div className={styles.experienceCard}>
                     <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.role}
@@ -189,6 +195,7 @@ export default function About() {
                       ))}
                     </Column>
                   </div>
+                  </ScrollReveal>
                 ))}
               </Column>
             </>

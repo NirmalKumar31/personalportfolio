@@ -26,7 +26,7 @@ export function CursorDots() {
 
   return (
     <>
-      {/* Layer 1: Base dots — tiny blue, always visible, very subtle */}
+      {/* Base dot grid */}
       <div
         style={{
           position: "fixed",
@@ -34,12 +34,12 @@ export function CursorDots() {
           pointerEvents: "none",
           zIndex: 1,
           backgroundImage:
-            "radial-gradient(circle, rgba(96,165,250,0.1) 0.8px, transparent 0.8px)",
+            "radial-gradient(circle, rgba(96,165,250,0.12) 0.9px, transparent 0.9px)",
           backgroundSize: "28px 28px",
         }}
       />
 
-      {/* Layer 2: Violet gradient spotlight — very low intensity */}
+      {/* Wide ambient glow that follows cursor */}
       <div
         style={{
           position: "fixed",
@@ -47,24 +47,37 @@ export function CursorDots() {
           pointerEvents: "none",
           zIndex: 2,
           background:
-            "radial-gradient(circle 380px at var(--cx, -2000px) var(--cy, -2000px), rgba(139,92,246,0.07) 0%, rgba(139,92,246,0.02) 60%, transparent 100%)",
+            "radial-gradient(circle 500px at var(--cx, -2000px) var(--cy, -2000px), rgba(103,232,249,0.06) 0%, rgba(167,139,250,0.04) 50%, transparent 100%)",
+          transition: "background 0.1s ease",
         }}
       />
 
-      {/* Layer 3: Slightly brighter blue dots revealed at cursor */}
+      {/* Bright cursor spotlight */}
       <div
         style={{
           position: "fixed",
           inset: 0,
           pointerEvents: "none",
           zIndex: 3,
+          background:
+            "radial-gradient(circle 180px at var(--cx, -2000px) var(--cy, -2000px), rgba(103,232,249,0.18) 0%, rgba(167,139,250,0.08) 50%, transparent 100%)",
+        }}
+      />
+
+      {/* Highlighted dots at cursor */}
+      <div
+        style={{
+          position: "fixed",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 4,
           backgroundImage:
-            "radial-gradient(circle, rgba(96,165,250,0.55) 0.8px, transparent 0.8px)",
+            "radial-gradient(circle, rgba(103,232,249,0.7) 0.9px, transparent 0.9px)",
           backgroundSize: "28px 28px",
           WebkitMaskImage:
-            "radial-gradient(circle 300px at var(--cx, -2000px) var(--cy, -2000px), black 0%, rgba(0,0,0,0.5) 55%, transparent 100%)",
+            "radial-gradient(circle 220px at var(--cx, -2000px) var(--cy, -2000px), black 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
           maskImage:
-            "radial-gradient(circle 300px at var(--cx, -2000px) var(--cy, -2000px), black 0%, rgba(0,0,0,0.5) 55%, transparent 100%)",
+            "radial-gradient(circle 220px at var(--cx, -2000px) var(--cy, -2000px), black 0%, rgba(0,0,0,0.4) 60%, transparent 100%)",
         }}
       />
     </>

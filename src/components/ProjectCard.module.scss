@@ -3,12 +3,24 @@
     padding: 28px 28px;
     border: 1px solid var(--neutral-border-weak);
     border-radius: var(--radius-l);
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    position: relative;
 
     &:hover {
         border-color: var(--brand-border-medium);
-        box-shadow: 0 0 0 1px var(--brand-border-weak),
-                    0 8px 40px var(--brand-alpha-weak);
         transform: scale(1.05);
+        animation: glowPulse 2s ease-in-out infinite;
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 1px var(--brand-border-weak),
+                    0 0 20px var(--brand-alpha-weak);
+    }
+    50% {
+        box-shadow: 0 0 0 1px var(--brand-border-medium),
+                    0 0 48px var(--brand-alpha-medium),
+                    0 0 80px var(--brand-alpha-weak);
     }
 }
