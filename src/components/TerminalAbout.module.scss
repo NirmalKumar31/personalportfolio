@@ -1,0 +1,168 @@
+/* ── Fixed profile badge ── */
+.badge {
+    position: fixed;
+    top: 76px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 8;
+    pointer-events: none;
+    background: linear-gradient(to bottom, var(--page-background) 50%, transparent);
+    padding: 8px 0 16px;
+}
+
+/* ── Terminal window ── */
+.terminal {
+    margin-top: 56px;
+    border: 1px solid var(--neutral-border-weak);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    font-family: var(--font-code);
+}
+
+.titleBar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--neutral-background-medium);
+    border-bottom: 1px solid var(--neutral-border-weak);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dotRed    { background: #ff5f57; }
+.dotYellow { background: #febc2e; }
+.dotGreen  { background: #28c840; }
+
+.titleText {
+    flex: 1;
+    text-align: center;
+    font-size: var(--font-size-label-s);
+    color: var(--neutral-on-background-weak);
+}
+
+/* ── Terminal body ── */
+.body {
+    padding: 28px 32px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* ── Block: one command + output ── */
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.promptUser {
+    color: var(--brand-on-background-strong);
+    font-size: var(--font-size-body-s);
+    font-weight: 600;
+}
+
+.promptSymbol {
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+}
+
+.command {
+    color: #f8f8f2;
+    font-size: var(--font-size-body-s);
+}
+
+.output {
+    padding-left: 20px;
+    border-left: 1px solid var(--neutral-border-weak);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* ── Comment / section header ── */
+.comment {
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+    font-style: italic;
+}
+
+/* ── Output text styles ── */
+.key {
+    color: var(--brand-on-background-weak);
+    font-size: var(--font-size-body-s);
+    min-width: 120px;
+    display: inline-block;
+}
+
+.value {
+    color: #f8f8f2;
+    font-size: var(--font-size-body-s);
+}
+
+.dimValue {
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-label-s);
+}
+
+.bullet {
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+    display: flex;
+    gap: 10px;
+    line-height: 1.6;
+
+    &::before {
+        content: '•';
+        color: var(--brand-on-background-weak);
+        flex-shrink: 0;
+    }
+}
+
+.jobBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--neutral-border-weak);
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.jobHeader {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tagRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+.tag {
+    background: var(--brand-alpha-weak);
+    color: var(--brand-on-background-strong);
+    border: 1px solid var(--brand-border-weak);
+    border-radius: 4px;
+    padding: 2px 10px;
+    font-size: var(--font-size-label-s);
+}
