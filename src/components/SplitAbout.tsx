@@ -25,7 +25,7 @@ export function SplitAbout() {
           />
           <Column gap="8">
             <Heading variant="display-strong-xs">{person.name}</Heading>
-            <Text variant="heading-default-s" onBackground="neutral-weak">
+            <Text variant="heading-default-m" onBackground="neutral-weak">
               {person.role}
             </Text>
             <Row gap="8">
@@ -39,7 +39,7 @@ export function SplitAbout() {
         </Row>
 
         {/* Intro */}
-        <Column textVariant="body-default-s" gap="s" style={{ lineHeight: "1.6" }}>
+        <Column textVariant="body-default-s" gap="xs" style={{ lineHeight: "1.5" }}>
           {about.intro.description}
         </Column>
 
