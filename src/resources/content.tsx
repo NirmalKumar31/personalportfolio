@@ -119,29 +119,28 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Built a double-layer SQL statistical data quality framework for social media data –
-            reduced quality incidents by <strong>60%</strong> across 10+ downstream dashboards
-            by catching schema drift and value anomalies before they hit reporting.
+            Wrote a double-layer SQL quality framework on top of the social media pipeline – caught
+            issues before they reached reporting and brought quality incidents down by{" "}
+            <strong>60%</strong> across 10+ downstream dashboards.
           </>,
           <>
-            Automated daily social metrics reporting using scheduled Snowflake TASK – eliminated
-            manual query workflows entirely and cut report preparation time by <strong>95%</strong>.
+            Set up a Snowflake TASK to auto-generate daily social metrics – replaced a fully manual
+            process and cut report prep time by <strong>95%</strong>.
           </>,
           <>
-            Analyzed <strong>250K+</strong> social interactions and sentiment patterns using SQL
-            and Power BI for channel and content optimization – surfaced opportunities that drove a{" "}
-            <strong>20% engagement lift</strong> and informed platform-specific posting strategy.
+            Dug into <strong>250K+</strong> social interactions – looked at engagement patterns and
+            sentiment across channels using SQL and Power BI, figured out what was actually working
+            on each platform, and surfaced a <strong>20% engagement lift</strong> opportunity.
           </>,
           <>
-            Identified high-value conversion paths across owned media channels tied to{" "}
-            <strong>$35.6B in New Money</strong> using Marketing Mix Model outputs – uncovered
-            segment-level effectiveness gaps and delivered <strong>6 recommendations</strong> to
-            sharpen customer acquisition and drive New Money growth.
+            Traced which owned media channels were driving conversions using Marketing Mix Model
+            outputs – found segment-level gaps and put together 6 recommendations tied to{" "}
+            <strong>$35.6B in New Money</strong>.
           </>,
           <>
-            Reconciled paid media (MTA) data weekly across <strong>20+ channels</strong> against
-            internal benchmarks – flagged discrepancies in 10% of channels, keeping budget
-            tracking accurate and surfacing issues before they compounded.
+            Reconciled MTA paid media data weekly across <strong>20+ channels</strong> against
+            internal benchmarks – caught discrepancies in about 10% of them before they turned
+            into budget tracking problems.
           </>,
         ],
         images: [],
