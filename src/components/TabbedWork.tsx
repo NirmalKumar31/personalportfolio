@@ -46,7 +46,7 @@ export function TabbedWork({ experiences }: { experiences: WorkExperience[] }) {
         </Text>
         <Column as="ul" gap="4" className={styles.list}>
           {exp.achievements.map((achievement, i) => (
-            <Text as="li" variant="body-default-s" key={i}>
+            <Text as="li" variant="body-default-s" key={i} style={{ lineHeight: "1.4" }}>
               {achievement}
             </Text>
           ))}
