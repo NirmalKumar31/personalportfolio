@@ -91,7 +91,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hey, I'm Nirmal. Glad you're here. I'm a data professional, and this is the part where
+        Hey, I'm Nirmal — glad you're here. I'm a data professional, and this is the part where
         I tell you a bit about myself.
         <br /><br />
         Over the last year and a half I've built things and worked across some pretty different
