@@ -25,7 +25,7 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column fillWidth gap="xl" paddingY="12" maxWidth="s" style={{ marginLeft: 0 }}>
+    <Column gap="xl" paddingY="12" style={{ width: "100%", maxWidth: "600px", alignSelf: "flex-start" }}>
       <Schema
         as="webPage"
         baseURL={baseURL}
