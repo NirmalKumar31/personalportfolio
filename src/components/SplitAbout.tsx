@@ -1,0 +1,112 @@
+import {
+  Avatar, Button, Column, Heading,
+  Icon, IconButton, Row, Tag, Text,
+} from "@once-ui-system/core";
+import { about, person, social } from "@/resources";
+import { TabbedWork } from "@/components/TabbedWork";
+import styles from "./SplitAbout.module.scss";
+import profileStyles from "./about/about.module.scss";
+import React from "react";
+
+export function SplitAbout() {
+  return (
+    <div className={styles.layout}>
+
+      {/* ══════════════ LEFT: always visible ══════════════ */}
+      <aside className={styles.leftPanel}>
+
+        {/* Profile pic + name side by side */}
+        <Row gap="l" vertical="center">
+          <Avatar
+            src={person.avatar}
+            size="l"
+            style={{ width: "88px", height: "88px", flexShrink: 0 }}
+            className={profileStyles.profileAvatar}
+          />
+          <Column gap="4">
+            <Heading variant="heading-strong-xl">{person.name}</Heading>
+            <Text variant="body-default-m" onBackground="neutral-weak">
+              {person.role}
+            </Text>
+          </Column>
+        </Row>
+
+        {/* Location */}
+        <Row gap="8" vertical="center">
+          <Icon onBackground="neutral-weak" name="globe" />
+          <Text variant="body-default-s" onBackground="neutral-weak">
+            Boston, MA
+          </Text>
+        </Row>
+
+        {/* Socials */}
+        <Row gap="8" wrap data-border="rounded">
+          {social.filter((i) => i.essential && i.link).map((item) =>
+            item.link && (
+              <React.Fragment key={item.name}>
+                <Row s={{ hide: true }}>
+                  <Button href={item.link} prefixIcon={item.icon} label={item.name}
+                    size="s" weight="default" variant="secondary" />
+                </Row>
+                <Row hide s={{ hide: false }}>
+                  <IconButton size="s" href={item.link} icon={item.icon} variant="secondary" />
+                </Row>
+              </React.Fragment>
+            )
+          )}
+        </Row>
+
+        {/* Intro */}
+        <Column textVariant="body-default-s" gap="m">
+          {about.intro.description}
+        </Column>
+
+      </aside>
+
+      {/* ══════════════ RIGHT: scrollable ══════════════ */}
+      <main className={styles.rightPanel}>
+
+        {/* Work Experience */}
+        <div className={styles.section}>
+          <Heading variant="display-strong-s">{about.work.title}</Heading>
+          <TabbedWork experiences={about.work.experiences} />
+        </div>
+
+        <div className={styles.divider} />
+
+        {/* Education */}
+        <div className={styles.section}>
+          <Heading variant="display-strong-s">{about.studies.title}</Heading>
+          {about.studies.institutions.map((inst, i) => (
+            <Column key={i} gap="4">
+              <Text variant="heading-strong-l">{inst.name}</Text>
+              <Text variant="heading-default-xs" onBackground="neutral-weak">
+                {inst.description}
+              </Text>
+            </Column>
+          ))}
+        </div>
+
+        <div className={styles.divider} />
+
+        {/* Skills */}
+        <div className={styles.section}>
+          <Heading variant="display-strong-s">{about.technical.title}</Heading>
+          {about.technical.skills.map((skill, i) => (
+            <Column key={i} gap="8">
+              <Text variant="heading-strong-m">{skill.title}</Text>
+              {skill.tags && (
+                <Row wrap gap="8">
+                  {skill.tags.map((tag, j) => (
+                    <Tag key={j} size="l" prefixIcon={tag.icon}>{tag.name}</Tag>
+                  ))}
+                </Row>
+              )}
+            </Column>
+          ))}
+        </div>
+
+      </main>
+    </div>
+  );
+}

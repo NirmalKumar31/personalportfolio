@@ -1,0 +1,86 @@
+.layout {
+    display: flex;
+    gap: 0;
+    align-items: flex-start;
+    width: 100%;
+    min-height: calc(100vh - 96px);
+}
+
+/* ── Left panel ── */
+.leftPanel {
+    position: sticky;
+    top: 80px;
+    flex: 0 0 340px;
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 40px;
+    border-right: 1px solid var(--neutral-border-weak);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ── Right panel ── */
+.rightPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-left: 48px;
+    padding-bottom: 64px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--neutral-border-weak);
+}
+
+/* ── Achievements list ── */
+.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+
+    li {
+        padding-left: 0.25rem;
+
+        &::marker {
+            color: var(--brand-on-background-weak);
+        }
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .leftPanel {
+        position: relative;
+        top: auto;
+        flex: none;
+        width: 100%;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--neutral-border-weak);
+        padding-right: 0;
+        padding-bottom: 32px;
+    }
+
+    .rightPanel {
+        padding-left: 0;
+    }
+}

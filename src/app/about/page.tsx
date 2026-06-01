@@ -1,6 +1,6 @@
 import { Meta, Schema } from "@once-ui-system/core";
 import { baseURL, about, person } from "@/resources";
-import { TerminalAbout } from "@/components/TerminalAbout";
+import { SplitAbout } from "@/components/SplitAbout";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -28,7 +28,7 @@ export default function About() {
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <TerminalAbout />
+      <SplitAbout />
     </>
   );
 }
