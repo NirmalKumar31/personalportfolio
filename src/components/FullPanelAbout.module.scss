@@ -1,0 +1,133 @@
+.layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    width: 100%;
+}
+
+/* ── Sticky sidebar ── */
+.sidebar {
+    position: sticky;
+    top: 80px;
+    width: 240px;
+    flex-shrink: 0;
+    height: calc(100vh - 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 40px;
+    border-right: 1px solid var(--neutral-border-weak);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ── Nav ── */
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--font-size-body-s);
+    color: var(--neutral-on-background-weak);
+    text-align: left;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--neutral-on-background-strong);
+    }
+}
+
+.navActive {
+    color: var(--brand-on-background-strong);
+    font-weight: 600;
+
+    .navDot {
+        background: var(--brand-solid-strong);
+        transform: scale(1.4);
+    }
+}
+
+.navDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--neutral-border-medium);
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* ── Scrollable content ── */
+.content {
+    flex: 1;
+    padding-left: 56px;
+}
+
+.section {
+    min-height: calc(100vh - 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--neutral-border-weak);
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ── Achievements list ── */
+.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+
+    li {
+        padding-left: 0.25rem;
+
+        &::marker {
+            color: var(--brand-on-background-weak);
+        }
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--neutral-border-weak);
+        padding-right: 0;
+        padding-bottom: 32px;
+        margin-bottom: 32px;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .section {
+        min-height: auto;
+        padding: 32px 0;
+    }
+}
