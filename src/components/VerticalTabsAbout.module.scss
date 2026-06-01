@@ -1,0 +1,74 @@
+.layout {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    min-height: 75vh;
+}
+
+/* ── Left rail ── */
+.rail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 120px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 96px;
+}
+
+.tab {
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    border-left: 2px solid var(--neutral-border-weak);
+    text-align: left;
+    cursor: pointer;
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+    font-family: inherit;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        color: var(--neutral-on-background-strong);
+        border-left-color: var(--neutral-border-medium);
+    }
+}
+
+.tabActive {
+    color: var(--brand-on-background-strong);
+    border-left-color: var(--brand-solid-strong);
+    font-weight: 600;
+}
+
+/* ── Content area ── */
+.content {
+    flex: 1;
+    min-height: 70vh;
+    animation: fadeSlide 0.22s ease;
+}
+
+/* ── Achievements list ── */
+.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+
+    li {
+        padding-left: 0.25rem;
+
+        &::marker {
+            color: var(--brand-on-background-weak);
+        }
+    }
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
