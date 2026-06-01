@@ -123,8 +123,9 @@ const about: About = {
             incidents by 60% across 10+ downstream dashboards.
           </>,
           <>
-            Set up a Snowflake TASK to auto-generate daily social metrics, replacing a fully manual
-            process and cutting report prep time by 95%.
+            Built the daily social metrics reporting system from scratch on Snowflake, then
+            automated it end-to-end using scheduled TASK — what used to be fully manual now
+            runs itself, cutting prep time by 95%.
           </>,
           <>
             Dug into 250K+ social interactions, looking at engagement patterns and sentiment across
