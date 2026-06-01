@@ -202,12 +202,14 @@ export default function About() {
               <Column fillWidth gap="m" marginBottom="40">
                 {about.studies.institutions.map((institution, index) => (
                   <div key={`${institution.name}-${index}`} className={styles.experienceCard}>
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
+                    <Column gap="8">
+                      <Text id={institution.name} variant="heading-strong-l">
+                        {institution.name}
+                      </Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {institution.description}
+                      </Text>
+                    </Column>
                   </div>
                 ))}
               </Column>

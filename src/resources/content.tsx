@@ -119,28 +119,25 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            The social media pipeline had a data quality problem – bad data kept making it into 10+
-            downstream dashboards. Built a two-layer SQL check to catch it earlier, cut incidents
-            by <strong>60%</strong>.
+            Built a two-layer SQL data quality framework for social media data – cut quality
+            incidents by 60% across 10+ downstream dashboards.
           </>,
           <>
             Set up a Snowflake TASK to auto-generate daily social metrics – replaced a fully manual
-            process and cut report prep time by <strong>95%</strong>.
+            process and cut report prep time by 95%.
           </>,
           <>
-            Dug into <strong>250K+</strong> social interactions – looked at engagement patterns and
-            sentiment across channels using SQL and Power BI, figured out what was actually working
-            on each platform, and surfaced a <strong>20% engagement lift</strong> opportunity.
+            Dug into 250K+ social interactions – looked at engagement patterns and sentiment across
+            channels using SQL and Power BI, figured out what was actually working on each platform,
+            and surfaced a 20% engagement lift opportunity.
           </>,
           <>
-            Traced which owned media channels were driving conversions using Marketing Mix Model
-            outputs – found segment-level gaps and put together 6 recommendations tied to{" "}
-            <strong>$35.6B in New Money</strong>.
+            Traced high-value conversion paths tied to $35.6B in New Money using Marketing Mix
+            Model outputs – put together 6 recommendations to sharpen the acquisition strategy.
           </>,
           <>
-            Reconciled MTA paid media data weekly across <strong>20+ channels</strong> against
-            internal benchmarks – caught discrepancies in about 10% of them before they turned
-            into budget tracking problems.
+            Reconciled MTA paid media data weekly across 20+ channels against internal benchmarks –
+            caught discrepancies in about 10% of them before they turned into budget tracking problems.
           </>,
         ],
         images: [],
@@ -216,9 +213,11 @@ const about: About = {
         name: "Northeastern University",
         description: (
           <>
-            Master of Science – Data Analytics Engineering · CGPA: 3.8 · Expected August 2026
+            Master of Science – Data Analytics Engineering
+            <br />
+            CGPA: 3.8 · Expected August 2026
             <br /><br />
-            <strong>Coursework</strong>
+            Coursework
             <br />
             Data Management for Analytics (IE6700)
             <br />
@@ -236,7 +235,9 @@ const about: About = {
         name: "Sri Venkateswara College of Engineering (Anna University)",
         description: (
           <>
-            Bachelor of Engineering – Electronics and Communication · May 2024
+            Bachelor of Engineering – Electronics and Communication
+            <br />
+            May 2024
           </>
         ),
       },
