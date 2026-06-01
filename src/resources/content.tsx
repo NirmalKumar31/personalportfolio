@@ -151,8 +151,11 @@ const about: About = {
           <>
             Built an LSTM-Autoencoder on multivariate telemetry from 4 industrial stenter machines
             to flag anomalies before they became failures, hit 89% precision and 82% recall,
-            catching issues 24 hours out. Ran it against 12 months of maintenance history and
-            projected a 31% reduction in unplanned downtime.
+            catching issues 24 hours out.
+          </>,
+          <>
+            Backtested against 12 months of maintenance history and projected a 31% reduction
+            in unplanned downtime.
           </>,
           <>
             Built a Plotly Dash dashboard so operators could see real-time sensor metrics, anomaly
