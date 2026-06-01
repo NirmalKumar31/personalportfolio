@@ -13,7 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import styles from "@/components/about/about.module.scss";
-import { BentoWorkCard } from "@/components";
+import { TabbedWork } from "@/components";
 import React from "react";
 
 export async function generateMetadata() {
@@ -45,10 +45,10 @@ export default function About() {
 
       <Row fillWidth gap="xl" s={{ direction: "column" }}>
 
-        {/* LEFT: sticky profile */}
+        {/* LEFT: profile + intro */}
         <Column
           className={styles.stickyLeft}
-          flex={3}
+          flex={4}
           gap="l"
           paddingRight="l"
           s={{ paddingRight: "0" }}
@@ -59,71 +59,54 @@ export default function About() {
             style={{ width: "160px", height: "160px" }}
             className={styles.profileAvatar}
           />
+
           <Column gap="4">
             <Heading variant="display-strong-l">{person.name}</Heading>
             <Text variant="display-default-xs" onBackground="neutral-weak">
               {person.role}
             </Text>
           </Column>
+
           <Row gap="8" vertical="center">
             <Icon onBackground="neutral-weak" name="globe" size="s" />
             <Text variant="body-default-s" onBackground="neutral-weak">
               {person.location}
             </Text>
           </Row>
+
           <Row gap="8" wrap data-border="rounded">
-            {social
-              .filter((item) => item.essential && item.link)
-              .map((item) =>
-                item.link && (
-                  <React.Fragment key={item.name}>
-                    <Row s={{ hide: true }}>
-                      <Button
-                        href={item.link}
-                        prefixIcon={item.icon}
-                        label={item.name}
-                        size="s"
-                        weight="default"
-                        variant="secondary"
-                      />
-                    </Row>
-                    <Row hide s={{ hide: false }}>
-                      <IconButton
-                        size="l"
-                        href={item.link}
-                        icon={item.icon}
-                        variant="secondary"
-                      />
-                    </Row>
-                  </React.Fragment>
-                )
-              )}
+            {social.filter((item) => item.essential && item.link).map((item) =>
+              item.link && (
+                <React.Fragment key={item.name}>
+                  <Row s={{ hide: true }}>
+                    <Button href={item.link} prefixIcon={item.icon} label={item.name} size="s" weight="default" variant="secondary" />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <IconButton size="l" href={item.link} icon={item.icon} variant="secondary" />
+                  </Row>
+                </React.Fragment>
+              )
+            )}
           </Row>
+
+          {/* Intro summary */}
+          {about.intro.display && (
+            <Column textVariant="body-default-m" gap="m" style={{ textAlign: "justify" }}>
+              {about.intro.description}
+            </Column>
+          )}
         </Column>
 
         {/* RIGHT: bento grid */}
-        <Column flex={7} gap="l">
+        <Column flex={6} gap="xl">
 
-          {/* Intro card - full width */}
-          {about.intro.display && (
-            <div className={`${styles.bentoCard} ${styles.bentoFull}`}>
-              <Column textVariant="body-default-l" gap="m" style={{ textAlign: "justify" }}>
-                {about.intro.description}
-              </Column>
-            </div>
-          )}
-
-          {/* Work Experience */}
+          {/* Work Experience - tabbed */}
           {about.work.display && (
             <Column gap="m">
               <Heading as="h2" id={about.work.title} variant="display-strong-s">
                 {about.work.title}
               </Heading>
-              <div className={styles.bentoGrid}>
-                {about.work.experiences.map((experience, index) => (
-                  <BentoWorkCard key={index} experience={experience} />
-                ))}
-              </div>
+              <TabbedWork experiences={about.work.experiences} />
             </Column>
           )}
 

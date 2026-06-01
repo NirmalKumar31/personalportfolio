@@ -1,0 +1,70 @@
+.container {
+    width: 100%;
+    border: 1px solid var(--neutral-border-weak);
+    border-left: 1px solid var(--brand-border-medium);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+}
+
+.tabBar {
+    display: flex;
+    border-bottom: 1px solid var(--neutral-border-weak);
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.tab {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    cursor: pointer;
+    color: var(--neutral-on-background-weak);
+    font-size: var(--font-size-body-s);
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+        color: var(--neutral-on-background-strong);
+    }
+}
+
+.tabActive {
+    color: var(--brand-on-background-strong);
+    border-bottom-color: var(--brand-solid-strong);
+}
+
+.content {
+    padding: 24px;
+    animation: fadeSlide 0.2s ease;
+}
+
+.list {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+
+    li {
+        padding-left: 0.25rem;
+
+        &::marker {
+            color: var(--brand-on-background-weak);
+        }
+    }
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
