@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <Flex
         s={{ direction: "column" }}
         fillWidth
-        gap="m"
+        gap="s"
         vertical="center"
       >
         {title && (
