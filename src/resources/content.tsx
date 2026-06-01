@@ -62,7 +62,7 @@ const home: Home = {
   subline: (
     <>
       I build pipelines, models, and dashboards that make data useful. I like going
-      end-to-end – getting raw data into shape, finding what's worth knowing, and
+      end-to-end: getting raw data into shape, finding what's worth knowing, and
       delivering something people can actually act on.
       <br /><br />
       Previously @<Text as="span" size="xl" weight="strong">Fidelity Investments</Text>
@@ -91,11 +91,11 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hey, I'm Nirmal – glad you're here. I'm a data professional, and this is the part where
+        Hey, I'm Nirmal. Glad you're here. I'm a data professional, and this is the part where
         I tell you a bit about myself.
         <br /><br />
         Over the last year and a half I've built things and worked across some pretty different
-        spaces – predictive maintenance on factory machines, medical imaging models, data pipelines
+        spaces: predictive maintenance on factory machines, medical imaging models, data pipelines
         and marketing analytics at a financial firm. Not the most linear path, but the domains kept
         changing, which I think is what kept it interesting.
         <br /><br />
@@ -104,7 +104,7 @@ const about: About = {
         at each of them.
         <br /><br />
         I'm finishing up my master's at Northeastern this summer and actively looking for full-time
-        opportunities. Please go through the site to explore my work – if something I've built looks
+        opportunities. Please go through the site to explore my work. If something I've built looks
         interesting to you, I'd love to talk. Reach out through my socials.
       </>
     ),
@@ -119,25 +119,25 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Built a two-layer SQL data quality framework for social media data – cut quality
+            Built a two-layer SQL data quality framework for social media data, cutting quality
             incidents by 60% across 10+ downstream dashboards.
           </>,
           <>
-            Set up a Snowflake TASK to auto-generate daily social metrics – replaced a fully manual
-            process and cut report prep time by 95%.
+            Set up a Snowflake TASK to auto-generate daily social metrics, replacing a fully manual
+            process and cutting report prep time by 95%.
           </>,
           <>
-            Dug into 250K+ social interactions – looked at engagement patterns and sentiment across
+            Dug into 250K+ social interactions, looking at engagement patterns and sentiment across
             channels using SQL and Power BI, figured out what was actually working on each platform,
             and surfaced a 20% engagement lift opportunity.
           </>,
           <>
             Traced high-value conversion paths tied to $35.6B in New Money using Marketing Mix
-            Model outputs – put together 6 recommendations to sharpen the acquisition strategy.
+            Model outputs, and put together 6 recommendations to sharpen the acquisition strategy.
           </>,
           <>
-            Reconciled MTA paid media data weekly across 20+ channels against internal benchmarks –
-            caught discrepancies in about 10% of them before they turned into budget tracking problems.
+            Reconciled MTA paid media data weekly across 20+ channels against internal benchmarks.
+            Caught discrepancies in about 10% of them before they turned into budget tracking problems.
           </>,
         ],
         images: [],
@@ -149,12 +149,12 @@ const about: About = {
         achievements: [
           <>
             Built an LSTM-Autoencoder to detect anomalies in time-series telemetry from 4
-            industrial stenter machines – hit <strong>89% precision and 82% recall</strong>,
-            catching failures 24 hours before they happened.
+            industrial stenter machines, hitting 89% precision and 82% recall, and catching
+            failures 24 hours before they happened.
           </>,
           <>
-            Backtested against 12 months of maintenance logs and projected a{" "}
-            <strong>31% drop</strong> in unplanned downtime.
+            Backtested against 12 months of maintenance logs and projected a 31% drop in
+            unplanned downtime.
           </>,
           <>
             Built a Plotly Dash dashboard so operators could see real-time sensor metrics, anomaly
@@ -169,14 +169,13 @@ const about: About = {
         role: "AI and Machine Learning Intern",
         achievements: [
           <>
-            Built a pneumonia detection model using GradCAM on 5,800 chest X-rays – got to{" "}
-            <strong>93% accuracy</strong> and wrapped it in a Streamlit app with heatmaps so
-            clinicians could see exactly what the model was flagging.
+            Built a pneumonia detection model using GradCAM on 5,800 chest X-rays, hit 93% accuracy,
+            and wrapped it in a Streamlit app with heatmaps so clinicians could see exactly what
+            the model was flagging.
           </>,
           <>
-            Built a sign language recognition system using MediaPipe and LSTM – hit{" "}
-            <strong>94% accuracy</strong> on ASL gestures and deployed it as a learning tool for
-            school students.
+            Built a sign language recognition system using MediaPipe and LSTM, hitting 94% accuracy
+            on ASL gestures, and deployed it as a learning tool for school students.
           </>,
         ],
         images: [],
@@ -187,14 +186,13 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline to pull nested JSON from a REST API – cut
-            processing time by <strong>40%</strong> by flattening the schema and parallelizing
-            Copy Activities across 4 partitions.
+            Built an Azure Data Factory pipeline to pull nested JSON from a REST API, cut
+            processing time by 40% by flattening the schema and parallelizing Copy Activities
+            across 4 partitions.
           </>,
           <>
-            Set up Delta Lake with date-partitioned Parquet in Databricks – brought Spark read
-            volume down from <strong>500 GB to 350 GB</strong> for time-range queries using
-            partition pruning.
+            Set up Delta Lake with date-partitioned Parquet in Databricks, bringing Spark read
+            volume down from 500 GB to 350 GB for time-range queries using partition pruning.
           </>,
           <>
             Wired up Airflow DAGs to coordinate daily PySpark jobs across staging and serving
