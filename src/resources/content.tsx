@@ -91,7 +91,7 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Hey, I'm Nirmal — glad you're here. I'm a data professional, and this is the part where
+        Hey, I'm Nirmal - glad you're here. I'm a data professional, and this is the part where
         I tell you a bit about myself.
         <br /><br />
         Over the last year and a half I've built things and worked across some pretty different
@@ -123,9 +123,8 @@ const about: About = {
             incidents by 60% across 10+ downstream dashboards.
           </>,
           <>
-            Built the daily social metrics reporting system from scratch on Snowflake, then
-            automated it end-to-end using scheduled TASK — what used to be fully manual now
-            runs itself, cutting prep time by 95%.
+            Built the daily social metrics reporting system from scratch on Snowflake and
+            automated it end-to-end using scheduled TASK, cutting report prep time by 95%.
           </>,
           <>
             Dug into 250K+ social interactions, looking at engagement patterns and sentiment across
@@ -151,7 +150,7 @@ const about: About = {
         achievements: [
           <>
             Built an LSTM-Autoencoder on multivariate telemetry from 4 industrial stenter machines
-            to flag anomalies before they became failures — hit 89% precision and 82% recall,
+            to flag anomalies before they became failures, hit 89% precision and 82% recall,
             catching issues 24 hours out. Ran it against 12 months of maintenance history and
             projected a 31% reduction in unplanned downtime.
           </>,
