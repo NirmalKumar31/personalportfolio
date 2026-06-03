@@ -121,7 +121,7 @@ const about: About = {
           <>
             Analyzed 500K+ social media interactions using SQL and Tableau, segmenting by
             content type, platform, and posting time to understand what was driving engagement,
-            and built a channel-specific posting strategy that lifted engagement by 20%.
+            and built a channel-specific posting strategy that lifted engagement by 13%.
           </>,
           <>
             Built a two-stage SQL data quality validation framework for social media data,
