@@ -137,7 +137,12 @@ const about: About = {
             high-value conversion paths across owned media tied to $35.6B in net new client
             assets, and delivered 6 prioritized recommendations to sharpen acquisition targeting.
           </>,
-<>
+          <>
+            Analyzed an A/B test on paid social creatives across 140K impressions using SQL
+            and Python, found a statistically significant 9% drop in cost per acquisition, and
+            helped the team scale the winning creative and reallocate budget.
+          </>,
+          <>
             Reconciled MTA paid media spend weekly across 20+ channels against internal
             benchmarks and flagged discrepancies in 5% of channels before they affected budget
             tracking.
