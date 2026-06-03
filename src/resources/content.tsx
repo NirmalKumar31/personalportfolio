@@ -119,26 +119,32 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Built a two-layer SQL data quality framework for social media data, cutting quality
-            incidents by 60% across 10+ downstream dashboards.
+            Analyzed 500K+ social media interactions using SQL and Tableau, segmenting by content
+            type, platform, and posting time to find what was driving engagement, and recommended
+            a platform-specific posting strategy that lifted engagement by 20%.
           </>,
           <>
-            Built the daily social metrics reporting system from scratch on Snowflake and
-            automated it end-to-end using scheduled TASK, cutting report prep time by 95%.
+            Designed a two-stage SQL data quality validation framework for social media data,
+            reducing reporting errors by 60% across 10+ downstream Tableau dashboards.
           </>,
           <>
-            Dug into 250K+ social interactions, looking at engagement patterns and sentiment across
-            channels using SQL and Power BI, figured out what was actually working on each platform,
-            and surfaced a 20% engagement lift opportunity.
+            Built an automated self-serve reporting table in Snowflake, pre-computing topic-level
+            volumes, period-over-period growth, and seasonality trends - replacing recurring manual
+            analysis and cutting report turnaround by 95%.
           </>,
           <>
-            Mapped high-value conversion paths across owned media channels using Marketing Mix
-            Model outputs, found segment-level gaps that weren't visible in top-line numbers, and
-            delivered 6 recommendations to sharpen customer acquisition tied to $35.6B in New Money.
+            Decomposed Marketing Mix Model outputs by channel and customer segment to map
+            high-value conversion paths across owned media tied to $35.6B in net new client
+            assets, and delivered 6 prioritized recommendations to sharpen acquisition targeting.
           </>,
           <>
-            Reconciled MTA paid media data weekly across 20+ channels against internal benchmarks.
-            Caught discrepancies in about 10% of them before they turned into budget tracking problems.
+            Analyzed an A/B test on paid social creative ads across 140K impressions using SQL
+            and Python, surfaced a statistically significant 9% drop in cost per acquisition,
+            which led the team to scale the winning creative and reallocate budget.
+          </>,
+          <>
+            Ran weekly variance analysis reconciling MTA spend across 20+ paid media channels
+            and flagged discrepancies in 5% of channels before they affected budget tracking.
           </>,
         ],
         images: [],
