@@ -119,33 +119,33 @@ const about: About = {
         role: "Data Analyst",
         achievements: [
           <>
-            Pulled 500K+ social interactions into SQL and Tableau, broke them down by content
-            type, platform, and posting time to find what was actually driving engagement, and
-            used that to build a channel-specific posting strategy that lifted engagement by 20%.
+            Analyzed 500K+ social media interactions using SQL and Tableau, segmenting by
+            content type, platform, and posting time to understand what was driving engagement,
+            and built a channel-specific posting strategy that lifted engagement by 20%.
           </>,
           <>
-            Built a two-stage SQL validation framework on top of the social media pipeline to
-            catch data quality issues before they hit reporting - brought errors down by 60%
-            across 10+ Tableau dashboards.
+            Built a two-stage SQL data quality validation framework for social media data,
+            reducing reporting errors by 60% across 10+ downstream Tableau dashboards.
           </>,
           <>
-            Set up a self-serve reporting table in Snowflake that pre-computed topic volumes,
-            period-over-period trends, and seasonality automatically, replacing a recurring
-            manual process and cutting turnaround by 95%.
+            Built an automated self-serve reporting table in Snowflake that pre-computed
+            topic-level volumes, period-over-period growth, and seasonality trends, replacing
+            recurring manual analysis and cutting report turnaround by 95%.
           </>,
           <>
-            Used Marketing Mix Model outputs to trace conversion paths by channel and customer
-            segment across owned media tied to $35.6B in net new client assets, and put together
-            6 prioritized recommendations to sharpen acquisition targeting.
+            Broke down Marketing Mix Model outputs by channel and customer segment to map
+            high-value conversion paths across owned media tied to $35.6B in net new client
+            assets, and delivered 6 prioritized recommendations to sharpen acquisition targeting.
           </>,
           <>
-            Ran an A/B test analysis on paid social creatives across 140K impressions using SQL
+            Analyzed an A/B test on paid social creatives across 140K impressions using SQL
             and Python, found a statistically significant 9% drop in cost per acquisition, and
-            helped the team make the call to scale the winner and shift budget accordingly.
+            helped the team scale the winning creative and reallocate budget.
           </>,
           <>
             Reconciled MTA paid media spend weekly across 20+ channels against internal
-            benchmarks, catching discrepancies in 5% of them before they affected budget tracking.
+            benchmarks and flagged discrepancies in 5% of channels before they affected budget
+            tracking.
           </>,
         ],
         images: [],
