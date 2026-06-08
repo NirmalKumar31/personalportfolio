@@ -116,36 +116,35 @@ const about: About = {
       {
         company: "Fidelity Investments",
         timeframe: "July 2025 – December 2025",
-        role: "Data Analyst",
+        role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Analyzed 500K+ social media interactions using SQL and Tableau, segmenting by
-            content type, platform, and posting time to understand what was driving engagement,
-            and built a channel-specific posting strategy that lifted engagement by 13%.
+            Analyzed and segmented 270K+ social media interactions by content type, platform,
+            and timing using SQL, surfacing posting patterns that fed into a platform-specific
+            strategy and lifted engagement 13%.
           </>,
           <>
-            Built a two-stage SQL data quality validation framework for social media data,
+            Built a Snowflake Task-backed reporting table that pre-computes topic volume, growth,
+            and seasonality, replacing recurring manual pulls and cutting report turnaround by
+            95% for the team.
+          </>,
+          <>
+            Designed a two-stage SQL data quality validation framework for social media data,
             reducing reporting errors by 60% across 10+ downstream Tableau dashboards.
           </>,
           <>
-            Built an automated self-serve reporting table in Snowflake that pre-computed
-            topic-level volumes, period-over-period growth, and seasonality trends, replacing
-            recurring manual analysis and cutting report turnaround by 95%.
+            Translated MMM outputs attributing $35.6B in new client assets to owned media into
+            6 recommendations that mapped the highest-converting paths and surfaced underserved
+            segments.
           </>,
           <>
-            Broke down Marketing Mix Model outputs by channel and customer segment to map
-            high-value conversion paths across owned media tied to $35.6B in net new client
-            assets, and delivered 6 prioritized recommendations to sharpen acquisition targeting.
+            Ran an A/B analysis on paid social creatives across 140K impressions in SQL and
+            Python, found a statistically significant 9% drop in cost per acquisition, and
+            helped the team scale the winning creative.
           </>,
           <>
-            Analyzed an A/B test on paid social creatives across 140K impressions using SQL
-            and Python, found a statistically significant 9% drop in cost per acquisition, and
-            helped the team scale the winning creative and reallocate budget.
-          </>,
-          <>
-            Reconciled MTA paid media spend weekly across 20+ channels against internal
-            benchmarks and flagged discrepancies in 5% of channels before they affected budget
-            tracking.
+            Monitored weekly spend and conversion across 20 paid channels, flagging anomalies
+            in 2% of them before they skewed attribution.
           </>,
         ],
         images: [],
@@ -156,34 +155,39 @@ const about: About = {
         role: "Data Science Intern",
         achievements: [
           <>
-            Built an LSTM-Autoencoder on multivariate telemetry from 4 industrial stenter machines
-            to flag anomalies before they became failures, hit 89% precision and 82% recall,
-            catching issues 24 hours out.
+            Built an LSTM-Autoencoder on industrial sensor telemetry to detect developing machine
+            failures from reconstruction-error spikes, achieving 89% precision and catching issues
+            6 hours before they turned into failures.
           </>,
           <>
-            Backtested against 12 months of maintenance history and projected a 31% reduction
-            in unplanned downtime.
+            Built a Python pipeline to pull from SQL Server and apply dimensionality reduction,
+            converting noisy multi-channel signals into clean, model-ready sequences.
           </>,
           <>
-            Built a Plotly Dash dashboard so operators could see real-time sensor metrics, anomaly
-            scores, and alerts all in one place.
+            Projected a 31% reduction in unplanned downtime by backtesting the model against
+            a year of unseen data and historical maintenance logs.
+          </>,
+          <>
+            Built a Power BI dashboard surfacing anomaly scores and threshold alerts, giving the
+            maintenance team a way to shift from reactive to proactive intervention.
           </>,
         ],
         images: [],
       },
       {
-        company: "Qwings",
+        company: "Qwings – IIT Madras Research Park",
         timeframe: "July 2023 – November 2023",
         role: "AI and Machine Learning Intern",
         achievements: [
           <>
-            Built a pneumonia detection model using GradCAM on 5,800 chest X-rays, hit 93% accuracy,
-            and wrapped it in a Streamlit app with heatmaps so clinicians could see exactly what
-            the model was flagging.
+            Built an explainable pneumonia detection model trained on 5,800 chest X-rays,
+            with GradCAM highlighting the regions behind each prediction so the output was
+            clinically interpretable rather than just a confidence score.
           </>,
           <>
-            Built a sign language recognition system using MediaPipe and LSTM, hitting 94% accuracy
-            on ASL gestures, and deployed it as a learning tool for school students.
+            Built a real-time computer vision system that recognizes sign language gestures
+            from a live webcam feed and converts them to on-screen text, deployed as an
+            interactive educational demo.
           </>,
         ],
         images: [],
@@ -194,17 +198,13 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline to pull nested JSON from a REST API, cut
-            processing time by 40% by flattening the schema and parallelizing Copy Activities
-            across 4 partitions.
+            Built an Azure Data Factory pipeline ingesting nested JSON from a REST API, using
+            Mapping Data Flows to flatten the schema and parallelizing Copy Activities across
+            4 source partitions to cut processing time by 40%.
           </>,
           <>
-            Set up Delta Lake with date-partitioned Parquet in Databricks, bringing Spark read
-            volume down from 500 GB to 350 GB for time-range queries using partition pruning.
-          </>,
-          <>
-            Wired up Airflow DAGs to coordinate daily PySpark jobs across staging and serving
-            layers.
+            Set up Delta Lake with date-partitioned Parquet in Databricks, reducing Spark scan
+            volume from 500 GB to 350 GB on time-range queries using partition pruning.
           </>,
         ],
         images: [],
