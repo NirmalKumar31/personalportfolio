@@ -193,9 +193,9 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline ingesting nested JSON from a REST API, using
-            Mapping Data Flows to flatten the schema and parallelizing Copy Activities across
-            4 source partitions to cut processing time by 40%.
+            Built an Azure Data Factory pipeline that ingested nested JSON from a REST API,
+            flattened the schema via Mapping Data Flows, and parallelized Copy Activities
+            across 4 source partitions, cutting processing time by 40%.
           </>,
           <>
             Set up Delta Lake with date-partitioned Parquet in Databricks, reducing Spark scan
