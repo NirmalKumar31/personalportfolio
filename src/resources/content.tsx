@@ -150,9 +150,9 @@ const about: About = {
         role: "Data Science Intern",
         achievements: [
           <>
-            Built an LSTM-Autoencoder on industrial sensor telemetry to detect developing machine
-            failures from reconstruction-error spikes, achieving 89% precision and catching issues
-            6 hours before they turned into failures.
+            Built an LSTM-Autoencoder based anomaly detection system on industrial machine sensor
+            telemetry that flagged developing failures from reconstruction-error spikes, achieving
+            89% precision with a 6-hour detection lead time.
           </>,
           <>
             Built a Python pipeline to pull from SQL Server and apply dimensionality reduction,
