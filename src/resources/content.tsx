@@ -137,7 +137,12 @@ const about: About = {
             6 recommendations that mapped the highest-converting paths and surfaced underserved
             segments.
           </>,
-<>
+          <>
+            Ran an A/B analysis on paid social creatives across 140K impressions in SQL and
+            Python, found a statistically significant 9% drop in cost per acquisition, and
+            helped the team scale the winning creative.
+          </>,
+          <>
             Monitored weekly spend and conversion across 20 paid channels, flagging anomalies
             in 2% of them before they skewed attribution.
           </>,
