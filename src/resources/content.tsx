@@ -119,9 +119,14 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Analyzed and segmented 270K+ social media interactions by content type, platform,
-            and timing using SQL, surfacing posting patterns that fed into a platform-specific
-            strategy and lifted engagement 13%.
+            Designed a two-stage SQL data quality framework for social media metrics using
+            statistical boundary checks to catch abnormal spikes and dips automatically,
+            reducing reporting errors by 60% across 10+ Tableau dashboards.
+          </>,
+          <>
+            Analyzed 270K+ social media interactions by content type, platform, and timing
+            using SQL, surfacing platform-specific patterns that contributed to a 13% lift
+            in engagement.
           </>,
           <>
             Built a Snowflake Task-backed reporting table that pre-computes topic volume, growth,
@@ -129,22 +134,18 @@ const about: About = {
             95% for the team.
           </>,
           <>
-            Designed a two-stage SQL data quality validation framework for social media data,
-            reducing reporting errors by 60% across 10+ downstream Tableau dashboards.
-          </>,
-          <>
-            Translated MMM outputs attributing $35.6B in new client assets to owned media into
-            6 recommendations that mapped the highest-converting paths and surfaced underserved
-            segments.
-          </>,
-          <>
             Ran an A/B analysis on paid social creatives across 140K impressions in SQL and
             Python, found a statistically significant 9% drop in cost per acquisition, and
             helped the team scale the winning creative.
           </>,
           <>
-            Monitored weekly spend and conversion across 20 paid channels, flagging anomalies
-            in 2% of them before they skewed attribution.
+            Analyzed MMM outputs covering $35.6B in new client assets across owned media,
+            computed impact-per-impression by segment and channel to map high-value paths,
+            and delivered 4 recommendations for sharper customer targeting.
+          </>,
+          <>
+            Audited weekly spend and conversion across 20 paid channels, flagging anomalies
+            in 5% of them before they skewed attribution.
           </>,
         ],
         images: [],
@@ -160,8 +161,9 @@ const about: About = {
             89% precision with a 6-hour detection lead time.
           </>,
           <>
-            Built a Python pipeline to pull from SQL Server and apply dimensionality reduction,
-            converting noisy multi-channel signals into clean, model-ready sequences.
+            Engineered a Python ETL pipeline to extract and preprocess multi-channel sensor
+            telemetry from SQL Server, flagged redundant channels via correlation analysis,
+            and reduced dimensionality with PCA to clean up the input for the model.
           </>,
           <>
             Projected a 31% reduction in unplanned downtime by backtesting the model against
@@ -180,14 +182,14 @@ const about: About = {
         role: "AI and Machine Learning Intern",
         achievements: [
           <>
-            Built an explainable pneumonia detection model trained on 5,800 chest X-rays,
-            with GradCAM highlighting the regions behind each prediction so the output was
-            clinically interpretable rather than just a confidence score.
+            Developed a CNN-based pneumonia detection model on 5,800 chest X-rays, reaching
+            92% accuracy, with Grad-CAM overlays highlighting the regions driving each
+            prediction to make the output clinically interpretable.
           </>,
           <>
-            Built a real-time computer vision system that recognizes sign language gestures
-            from a live webcam feed and converts them to on-screen text, deployed as an
-            interactive educational demo.
+            Built a real-time computer vision system that recognizes 15 sign language gestures
+            from a live webcam feed at 95% accuracy, converting them to on-screen text and
+            deployed as an interactive educational demo.
           </>,
         ],
         images: [],
