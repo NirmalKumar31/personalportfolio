@@ -119,33 +119,33 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Designed a two-stage SQL data quality framework for social media metrics using
-            statistical boundary checks to catch abnormal spikes and dips automatically,
-            reducing reporting errors by 60% across 10+ Tableau dashboards.
+            Designed a two-stage SQL data quality framework using statistical boundary thresholds
+            to flag social media data outliers automatically, reducing reporting errors by 60%
+            across 10+ Tableau dashboards.
           </>,
           <>
-            Analyzed 270K+ social media interactions by content type, platform, and timing
-            using SQL, surfacing platform-specific patterns that contributed to a 13% lift
-            in engagement.
+            Analyzed 270K+ social media interactions by content type, platform, and timing using
+            SQL window functions, surfacing platform-specific patterns that drove a 13% increase
+            in user engagement.
           </>,
           <>
-            Built a Snowflake Task-backed reporting table that pre-computes topic volume, growth,
-            and seasonality, replacing recurring manual pulls and cutting report turnaround by
-            95% for the team.
+            Constructed an automated reporting table using a Snowflake Task and complex SQL to
+            compute topic volume, growth, and seasonality, eliminating manual calculations and
+            cutting report turnaround by 95%.
           </>,
           <>
-            Ran an A/B analysis on paid social creatives across 140K impressions in SQL and
-            Python, found a statistically significant 9% drop in cost per acquisition, and
-            helped the team scale the winning creative.
+            Evaluated an A/B test across 140K impressions using SQL and Python, surfaced a
+            statistically significant 9% drop in cost per acquisition, and helped the team
+            scale the winning creative.
           </>,
           <>
             Analyzed MMM outputs covering $35.6B in new client assets across owned media,
             computed impact-per-impression by segment and channel to map high-value paths,
-            and delivered 4 recommendations for sharper customer targeting.
+            and delivered 4 recommendations for better customer targeting.
           </>,
           <>
-            Audited weekly spend and conversion across 20 paid channels, flagging anomalies
-            in 5% of them before they skewed attribution.
+            Audited weekly MTA spend and conversion data across 20 paid channels, catching
+            discrepancies before they skewed attribution.
           </>,
         ],
         images: [],
@@ -156,22 +156,22 @@ const about: About = {
         role: "Data Science Intern",
         achievements: [
           <>
-            Built an LSTM-Autoencoder based anomaly detection system on industrial machine sensor
-            telemetry that flagged developing failures from reconstruction-error spikes, achieving
-            89% precision with a 6-hour detection lead time.
+            Developed an LSTM-Autoencoder anomaly prediction model on industrial sensor telemetry
+            to flag developing machine failures early, achieving 89% precision in detecting
+            failures 6 hours ahead.
           </>,
           <>
-            Engineered a Python ETL pipeline to extract and preprocess multi-channel sensor
-            telemetry from SQL Server, flagged redundant channels via correlation analysis,
-            and reduced dimensionality with PCA to clean up the input for the model.
+            Engineered a Python ETL pipeline to extract and preprocess sensor data from SQL Server,
+            applying correlation analysis and PCA to remove feature redundancy and reduce
+            dimensionality.
           </>,
           <>
             Projected a 31% reduction in unplanned downtime by backtesting the model against
             a year of unseen data and historical maintenance logs.
           </>,
           <>
-            Built a Power BI dashboard surfacing anomaly scores and threshold alerts, giving the
-            maintenance team a way to shift from reactive to proactive intervention.
+            Built a Power BI dashboard for anomaly scores and threshold alerts, enabling the
+            team to shift from reactive to proactive operations.
           </>,
         ],
         images: [],
@@ -200,13 +200,13 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline that ingested nested JSON from a REST API,
-            flattened the schema via Mapping Data Flows, and parallelized Copy Activities
-            across 4 source partitions, cutting processing time by 40%.
+            Built an Azure Data Factory pipeline to ingest nested JSON from a REST API,
+            flattening the schema via Mapping Data Flows and parallelizing Copy Activities
+            across 4 source partitions to cut processing time by 40%.
           </>,
           <>
-            Set up Delta Lake with date-partitioned Parquet in Databricks, reducing Spark scan
-            volume from 500 GB to 350 GB on time-range queries using partition pruning.
+            Implemented Delta Lake with date-partitioned Parquet in Databricks, reducing Spark
+            scans from 500 GB to 350 GB on time-range queries using partition pruning.
           </>,
         ],
         images: [],
