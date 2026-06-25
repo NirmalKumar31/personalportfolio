@@ -1,5 +1,4 @@
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
-import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Nirmalkumar",
@@ -49,13 +48,10 @@ const home: Home = {
   featured: {
     display: false,
     title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Vacation Rental Platform</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured project
-        </Text>
-      </Row>
+      <>
+        <strong>Vacation Rental Platform</strong>{" "}
+        — Featured project
+      </>
     ),
     href: "/work/data-platform-vacation-rental-marketplace",
   },
@@ -65,7 +61,7 @@ const home: Home = {
       end-to-end: getting raw data into shape, finding what's worth knowing, and
       delivering something people can actually act on
       <br /><br />
-      Previously @<Text as="span" size="xl" weight="strong">Fidelity Investments</Text>
+      Previously @<strong>Fidelity Investments</strong>
     </>
   ),
 };

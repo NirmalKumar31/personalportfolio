@@ -1,0 +1,218 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.02em;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Intro */
+.introText {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-muted);
+  max-width: 640px;
+}
+
+.introText br + br {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timelineItem {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 1.25rem;
+}
+
+.timelineLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.timelineDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-text);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.timelineItem:hover .timelineDot {
+  background: #22c55e;
+}
+
+.timelineLine {
+  width: 1px;
+  flex: 1;
+  background: var(--color-border);
+  margin-top: 6px;
+  min-height: 24px;
+}
+
+.timelineItem:last-child .timelineLine {
+  display: none;
+}
+
+.timelineContent {
+  padding-bottom: 2.5rem;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.company {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.role {
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.timeframe {
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bullet {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.bullet::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+}
+
+/* Education */
+.eduList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.eduItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.institution {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.eduDesc {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+  font-family: var(--font-body);
+}
+
+/* Skills */
+.skillGroups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skillGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skillGroupTitle {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.25rem 0.65rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+  .expHeader {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
