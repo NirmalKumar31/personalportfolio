@@ -1,7 +1,14 @@
-import { about } from "@/resources";
-import styles from "./work.module.css";
+'use client'
+
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { about } from '@/resources'
+import styles from './work.module.css'
 
 export default function Work() {
+  const [openExp, setOpenExp] = useState<number | null>(0)
+  const [openEdu, setOpenEdu] = useState<number | null>(null)
+
   return (
     <div className={styles.page}>
 
@@ -13,22 +20,48 @@ export default function Work() {
             {about.work.experiences.map((exp, i) => (
               <div key={`${exp.company}-${i}`} className={styles.timelineItem}>
                 <div className={styles.timelineLeft}>
-                  <div className={styles.timelineDot} />
-                  <div className={styles.timelineLine} />
+                  <div className={`${styles.timelineDot} ${openExp === i ? styles.dotActive : ''}`} />
+                  {i < about.work.experiences.length - 1 && (
+                    <div className={styles.timelineLine} />
+                  )}
                 </div>
-                <div className={styles.timelineContent}>
-                  <div className={styles.expHeader}>
-                    <div>
-                      <h3 className={styles.company}>{exp.company}</h3>
-                      <p className={styles.role}>{exp.role}</p>
+                <div className={`${styles.timelineContent} ${openExp === i ? styles.contentOpen : ''}`}>
+                  <button
+                    className={styles.expButton}
+                    onClick={() => setOpenExp(openExp === i ? null : i)}
+                  >
+                    <div className={styles.expHeader}>
+                      <div className={styles.expMeta}>
+                        <h3 className={styles.company}>{exp.company}</h3>
+                        <p className={styles.role}>{exp.role}</p>
+                      </div>
+                      <div className={styles.expRight}>
+                        <span className={styles.timeframe}>{exp.timeframe}</span>
+                        <span className={styles.toggleIcon}>
+                          {openExp === i ? '−' : '+'}
+                        </span>
+                      </div>
                     </div>
-                    <span className={styles.timeframe}>{exp.timeframe}</span>
-                  </div>
-                  <ul className={styles.bullets}>
-                    {exp.achievements.map((ach, j) => (
-                      <li key={j} className={styles.bullet}>{ach}</li>
-                    ))}
-                  </ul>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {openExp === i && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <ul className={styles.bullets}>
+                          {exp.achievements.map((ach, j) => (
+                            <li key={j} className={styles.bullet}>{ach}</li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             ))}
@@ -40,11 +73,45 @@ export default function Work() {
       {about.studies.display && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{about.studies.title}</h2>
-          <div className={styles.eduList}>
+          <div className={styles.timeline}>
             {about.studies.institutions.map((inst, i) => (
-              <div key={i} className={styles.eduItem}>
-                <h3 className={styles.institution}>{inst.name}</h3>
-                <div className={styles.eduDesc}>{inst.description}</div>
+              <div key={i} className={styles.timelineItem}>
+                <div className={styles.timelineLeft}>
+                  <div className={`${styles.timelineDot} ${openEdu === i ? styles.dotActive : ''}`} />
+                  {i < about.studies.institutions.length - 1 && (
+                    <div className={styles.timelineLine} />
+                  )}
+                </div>
+                <div className={`${styles.timelineContent} ${openEdu === i ? styles.contentOpen : ''}`}>
+                  <button
+                    className={styles.expButton}
+                    onClick={() => setOpenEdu(openEdu === i ? null : i)}
+                  >
+                    <div className={styles.expHeader}>
+                      <div className={styles.expMeta}>
+                        <h3 className={styles.company}>{inst.name}</h3>
+                      </div>
+                      <span className={styles.toggleIcon}>
+                        {openEdu === i ? '−' : '+'}
+                      </span>
+                    </div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {openEdu === i && (
+                      <motion.div
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <div className={styles.eduDesc}>{inst.description}</div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             ))}
           </div>
@@ -52,5 +119,5 @@ export default function Work() {
       )}
 
     </div>
-  );
+  )
 }

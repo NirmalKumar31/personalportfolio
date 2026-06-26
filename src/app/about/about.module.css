@@ -7,11 +7,12 @@
   width: 100%;
 }
 
-/* ── Headline — centered ── */
+/* ── Headline — left-aligned, same width as sections ── */
 .headlineBlock {
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
   width: 100%;
+  max-width: 680px;
 }
 
 .headline {
@@ -29,7 +30,7 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--color-text);
-  text-align: center;
+  text-align: left;
 }
 
 /* highlight wraps text only — not the full block width */

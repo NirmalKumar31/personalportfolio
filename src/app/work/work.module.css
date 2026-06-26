@@ -22,7 +22,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Timeline */
+/* ── Timeline ── */
 .timeline {
   display: flex;
   flex-direction: column;
@@ -38,31 +38,58 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 6px;
+  padding-top: 18px;
 }
 
 .timelineDot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
-  background: var(--color-text);
+  background: var(--color-border);
+  border: 2px solid var(--color-card);
+  outline: 2px solid var(--color-border);
   flex-shrink: 0;
+  transition: background 0.2s, outline-color 0.2s;
+}
+
+.dotActive {
+  background: var(--color-text);
+  outline-color: var(--color-text);
 }
 
 .timelineLine {
   width: 1px;
   flex: 1;
   background: var(--color-border);
-  margin-top: 6px;
-  min-height: 24px;
+  margin-top: 5px;
+  min-height: 20px;
 }
 
-.timelineItem:last-child .timelineLine {
-  display: none;
-}
-
+/* ── Card / expandable box ── */
 .timelineContent {
-  padding-bottom: 2.5rem;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.contentOpen {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.expButton {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.expButton:hover {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .expHeader {
@@ -70,48 +97,70 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
+}
+
+.expMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .company {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
-  margin: 0 0 0.2rem;
+  margin: 0;
 }
 
 .role {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   color: var(--color-muted);
   margin: 0;
   font-family: var(--font-body);
 }
 
+.expRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
 .timeframe {
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--color-muted);
   font-family: var(--font-body);
   white-space: nowrap;
-  margin-top: 2px;
 }
 
+.toggleIcon {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  font-weight: 300;
+  line-height: 1;
+  font-family: var(--font-body);
+}
+
+/* ── Expanded content ── */
 .bullets {
   list-style: none;
-  padding: 0;
+  padding: 0 1.4rem 1.2rem;
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
 }
 
 .bullet {
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.72;
   color: var(--color-muted);
   font-family: var(--font-body);
-  padding-left: 1.1rem;
+  padding-left: 1rem;
   position: relative;
 }
 
@@ -123,29 +172,23 @@
 }
 
 /* Education */
-.eduList {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.eduItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.institution {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0;
-}
-
 .eduDesc {
   font-size: 0.88rem;
-  line-height: 1.7;
+  line-height: 1.72;
   color: var(--color-muted);
   font-family: var(--font-body);
+  padding: 0 1.4rem 1.2rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .expHeader {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .expRight {
+    flex-direction: row;
+    align-items: center;
+  }
 }
