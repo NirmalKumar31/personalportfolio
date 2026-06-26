@@ -1,15 +1,14 @@
 .page {
-  min-height: 100vh;
+  width: 100%;
+  padding: 3.5rem 0 6rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 3.5rem 0 6rem;
-  width: 100%;
 }
 
-/* ── Headline ── */
+/* ── Headline — centered ── */
 .headlineBlock {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .headline {
@@ -22,9 +21,9 @@
 .line {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
@@ -36,12 +35,13 @@
   border-radius: 4px;
 }
 
-/* ── Pills ── */
+/* ── Pills — centered ── */
 .pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+  justify-content: center;
 }
 
 .pill {
@@ -58,27 +58,82 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-/* ── Intro text ── */
-.intro {
+/* ── Content sections — left aligned ── */
+.sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 680px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.4rem;
+}
+
+.body {
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.88;
-  color: var(--color-muted);
-  max-width: 640px;
+  color: var(--color-text);
+  margin: 0;
 }
 
-.intro strong {
+.quote {
+  border-left: 3px solid var(--color-border);
+  margin: 0;
+  padding: 0.5rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-muted);
+  line-height: 1.7;
+  background: rgba(0, 0, 0, 0.015);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Inline highlights */
+.hlTeal {
+  background: #b2f5ea;
+  border-radius: 3px;
+  padding: 0.05em 0.25em;
   color: var(--color-text);
-  font-weight: 600;
+  font-style: normal;
+}
+
+.hlSky {
+  background: #bde4f4;
+  border-radius: 3px;
+  padding: 0.05em 0.25em;
+  color: var(--color-text);
+  font-style: normal;
+}
+
+.hlYellow {
+  background: var(--hl-yellow);
+  border-radius: 3px;
+  padding: 0.05em 0.25em;
+  color: var(--color-text);
+  font-style: normal;
 }
 
 @media (max-width: 768px) {
   .page {
     padding: 2rem 0 5rem;
-    min-height: auto;
   }
 
   .line {
-    font-size: clamp(2rem, 9vw, 3rem);
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
   }
 }

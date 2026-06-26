@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./about.module.css";
-import { about } from "@/resources";
 
 const container = {
   hidden: {},
@@ -26,14 +25,16 @@ export default function About() {
       initial="hidden"
       animate="show"
     >
+      {/* Headline — centered */}
       <motion.div variants={item} className={styles.headlineBlock}>
         <h1 className={styles.headline}>
-          <span className={styles.line}>I import the data.</span>
-          <span className={styles.line}>I clean the data.</span>
-          <span className={`${styles.line} ${styles.lineHighlight}`}>Turns out that&apos;s most of the job.</span>
+          <span className={styles.line}>Engineer the pipeline.</span>
+          <span className={styles.line}>Analyze the patterns.</span>
+          <span className={`${styles.line} ${styles.lineHighlight}`}>Build the model. Ship it.</span>
         </h1>
       </motion.div>
 
+      {/* Pills — centered */}
       <motion.div variants={item} className={styles.pills}>
         {PILLS.map(p => (
           <span key={p.label} className={styles.pill}>
@@ -42,8 +43,45 @@ export default function About() {
         ))}
       </motion.div>
 
-      <motion.div variants={item} className={styles.intro}>
-        {about.intro.description}
+      {/* Content sections — left aligned */}
+      <motion.div variants={item} className={styles.sections}>
+
+        <div className={styles.section}>
+          <p className={styles.sectionLabel}>01 / WHO</p>
+          <p className={styles.body}>
+            My name is <mark className={styles.hlTeal}>Nirmal Kumar</mark>. I&apos;m a data professional
+            who spends most of his time building pipelines, running analyses, and occasionally
+            training models. I work across the full data stack — from raw ingestion to the
+            dashboard someone actually opens on a Monday morning. I care about{" "}
+            <mark className={styles.hlSky}>making data useful</mark>, not just technically correct.
+          </p>
+          <blockquote className={styles.quote}>
+            &ldquo;I don&apos;t just move data from A to B. I care about what happens when it gets there.&rdquo;
+          </blockquote>
+          <p className={styles.body}>
+            Over the last year and a half I&apos;ve worked across some pretty different spaces:
+            predictive maintenance on factory machines, medical imaging models, and data pipelines
+            and marketing analytics at a financial firm. Not the most linear path — but the
+            domains kept changing, which kept it interesting. My experience sits somewhere between{" "}
+            <mark className={styles.hlYellow}>data engineering, analytics, and ML</mark>. I&apos;ve
+            moved between all three depending on what the problem needed.
+          </p>
+        </div>
+
+        <div className={styles.section}>
+          <p className={styles.sectionLabel}>02 / RIGHT NOW</p>
+          <p className={styles.body}>
+            Last semester of my MS at Northeastern (GPA: 3.8).{" "}
+            <mark className={styles.hlYellow}>Actively looking for full-time roles</mark> in data
+            engineering, analytics engineering, or data science. In between, I&apos;m working on
+            side projects, attending meetups, and trying not to start five new things at once.
+          </p>
+          <p className={styles.body}>
+            If something I&apos;ve built looks interesting to you, I&apos;d love to talk. Reach out
+            through the contact page or my socials.
+          </p>
+        </div>
+
       </motion.div>
     </motion.div>
   );
