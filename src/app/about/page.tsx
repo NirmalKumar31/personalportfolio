@@ -1,14 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+import type { Variants, Easing } from "framer-motion";
 import styles from "./about.module.css";
 import { about } from "@/resources";
 
-const fadeUp = {
+const easeOut: Easing = "easeOut";
+
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.5, ease: easeOut },
   }),
 };
 
@@ -110,7 +113,7 @@ export default function About() {
               <div key={i} className={styles.skillGroup}>
                 <h3 className={styles.skillGroupTitle}>{group.title}</h3>
                 <div className={styles.tags}>
-                  {group.tags.map((tag) => (
+                  {(group.tags ?? []).map((tag) => (
                     <span key={tag.name} className={styles.tag}>
                       {tag.name}
                     </span>
