@@ -2,10 +2,8 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 5rem 0 6rem;
+  justify-content: flex-start;
+  padding: 3.5rem 0 6rem;
   width: 100%;
 }
 
@@ -17,16 +15,16 @@
 .headline {
   display: flex;
   flex-direction: column;
-  gap: 0.05em;
+  gap: 0;
   margin: 0;
 }
 
 .line {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
@@ -34,7 +32,7 @@
 .lineHighlight {
   display: inline-block;
   background: var(--hl-yellow);
-  padding: 0.02em 0.12em;
+  padding: 0.02em 0.12em 0.06em;
   border-radius: 4px;
 }
 
@@ -67,7 +65,6 @@
   line-height: 1.88;
   color: var(--color-muted);
   max-width: 640px;
-  text-align: left;
 }
 
 .intro strong {
@@ -77,11 +74,11 @@
 
 @media (max-width: 768px) {
   .page {
-    padding: 3rem 0 5rem;
+    padding: 2rem 0 5rem;
     min-height: auto;
   }
 
   .line {
-    font-size: clamp(1.8rem, 9vw, 2.6rem);
+    font-size: clamp(2rem, 9vw, 3rem);
   }
 }

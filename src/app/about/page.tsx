@@ -28,9 +28,9 @@ export default function About() {
     >
       <motion.div variants={item} className={styles.headlineBlock}>
         <h1 className={styles.headline}>
-          <span className={styles.line}>I move data.</span>
-          <span className={styles.line}>I ask hard questions.</span>
-          <span className={`${styles.line} ${styles.lineHighlight}`}>Usually in that order.</span>
+          <span className={styles.line}>I import the data.</span>
+          <span className={styles.line}>I clean the data.</span>
+          <span className={`${styles.line} ${styles.lineHighlight}`}>Turns out that&apos;s most of the job.</span>
         </h1>
       </motion.div>
 
