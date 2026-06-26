@@ -1,0 +1,134 @@
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.back {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.back:hover {
+  color: var(--color-text);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.typeTag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--color-text);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+.githubLink {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.githubLink:hover {
+  color: var(--color-text);
+}
+
+.coverImage {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  display: block;
+}
+
+.content {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.content h1, .content h2, .content h3 {
+  font-family: var(--font-display);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.content p {
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+}
+
+.content a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.content ul, .content ol {
+  padding-left: 1.4rem;
+  color: var(--color-muted);
+}
+
+.content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.72;
+}
+
+.content code {
+  font-size: 0.85em;
+  background: var(--color-nav);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  color: var(--color-text);
+}
+
+.content pre {
+  background: var(--color-nav);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.content blockquote {
+  border-left: 3px solid var(--color-border);
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  color: var(--color-muted);
+  font-style: italic;
+}

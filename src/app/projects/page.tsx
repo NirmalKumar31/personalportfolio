@@ -3,6 +3,16 @@ import { getPosts } from "@/utils/utils";
 import { about } from "@/resources";
 import styles from "./projects.module.css";
 
+const SKILL_EMOJIS: Record<string, string> = {
+  Python: "🐍", R: "📊", Pandas: "🐼", NumPy: "🔢", SciPy: "🔬",
+  Plotly: "📈", Tableau: "📊", SQL: "🗄️", Jupyter: "📔",
+  AWS: "☁️", S3: "🪣", Redshift: "🔴", Snowflake: "❄️",
+  Databricks: "⚡", dbt: "🔧", Airflow: "🌊", Spark: "🔥",
+  Hadoop: "🐘", Kafka: "📨", Kubernetes: "☸️", Docker: "🐳", Git: "🌿",
+  TensorFlow: "🧠", Keras: "❤️", PyTorch: "🔥", "Scikit-learn": "🤖",
+  PostgreSQL: "🐘", MySQL: "🐬", MongoDB: "🍃",
+};
+
 export default function Projects() {
   const projects = getPosts(["src", "app", "work", "projects"]).sort(
     (a, b) =>
@@ -13,64 +23,62 @@ export default function Projects() {
   return (
     <div className={styles.page}>
 
-      {/* Projects */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Projects</h2>
-        <div className={styles.grid}>
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className={styles.card}
-            >
-              {project.metadata.images?.[0] && (
-                <div className={styles.cardImage}>
-                  <img
-                    src={project.metadata.images[0]}
-                    alt={project.metadata.title}
-                    className={styles.img}
-                  />
-                </div>
-              )}
-              <div className={styles.cardBody}>
-                {project.metadata.projectType && (
-                  <span className={styles.projectType}>
-                    {project.metadata.projectType}
+      {/* Skills — categorized with emojis */}
+      {about.technical.display && (
+        <section className={styles.section}>
+          {about.technical.skills.map((group, i) => (
+            <div key={i} className={styles.skillGroup}>
+              <p className={styles.skillGroupLabel}>{group.title}</p>
+              <div className={styles.tagRow}>
+                {(group.tags ?? []).map((tag) => (
+                  <span key={tag.name} className={styles.skillTag}>
+                    <span>{SKILL_EMOJIS[tag.name] ?? "🔹"}</span>
+                    {tag.name}
                   </span>
-                )}
-                <h2 className={styles.cardTitle}>{project.metadata.title}</h2>
-                <p className={styles.cardDesc}>{project.metadata.summary}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {/* Projects — horizontal two-column list */}
+      <section className={styles.section}>
+        <div className={styles.projectList}>
+          {projects.map((project) => (
+            <div key={project.slug} className={styles.projectRow}>
+              <div className={styles.projectLeft}>
+                <h2 className={styles.projectTitle}>{project.metadata.title}</h2>
                 {project.metadata.tags && project.metadata.tags.length > 0 && (
                   <div className={styles.tagRow}>
                     {project.metadata.tags.map((tag) => (
-                      <span key={tag} className={styles.tag}>{tag}</span>
+                      <span key={tag} className={styles.projectTag}>{tag}</span>
                     ))}
                   </div>
                 )}
               </div>
-            </Link>
+              <div className={styles.projectRight}>
+                <p className={styles.projectDesc}>{project.metadata.summary}</p>
+                <div className={styles.projectLinks}>
+                  <Link href={`/work/${project.slug}`} className={styles.linkDetail}>
+                    View details →
+                  </Link>
+                  {project.metadata.link && (
+                    <a
+                      href={project.metadata.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.linkExternal}
+                    >
+                      View project ↗
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
-
-      {/* Skills */}
-      {about.technical.display && (
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>{about.technical.title}</h2>
-          <div className={styles.skillGroups}>
-            {about.technical.skills.map((group, i) => (
-              <div key={i} className={styles.skillGroup}>
-                <h3 className={styles.skillGroupTitle}>{group.title}</h3>
-                <div className={styles.tagRow}>
-                  {(group.tags ?? []).map((tag) => (
-                    <span key={tag.name} className={styles.tag}>{tag.name}</span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
     </div>
   );

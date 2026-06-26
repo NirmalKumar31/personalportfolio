@@ -16,6 +16,14 @@ export default function Work() {
       {about.work.display && (
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>{about.work.title}</h2>
+          <div className={styles.sectionIntro}>
+            <p className={styles.introStat}>
+              3+ years of experience spanning data engineering, analytics, and machine learning — from ML internships to production-scale analytics at Fidelity.
+            </p>
+            <p className={styles.introHint}>
+              Click on any role to dig into what I built and learned there.
+            </p>
+          </div>
           <div className={styles.timeline}>
             {about.work.experiences.map((exp, i) => (
               <div key={`${exp.company}-${i}`} className={styles.timelineItem}>

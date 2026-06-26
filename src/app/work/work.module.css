@@ -22,6 +22,30 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+/* ── Section intro ── */
+.sectionIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.introStat {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.introHint {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-style: italic;
+  margin: 0;
+}
+
 /* ── Timeline ── */
 .timeline {
   display: flex;
@@ -71,12 +95,29 @@
   border: 1px solid var(--color-border);
   border-radius: 12px;
   margin-bottom: 1rem;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
   overflow: hidden;
+  transform-origin: center left;
+}
+
+.timelineContent:hover {
+  transform: scale(1.013);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.09);
 }
 
 .contentOpen {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.contentOpen:hover {
+  transform: scale(1.013);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.11);
+}
+
+/* dot goes black when its card is hovered */
+.timelineItem:has(.timelineContent:hover) .timelineDot {
+  background: var(--color-text);
+  outline-color: var(--color-text);
 }
 
 .expButton {
@@ -115,7 +156,7 @@
 
 .role {
   font-size: 0.84rem;
-  color: var(--color-muted);
+  color: #3e3e3b;
   margin: 0;
   font-family: var(--font-body);
 }
