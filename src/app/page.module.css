@@ -82,10 +82,9 @@
   right: 14px;
   width: 11px;
   height: 11px;
-  background: #22c55e;
+  background: var(--color-text);
   border-radius: 50%;
   border: 2px solid #fff;
-  animation: pulseDot 2.2s ease-in-out infinite;
 }
 
 .socials {
@@ -145,9 +144,8 @@
 .statusDot {
   width: 6px;
   height: 6px;
-  background: #22c55e;
+  background: var(--color-text);
   border-radius: 50%;
-  animation: tickpulse 2s ease-in-out infinite;
 }
 
 .nameBlock {
