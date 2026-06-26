@@ -1,19 +1,53 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./about.module.css";
-import { about, person } from "@/resources";
+import { about } from "@/resources";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 18 },
+  show:  { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
+const PILLS = [
+  { icon: "📍", label: "Boston, MA" },
+  { icon: "🎓", label: "MS Data Analytics · Northeastern" },
+  { icon: "💼", label: "Open to full-time" },
+];
 
 export default function About() {
   return (
-    <div className={styles.page}>
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <h1 className={styles.heading}>Hey, I'm {person.firstName}.</h1>
-        <div className={styles.intro}>{about.intro.description}</div>
+    <motion.div
+      className={styles.page}
+      variants={container}
+      initial="hidden"
+      animate="show"
+    >
+      {/* Big headline */}
+      <motion.div variants={item} className={styles.headlineBlock}>
+        <h1 className={styles.headline}>
+          <span className={styles.line}>Messy data.</span>
+          <span className={styles.line}>Clean pipelines.</span>
+          <span className={`${styles.line} ${styles.lineHighlight}`}>Better decisions.</span>
+        </h1>
       </motion.div>
-    </div>
+
+      {/* Info pills */}
+      <motion.div variants={item} className={styles.pills}>
+        {PILLS.map(p => (
+          <span key={p.label} className={styles.pill}>
+            {p.icon} {p.label}
+          </span>
+        ))}
+      </motion.div>
+
+      {/* Intro text */}
+      <motion.div variants={item} className={styles.intro}>
+        {about.intro.description}
+      </motion.div>
+    </motion.div>
   );
 }
