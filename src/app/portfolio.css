@@ -63,6 +63,15 @@ body {
 /* Text selection */
 ::selection { background: var(--hl-yellow); color: var(--color-text); }
 
+/* Kill Once UI brand/accent color on all links inside the layout */
+.portfolioLayout a,
+.portfolioLayout a:visited,
+.portfolioLayout a:hover,
+.portfolioLayout a:focus {
+  color: inherit !important;
+  text-decoration: none;
+}
+
 
 @media (max-width: 768px) {
   .portfolioLayout {
