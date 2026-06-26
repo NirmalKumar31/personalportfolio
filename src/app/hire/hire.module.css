@@ -1,140 +1,223 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
-  padding-bottom: 4rem;
-  max-width: 680px;
+  gap: 2.5rem;
+  padding-bottom: 5rem;
+  max-width: 740px;
 }
 
-.hero {
+/* ── Header ── */
+.header {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.statusRow {
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  background: #22c55e;
-  border-radius: 50%;
-  animation: pulseDot 2.2s infinite;
-}
-
-.statusText {
-  font-size: 0.82rem;
-  color: #16a34a;
-  font-family: var(--font-body);
-  letter-spacing: 0.01em;
-}
-
 .heading {
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 700;
   color: var(--color-text);
   margin: 0;
   letter-spacing: -0.03em;
-  line-height: 1.15;
 }
 
-.subheading {
+.subtitle {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.8;
   color: var(--color-muted);
   margin: 0;
-  max-width: 560px;
+  line-height: 1.6;
+}
+
+.pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.pill {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  background: var(--color-card);
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ── Intro ── */
+.intro {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Sections ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .sectionTitle {
-  font-family: var(--font-heading);
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--color-text);
-  margin: 0 0 1.25rem;
+  margin: 0;
   letter-spacing: -0.02em;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--color-border);
 }
 
-/* Offerings */
-.offerings {
+.sectionNote {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  margin: -0.5rem 0 0;
+  line-height: 1.6;
+}
+
+/* ── Eligibility ── */
+.eligibilityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.eligibilityCard {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
 }
 
-.cards {
+.eligibilityCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.eligibilityIcon {
+  font-size: 1.2rem;
+}
+
+.eligibilityDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.72;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* ── Bullets ── */
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.bullet {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.78;
+  color: var(--color-text);
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.bullet::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--color-muted);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* ── Skill cards ── */
+.skillCards {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.card {
+.skillCard {
   background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
   display: flex;
   flex-direction: column;
+  gap: 0.65rem;
+}
+
+.skillCardTitle {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.skillCardDesc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.4rem;
+  margin-top: 0.25rem;
 }
 
-.cardTitle {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0;
-}
-
-.cardDesc {
+.tag {
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: var(--color-muted);
-  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.18rem 0.55rem;
+  background: var(--color-bg);
 }
 
-/* Details */
-.details {
+/* ── Closing ── */
+.closing {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 }
 
-.detailGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem 2rem;
-}
-
-.detailItem {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.detailLabel {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
+.closingText {
+  font-family: var(--font-body);
+  font-size: 1rem;
   color: var(--color-muted);
-  font-family: var(--font-body);
+  margin: 0;
+  line-height: 1.8;
 }
 
-.detailValue {
-  font-size: 0.9rem;
-  color: var(--color-text);
-  font-family: var(--font-body);
-  line-height: 1.5;
-}
-
-/* CTA */
 .cta {
   display: flex;
   gap: 0.75rem;
@@ -146,14 +229,14 @@
   background: var(--color-text);
   color: var(--color-bg);
   border-radius: 8px;
-  text-decoration: none;
   font-size: 0.9rem;
   font-family: var(--font-body);
+  font-weight: 500;
   transition: opacity 0.2s;
 }
 
 .btnPrimary:hover {
-  opacity: 0.85;
+  opacity: 0.82;
 }
 
 .btnSecondary {
@@ -162,7 +245,6 @@
   color: var(--color-text);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  text-decoration: none;
   font-size: 0.9rem;
   font-family: var(--font-body);
   transition: background 0.2s;
@@ -173,7 +255,7 @@
 }
 
 @media (max-width: 600px) {
-  .detailGrid {
+  .eligibilityGrid {
     grid-template-columns: 1fr;
   }
 }
