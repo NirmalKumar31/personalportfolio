@@ -82,6 +82,12 @@ export default function HomePage() {
             <h1 className={styles.name}>Nirmal !</h1>
           </motion.div>
 
+          <motion.div variants={item} className={styles.rolesBox}>
+            {ROLES.map(role => (
+              <span key={role} className={styles.roleTag}>{role}</span>
+            ))}
+          </motion.div>
+
           <motion.div variants={item} className={styles.divider} />
 
           <motion.p variants={item} className={styles.bioLead}>
@@ -95,10 +101,16 @@ export default function HomePage() {
             Finishing up my degree and actively looking for full-time roles.
           </motion.p>
 
-          <motion.div variants={item} className={styles.rolesBox}>
-            {ROLES.map(role => (
-              <span key={role} className={styles.roleTag}>{role}</span>
-            ))}
+          <motion.div variants={item} className={styles.didYouKnow}>
+            <span className={styles.didYouKnowIcon}>💡</span>
+            <div>
+              <span className={styles.didYouKnowLabel}>Did you know?</span>
+              <p className={styles.didYouKnowText}>
+                I&apos;m on OPT and can start immediately — no H-1B needed upfront, and
+                no $100K sponsorship fee for the employer since I&apos;m transitioning
+                from F1 to H1B.
+              </p>
+            </div>
           </motion.div>
 
         </div>

@@ -224,6 +224,44 @@
   flex-direction: row;
   gap: 0.5rem;
   flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+}
+
+/* ── Did you know box ── */
+.didYouKnow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.didYouKnowIcon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.didYouKnowLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.didYouKnowText {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--color-muted);
+  margin: 0;
 }
 
 .roleTag {
