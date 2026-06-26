@@ -1,14 +1,17 @@
 .page {
-  width: 100%;
-  padding: 3.5rem 0 6rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 3.5rem 0 6rem;
+  width: 100%;
 }
 
 /* ── Headline — centered ── */
 .headlineBlock {
   margin-bottom: 2rem;
   text-align: center;
+  width: 100%;
 }
 
 .headline {
@@ -26,13 +29,17 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--color-text);
+  text-align: center;
 }
 
+/* highlight wraps text only — not the full block width */
 .lineHighlight {
-  display: inline-block;
+  display: inline;
   background: var(--hl-yellow);
-  padding: 0.02em 0.12em 0.06em;
+  padding: 0.04em 0.1em;
   border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 /* ── Pills — centered ── */
@@ -40,7 +47,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
-  margin-bottom: 3.5rem;
+  margin-bottom: 3rem;
   justify-content: center;
 }
 
@@ -58,12 +65,13 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
-/* ── Content sections — left aligned ── */
+/* ── Content sections — centered block, left-aligned text ── */
 .sections {
   display: flex;
   flex-direction: column;
   gap: 3rem;
   max-width: 680px;
+  width: 100%;
 }
 
 .section {
@@ -88,19 +96,6 @@
   line-height: 1.88;
   color: var(--color-text);
   margin: 0;
-}
-
-.quote {
-  border-left: 3px solid var(--color-border);
-  margin: 0;
-  padding: 0.5rem 1.2rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-style: italic;
-  color: var(--color-muted);
-  line-height: 1.7;
-  background: rgba(0, 0, 0, 0.015);
-  border-radius: 0 6px 6px 0;
 }
 
 /* Inline highlights */
@@ -131,6 +126,7 @@
 @media (max-width: 768px) {
   .page {
     padding: 2rem 0 5rem;
+    min-height: auto;
   }
 
   .line {

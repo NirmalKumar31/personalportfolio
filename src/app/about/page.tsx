@@ -30,7 +30,9 @@ export default function About() {
         <h1 className={styles.headline}>
           <span className={styles.line}>Engineer the pipeline.</span>
           <span className={styles.line}>Analyze the patterns.</span>
-          <span className={`${styles.line} ${styles.lineHighlight}`}>Build the model. Ship it.</span>
+          <span className={styles.line}>
+            <span className={styles.lineHighlight}>Build the model. Ship it.</span>
+          </span>
         </h1>
       </motion.div>
 
@@ -43,23 +45,19 @@ export default function About() {
         ))}
       </motion.div>
 
-      {/* Content sections — left aligned */}
+      {/* Content sections */}
       <motion.div variants={item} className={styles.sections}>
 
         <div className={styles.section}>
           <p className={styles.sectionLabel}>01 / WHO</p>
           <p className={styles.body}>
-            My name is <mark className={styles.hlTeal}>Nirmal Kumar</mark>. I&apos;m a data professional
-            who spends most of his time building pipelines, running analyses, and occasionally
-            training models. I work across the full data stack — from raw ingestion to the
-            dashboard someone actually opens on a Monday morning. I care about{" "}
-            <mark className={styles.hlSky}>making data useful</mark>, not just technically correct.
+            My name is <mark className={styles.hlTeal}>Nirmalkumar Thirupallikrishnan Kesavan</mark>.
+            I&apos;m a data professional who spends most of his time building pipelines, running
+            analyses, and occasionally training models. I work across the full data stack — from raw
+            ingestion to the dashboard someone actually opens on a Monday morning.
           </p>
-          <blockquote className={styles.quote}>
-            &ldquo;I don&apos;t just move data from A to B. I care about what happens when it gets there.&rdquo;
-          </blockquote>
           <p className={styles.body}>
-            Over the last year and a half I&apos;ve worked across some pretty different spaces:
+            Over the last few years I&apos;ve worked across some pretty different spaces:
             predictive maintenance on factory machines, medical imaging models, and data pipelines
             and marketing analytics at a financial firm. Not the most linear path — but the
             domains kept changing, which kept it interesting. My experience sits somewhere between{" "}
