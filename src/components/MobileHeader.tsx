@@ -7,8 +7,10 @@ import { person } from "@/resources";
 
 const navLinks = [
   { href: "/", label: "home" },
-  { href: "/about", label: "about" },
-  { href: "/work", label: "projects" },
+  { href: "/about", label: "about myself" },
+  { href: "/hire", label: "hire me!" },
+  { href: "/work", label: "work" },
+  { href: "/contact", label: "contact me" },
 ];
 
 export default function MobileHeader() {
