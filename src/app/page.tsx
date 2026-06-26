@@ -69,11 +69,6 @@ export default function HomePage() {
         {/* RIGHT COLUMN */}
         <div className={styles.right}>
 
-          <motion.div variants={item} className={styles.statusPill}>
-            <span className={styles.statusDot} />
-            actively looking
-          </motion.div>
-
           <motion.div variants={item} className={styles.nameBlock}>
             <p className={styles.hello}>
               Hello

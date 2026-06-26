@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Nav.module.css";
-import { person, social } from "@/resources";
+import { person } from "@/resources";
 
 const navLinks = [
   { href: "/", label: "home" },
@@ -21,11 +21,10 @@ export default function Nav() {
         <div className={styles.identity}>
           <p className={styles.name}>
             {person.firstName}
-            <span className={styles.nameDot}>.</span>
           </p>
           <div className={styles.statusPill}>
             <span className={styles.greenDot} />
-            <span>actively looking</span>
+            <span>actively looking for full time roles</span>
           </div>
         </div>
 
@@ -46,24 +45,6 @@ export default function Nav() {
         </ul>
       </div>
 
-      <div className={styles.bottom}>
-        <p className={styles.location}>Boston, MA</p>
-        <div className={styles.socials}>
-          {social
-            .filter((s) => s.essential && s.link)
-            .map((s) => (
-              <a
-                key={s.name}
-                href={s.link}
-                className={styles.socialLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {s.name}
-              </a>
-            ))}
-        </div>
-      </div>
     </nav>
   );
 }
