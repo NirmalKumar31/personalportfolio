@@ -13,7 +13,7 @@ const item = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
 }
 
-const ROLES = ['Data Engineer', 'Analytics Engineer', 'Data Analyst']
+const ROLES = ['Data Engineer', 'Analytics Engineer', 'Data Analyst', 'Data Scientist']
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -37,7 +37,7 @@ export default function HomePage() {
               <div className={styles.polaroidInner}>
                 <img src="/images/avatar.jpg" alt="Nirmal" className={styles.polaroidImg} />
               </div>
-              <span className={styles.polaroidCaption}>boston, ma — open to anywhere</span>
+              <span className={styles.polaroidCaption}>boston, ma — open to relocate anywhere</span>
               <span className={styles.onlineDot} />
             </div>
           </motion.div>
@@ -76,12 +76,13 @@ export default function HomePage() {
 
           <motion.div variants={item} className={styles.nameBlock}>
             <p className={styles.hello}>
-              Hello I&apos;m
+              Hello
               <img
                 src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f44b/512.gif"
                 alt="👋"
                 className={styles.helloGif}
               />
+              I&apos;m
             </p>
             <h1 className={styles.name}>Nirmal !</h1>
           </motion.div>
@@ -97,10 +98,6 @@ export default function HomePage() {
             MS in Data Analytics Engineering at Northeastern (GPA: 3.8). Experience across
             data engineering, marketing analytics, and ML — previously at Fidelity Investments.
             Finishing up my degree and actively looking for full-time roles.
-          </motion.p>
-
-          <motion.p variants={item} className={styles.aside}>
-            — glad you found this. have a look around, and reach out if something catches your eye 👋
           </motion.p>
 
           <motion.div variants={item} className={styles.rolesBox}>
