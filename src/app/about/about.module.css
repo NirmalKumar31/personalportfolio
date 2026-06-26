@@ -1,8 +1,10 @@
 .page {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 4rem 0 6rem;
-  max-width: 760px;
+  justify-content: center;
+  padding: 5rem 0 6rem;
+  width: 100%;
 }
 
 /* ── Headline ── */
@@ -13,24 +15,24 @@
 .headline {
   display: flex;
   flex-direction: column;
-  gap: 0.1em;
+  gap: 0.05em;
   margin: 0;
 }
 
 .line {
   display: block;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
 
 .lineHighlight {
-  background: var(--hl-yellow);
   display: inline-block;
-  padding: 0 0.12em;
+  background: var(--hl-yellow);
+  padding: 0.02em 0.12em;
   border-radius: 4px;
 }
 
@@ -72,10 +74,11 @@
 
 @media (max-width: 768px) {
   .page {
-    padding: 2rem 0 5rem;
+    padding: 3rem 0 5rem;
+    min-height: auto;
   }
 
   .line {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    font-size: clamp(1.8rem, 9vw, 2.6rem);
   }
 }

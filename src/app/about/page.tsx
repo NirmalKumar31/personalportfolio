@@ -26,16 +26,14 @@ export default function About() {
       initial="hidden"
       animate="show"
     >
-      {/* Big headline */}
       <motion.div variants={item} className={styles.headlineBlock}>
         <h1 className={styles.headline}>
-          <span className={styles.line}>Messy data.</span>
-          <span className={styles.line}>Clean pipelines.</span>
-          <span className={`${styles.line} ${styles.lineHighlight}`}>Better decisions.</span>
+          <span className={styles.line}>I move data.</span>
+          <span className={styles.line}>I ask hard questions.</span>
+          <span className={`${styles.line} ${styles.lineHighlight}`}>Usually in that order.</span>
         </h1>
       </motion.div>
 
-      {/* Info pills */}
       <motion.div variants={item} className={styles.pills}>
         {PILLS.map(p => (
           <span key={p.label} className={styles.pill}>
@@ -44,7 +42,6 @@ export default function About() {
         ))}
       </motion.div>
 
-      {/* Intro text */}
       <motion.div variants={item} className={styles.intro}>
         {about.intro.description}
       </motion.div>
