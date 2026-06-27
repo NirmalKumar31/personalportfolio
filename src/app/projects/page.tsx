@@ -23,9 +23,18 @@ export default function Projects() {
   return (
     <div className={styles.page}>
 
-      {/* Skills — categorized with emojis */}
+      {/* Page header */}
+      <div className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>Projects & Skills</h1>
+        <p className={styles.pageSubtitle}>
+          Things I have built, technologies I work with, and problems I found interesting enough to solve.
+        </p>
+      </div>
+
+      {/* Skills */}
       {about.technical.display && (
         <section className={styles.section}>
+          <p className={styles.sectionLabel}>Technologies</p>
           {about.technical.skills.map((group, i) => (
             <div key={i} className={styles.skillGroup}>
               <p className={styles.skillGroupLabel}>{group.title}</p>
@@ -42,38 +51,30 @@ export default function Projects() {
         </section>
       )}
 
-      {/* Projects — horizontal two-column list */}
+      {/* Projects — card grid */}
       <section className={styles.section}>
-        <div className={styles.projectList}>
+        <p className={styles.sectionLabel}>Projects</p>
+        <div className={styles.projectGrid}>
           {projects.map((project) => (
-            <div key={project.slug} className={styles.projectRow}>
-              <div className={styles.projectLeft}>
-                <h2 className={styles.projectTitle}>{project.metadata.title}</h2>
+            <div key={project.slug} className={styles.projectCard}>
+              <div className={styles.cardImage}>
+                {project.metadata.images && project.metadata.images.length > 0 ? (
+                  <img src={project.metadata.images[0]} alt={project.metadata.title} />
+                ) : null}
+              </div>
+              <div className={styles.cardBody}>
+                <div className={styles.cardTop}>
+                  <h2 className={styles.cardTitle}>{project.metadata.title}</h2>
+                  <Link href={`/work/${project.slug}`} className={styles.cardArrow}>↗</Link>
+                </div>
+                <p className={styles.cardDesc}>{project.metadata.summary}</p>
                 {project.metadata.tags && project.metadata.tags.length > 0 && (
-                  <div className={styles.tagRow}>
+                  <div className={styles.cardTags}>
                     {project.metadata.tags.map((tag) => (
-                      <span key={tag} className={styles.projectTag}>{tag}</span>
+                      <span key={tag} className={styles.cardTag}>{tag}</span>
                     ))}
                   </div>
                 )}
-              </div>
-              <div className={styles.projectRight}>
-                <p className={styles.projectDesc}>{project.metadata.summary}</p>
-                <div className={styles.projectLinks}>
-                  <Link href={`/work/${project.slug}`} className={styles.linkDetail}>
-                    View details →
-                  </Link>
-                  {project.metadata.link && (
-                    <a
-                      href={project.metadata.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.linkExternal}
-                    >
-                      View project ↗
-                    </a>
-                  )}
-                </div>
               </div>
             </div>
           ))}
