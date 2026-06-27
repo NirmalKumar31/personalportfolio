@@ -79,33 +79,83 @@
   color: var(--color-text);
 }
 
-.content h1, .content h2, .content h3 {
+/* ── Plain MDX overrides (no Once UI autolinks or muted text) ── */
+.mdxH1 {
   font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
   color: var(--color-text);
-  letter-spacing: -0.02em;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+  margin: 2rem 0 0.6rem;
+  line-height: 1.2;
 }
 
-.content p {
-  color: var(--color-muted);
+.mdxH2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin: 1.75rem 0 0.5rem;
+  line-height: 1.25;
+}
+
+.mdxH3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.015em;
+  margin: 1.5rem 0 0.45rem;
+  line-height: 1.3;
+}
+
+.mdxH4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 1.25rem 0 0.4rem;
+  line-height: 1.3;
+}
+
+.mdxP {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--color-text);
   margin: 0 0 1rem;
+}
+
+.mdxP strong {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.mdxUl {
+  padding-left: 1.4rem;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.mdxOl {
+  padding-left: 1.4rem;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.mdxLi {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
 }
 
 .content a {
   color: var(--color-text);
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.content ul, .content ol {
-  padding-left: 1.4rem;
-  color: var(--color-muted);
-}
-
-.content li {
-  margin-bottom: 0.4rem;
-  line-height: 1.72;
 }
 
 .content code {

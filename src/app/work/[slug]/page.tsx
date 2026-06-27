@@ -6,6 +6,20 @@ import { CustomMDX, ScrollToHash } from "@/components";
 import { Metadata } from "next";
 import styles from "./slug.module.css";
 
+// Plain HTML overrides — removes Once UI HeadingLink autolinks and muted text colors
+const plainMdxComponents = {
+  h1: ({ children }: any) => <h1 className={styles.mdxH1}>{children}</h1>,
+  h2: ({ children }: any) => <h2 className={styles.mdxH2}>{children}</h2>,
+  h3: ({ children }: any) => <h3 className={styles.mdxH3}>{children}</h3>,
+  h4: ({ children }: any) => <h4 className={styles.mdxH4}>{children}</h4>,
+  h5: ({ children }: any) => <h5 className={styles.mdxH4}>{children}</h5>,
+  h6: ({ children }: any) => <h6 className={styles.mdxH4}>{children}</h6>,
+  p:  ({ children }: any) => <p  className={styles.mdxP}>{children}</p>,
+  ul: ({ children }: any) => <ul className={styles.mdxUl}>{children}</ul>,
+  ol: ({ children }: any) => <ol className={styles.mdxOl}>{children}</ol>,
+  li: ({ children }: any) => <li className={styles.mdxLi}>{children}</li>,
+};
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
   return posts.map((post) => ({
@@ -105,7 +119,7 @@ export default async function Project({
       )}
 
       <article className={styles.content}>
-        <CustomMDX source={post.content} />
+        <CustomMDX source={post.content} components={plainMdxComponents as any} />
       </article>
 
       <ScrollToHash />
