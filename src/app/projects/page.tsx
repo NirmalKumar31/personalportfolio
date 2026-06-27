@@ -4,13 +4,22 @@ import { about } from "@/resources";
 import styles from "./projects.module.css";
 
 const SKILL_EMOJIS: Record<string, string> = {
-  Python: "🐍", R: "📊", Pandas: "🐼", NumPy: "🔢", SciPy: "🔬",
-  Plotly: "📈", Tableau: "📊", SQL: "🗄️", Jupyter: "📔",
-  AWS: "☁️", S3: "🪣", Redshift: "🔴", Snowflake: "❄️",
-  Databricks: "⚡", dbt: "🔧", Airflow: "🌊", Spark: "🔥",
-  Hadoop: "🐘", Kafka: "📨", Kubernetes: "☸️", Docker: "🐳", Git: "🌿",
-  TensorFlow: "🧠", Keras: "❤️", PyTorch: "🔥", "Scikit-learn": "🤖",
-  PostgreSQL: "🐘", MySQL: "🐬", MongoDB: "🍃",
+  SQL: "🗄️", Python: "🐍", Pandas: "🐼", NumPy: "🔢", SciPy: "🧪",
+  Tableau: "📊", "Power BI": "📈", Excel: "📗", DAX: "🔢", Matplotlib: "📉", Seaborn: "🌊",
+  dbt: "🔧", Airflow: "💨", Snowflake: "❄️", Databricks: "⚡", PySpark: "🔥",
+  Hadoop: "🐘", Kafka: "📨", "ETL/ELT": "🔄", "Data Modeling": "🗂️", Git: "🌿",
+  AWS: "☁️", S3: "🪣", Redshift: "🔴", Glue: "🔗", Lambda: "🪄",
+  Azure: "🔷", Docker: "🐳", "CI/CD": "⚙️", PostgreSQL: "🐘", MySQL: "🐬", DynamoDB: "🗄️",
+  "Scikit-learn": "🤖", TensorFlow: "🧠", PyTorch: "🔥", XGBoost: "🌲",
+  LangChain: "🔍", RAG: "🔍", "Time Series": "⏱️", Keras: "❤️",
+  Spark: "🔥", Jupyter: "📔", R: "📊", MongoDB: "🍃", Kubernetes: "☸️",
+};
+
+const PROJECT_ICONS: Record<string, string> = {
+  "mbta-ontime-performance-prediction": "🚇",
+  "clinical-trial-data-management-system": "🏥",
+  "apple-data-analysis-with-sql": "🍎",
+  "los-angeles-crime-analysis-and-predictive-modeling": "🔍",
 };
 
 export default function Projects() {
@@ -27,7 +36,7 @@ export default function Projects() {
       <div className={styles.pageHeader}>
         <h1 className={styles.pageTitle}>Projects & Skills</h1>
         <p className={styles.pageSubtitle}>
-          Things I have built, technologies I work with, and problems I found interesting enough to solve.
+          Projects I&apos;ve actually built. Tools I actually use.
         </p>
       </div>
 
@@ -55,29 +64,35 @@ export default function Projects() {
       <section className={styles.section}>
         <p className={styles.sectionLabel}>Projects</p>
         <div className={styles.projectGrid}>
-          {projects.map((project) => (
-            <div key={project.slug} className={styles.projectCard}>
-              <div className={styles.cardImage}>
-                {project.metadata.images && project.metadata.images.length > 0 ? (
-                  <img src={project.metadata.images[0]} alt={project.metadata.title} />
-                ) : null}
-              </div>
-              <div className={styles.cardBody}>
-                <div className={styles.cardTop}>
-                  <h2 className={styles.cardTitle}>{project.metadata.title}</h2>
-                  <Link href={`/work/${project.slug}`} className={styles.cardArrow}>↗</Link>
+          {projects.map((project) => {
+            const hasImage = project.metadata.images && project.metadata.images.length > 0;
+            const icon = PROJECT_ICONS[project.slug];
+            return (
+              <div key={project.slug} className={styles.projectCard}>
+                <div className={styles.cardImage}>
+                  {hasImage ? (
+                    <img src={project.metadata.images[0]} alt={project.metadata.title} />
+                  ) : icon ? (
+                    <span className={styles.cardIcon}>{icon}</span>
+                  ) : null}
                 </div>
-                <p className={styles.cardDesc}>{project.metadata.summary}</p>
-                {project.metadata.tags && project.metadata.tags.length > 0 && (
-                  <div className={styles.cardTags}>
-                    {project.metadata.tags.map((tag) => (
-                      <span key={tag} className={styles.cardTag}>{tag}</span>
-                    ))}
+                <div className={styles.cardBody}>
+                  <div className={styles.cardTop}>
+                    <h2 className={styles.cardTitle}>{project.metadata.title}</h2>
+                    <Link href={`/work/${project.slug}`} className={styles.cardArrow}>↗</Link>
                   </div>
-                )}
+                  <p className={styles.cardDesc}>{project.metadata.summary}</p>
+                  {project.metadata.tags && project.metadata.tags.length > 0 && (
+                    <div className={styles.cardTags}>
+                      {project.metadata.tags.map((tag) => (
+                        <span key={tag} className={styles.cardTag}>{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
