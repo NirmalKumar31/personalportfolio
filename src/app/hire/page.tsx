@@ -120,7 +120,7 @@ export default function Hire() {
       <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.closing}>
         <hr className={styles.divider} />
         <p className={styles.closingText}>
-          <em>Feel free to go through my Projects &amp; Skills section to see what I&apos;ve actually built — the work speaks better than I can here. If something resonates, reach out.</em>
+          <em>Feel free to go through my Work and Projects sections to see what I&apos;ve actually worked on and built. If something resonates, please reach out.</em>
         </p>
         <div className={styles.cta}>
           <Link href="/contact" className={styles.btnPrimary}>Get in touch →</Link>
