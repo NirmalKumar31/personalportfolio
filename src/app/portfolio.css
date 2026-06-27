@@ -48,9 +48,16 @@ body {
   overflow: hidden;
 }
 
+.portfolioRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 0;
+}
+
 .portfolioMain {
   flex: 1;
-  height: 100vh;
   overflow-y: scroll;
   padding: 0 4.5rem;
 }

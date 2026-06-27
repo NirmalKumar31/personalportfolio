@@ -5,6 +5,7 @@ import "@/resources/custom.css";
 import "./portfolio.css";
 import { Providers } from "@/components";
 import Nav from "@/components/Nav";
+import TopBar from "@/components/TopBar";
 import MobileHeader from "@/components/MobileHeader";
 import type { Metadata } from "next";
 import { home } from "@/resources";
@@ -42,7 +43,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="portfolioLayout">
             <Nav />
             <MobileHeader />
-            <main className="portfolioMain">{children}</main>
+            <div className="portfolioRight">
+              <TopBar />
+              <main className="portfolioMain">{children}</main>
+            </div>
           </div>
         </Providers>
       </body>
