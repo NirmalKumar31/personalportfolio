@@ -18,10 +18,10 @@ export default function Work() {
           <h2 className={styles.sectionTitle}>{about.work.title}</h2>
           <div className={styles.sectionIntro}>
             <p className={styles.introStat}>
-              3+ years of experience spanning data engineering, analytics, and machine learning — from ML internships to production-scale analytics at Fidelity.
+              I've got about a year and a half of hands-on experience across data engineering, analytics, and machine learning — from early ML internships to production analytics at Fidelity.
             </p>
             <p className={styles.introHint}>
-              Click on any role to dig into what I built and learned there.
+              Click on any role to see what I actually worked on.
             </p>
           </div>
           <div className={styles.timeline}>
