@@ -7,30 +7,30 @@ const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
 
 const TLDR = [
   <>
-    <strong>End-to-end data experience.</strong> From raw ingestion to the dashboard someone actually opens on a Monday — pipelines, analytics, and ML, all of it.
+    <strong>I ramp up fast on new tools.</strong> Every role threw something unfamiliar at me — dbt at Fidelity, Databricks at Ideatec, Azure Data Factory at Diggibyte. Each time I got productive quickly, without needing everything handed to me.
   </>,
   <>
-    <strong>Real production work.</strong> ETL pipelines at Fidelity, anomaly detection on factory sensors, distributed Spark jobs on Databricks. Not just notebooks.
+    <strong>The work I have done actually ran in production.</strong> Pipelines at Fidelity touched $35B in assets. The Databricks jobs processed real records. The dashboards were opened by real analysts. Not just homework.
   </>,
   <>
-    <strong>Picks up tools fast.</strong> SQL, Python, Spark, Snowflake, dbt, Tableau, scikit-learn, PyTorch — and whatever else the job needs.
+    <strong>I care about what the data means, not just moving it.</strong> I have run A/B tests, built attribution models, and written SQL that influenced how teams thought about spend and performance. The analysis part matters to me as much as the engineering.
   </>,
 ];
 
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "Built production ETL pipelines on Azure Data Factory, worked with Databricks and Delta Lake, designed Snowflake tasks for automated reporting, and built SQL-based data quality frameworks with 64+ automated tests.",
+    desc: "I have built production ETL pipelines on Azure Data Factory, set up incremental data loads with high-water mark patterns on Databricks, and designed Snowflake-based reporting workflows at Fidelity. One project I built had a full Medallion architecture with 64 automated data quality tests — I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure without silently breaking.",
     tags: ["Snowflake", "dbt", "Airflow", "Databricks", "PySpark", "Azure ADF", "SQL"],
   },
   {
     title: "Analytics & BI",
-    desc: "Built Tableau dashboards, ran A/B tests at 140K impressions, done MMM attribution analysis across $35B in assets, and written automated reporting pipelines that replaced entirely manual work.",
+    desc: "At Fidelity I worked on marketing analytics across $35B in AUM — ran A/B tests at 140K impression scale and did MMM attribution analysis that actually shaped how the team thought about campaign spend. I write SQL and build dashboards that people trust enough to open on a Monday morning without second-guessing the numbers.",
     tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "A/B Testing"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "Built CNN-based medical imaging classifiers, LSTM anomaly detection on industrial sensors, and distributed ML pipelines on Databricks with MLlib. Know the difference between a model that works in a notebook and one that actually ships.",
+    desc: "I have built CNN classifiers on medical imaging data, LSTM anomaly detectors on industrial sensor telemetry, and distributed ML pipelines on Databricks with MLlib. I have also worked with LLMs and RAG — built a retrieval system using LangChain and FAISS. I know the gap between a model that performs in a notebook and one that can actually be put in front of someone.",
     tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "LangChain", "RAG"],
   },
 ];
@@ -59,7 +59,11 @@ export default function Hire() {
 
       {/* Intro */}
       <motion.p variants={fade} transition={{ duration: 0.5 }} className={styles.intro}>
-        I am actively looking for a <strong>data engineering, analytics engineering, or data science role</strong> and available to start <strong>immediately</strong>. I have real production experience across pipelines, analytics, and ML — things that actually ran, not just class projects.
+        Thank you for stopping by! I am actively looking for a{" "}
+        <strong>data engineering, analytics engineering, or data science role</strong> and available to
+        start <strong>immediately</strong>. I have spent the last 1.5 years building real data systems
+        across multiple companies — production pipelines, marketing analytics at scale, and ML that actually
+        shipped — and I am ready to contribute from day one.
       </motion.p>
 
       {/* TL;DR */}
@@ -75,6 +79,9 @@ export default function Hire() {
       {/* What can I do */}
       <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.section}>
         <h2 className={styles.sectionTitle}>What can I do?</h2>
+        <p className={styles.sectionNote}>
+          <em>These areas are not siloed — most of my best work sits at the intersection of several. I am up to the challenge of combining them.</em>
+        </p>
         <div className={styles.skillCards}>
           {SKILLS.map((s) => (
             <div key={s.title} className={styles.skillCard}>
