@@ -68,7 +68,7 @@ export default function Projects() {
             const hasImage = project.metadata.images && project.metadata.images.length > 0;
             const icon = PROJECT_ICONS[project.slug];
             return (
-              <div key={project.slug} className={styles.projectCard}>
+              <Link key={project.slug} href={`/work/${project.slug}`} className={styles.projectCard} prefetch>
                 <div className={styles.cardImage}>
                   {hasImage ? (
                     <img src={project.metadata.images[0]} alt={project.metadata.title} />
@@ -79,7 +79,7 @@ export default function Projects() {
                 <div className={styles.cardBody}>
                   <div className={styles.cardTop}>
                     <h2 className={styles.cardTitle}>{project.metadata.title}</h2>
-                    <Link href={`/work/${project.slug}`} className={styles.cardArrow}>↗</Link>
+                    <span className={styles.cardArrow} aria-hidden="true">↗</span>
                   </div>
                   <p className={styles.cardDesc}>{project.metadata.summary}</p>
                   {project.metadata.tags && project.metadata.tags.length > 0 && (
@@ -90,7 +90,7 @@ export default function Projects() {
                     </div>
                   )}
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
