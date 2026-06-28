@@ -62,8 +62,9 @@ export default function Hire() {
         Thank you for stopping by! I am actively looking for a{" "}
         <strong>data analyst, data engineer, analytics engineer, or data science role</strong> and available
         to start <strong>immediately</strong>. I've spent around 1.5 years building real data systems across
-        multiple companies, working on production pipelines, marketing analytics at scale, and ML that
-        actually shipped. I am ready to contribute from day one.
+        multiple companies, working on production pipelines, marketing analytics at scale, and machine
+        learning models that went into production. I am ready to learn more and contribute to the team
+        and help you achieve your goals.
       </motion.p>
 
       {/* TL;DR */}
