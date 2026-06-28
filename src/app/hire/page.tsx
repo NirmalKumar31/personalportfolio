@@ -7,31 +7,31 @@ const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
 
 const TLDR = [
   <>
-    <strong>I ramp up fast on new tools.</strong> At Ideatec I built LSTM autoencoder pipelines I had never worked with before. At Diggibyte I set up Azure Data Factory and Delta Lake from scratch. At Fidelity I was writing Snowflake automation and Python statistical testing frameworks for marketing analytics. Every role had something new and I got productive without needing everything handed to me.
+    <strong>I ramp up fast on new tools.</strong> LSTM autoencoder pipelines at Ideatec, Azure Data Factory and Delta Lake at Diggibyte, Snowflake automation and statistical testing exposure at Fidelity. Every role had something unfamiliar and I got up to speed without needing it handed to me.
   </>,
   <>
-    <strong>The work I have done actually ran in production.</strong> At Fidelity I built Snowflake Tasks that eliminated weekly manual reporting, ran A/B tests across 140K impressions that led leadership to scale the winning variant, and synthesized Marketing Mix Model outputs spanning $35.6B in new client assets. At Diggibyte the ADF pipeline I built cut processing time by 40%. Not just homework.
+    <strong>The work I have done actually ran in production.</strong> At Fidelity, Snowflake automations I built eliminated weekly manual reporting and Marketing Mix Model analysis covered $35.6B in client assets. Outside work, I shipped a full Medallion architecture on Databricks processing 150M+ MBTA transit records. Not just coursework.
   </>,
   <>
-    <strong>I care about what the data means, not just moving it.</strong> At Fidelity I identified a 9% cost-per-acquisition reduction through A/B testing, audited Multi-Touch Attribution data across 20 paid channels, and wrote SQL that directly shaped how the team thought about spend allocation. The analysis side matters to me as much as the engineering.
+    <strong>I care about what the data means, not just moving it.</strong> At Fidelity I built a SQL data quality framework that cut reporting errors by 60% across 10+ streams, and mined 270K+ social interactions via window functions to uncover patterns that drove a 13-point lift in engagement. The analysis side matters to me as much as the engineering.
   </>,
 ];
 
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I have built production ETL pipelines on Azure Data Factory, set up incremental data loads with high-water mark patterns on Databricks, and designed Snowflake-based reporting workflows at Fidelity. One project I built had a full Medallion architecture with 64 automated data quality tests — I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure without silently breaking.",
-    tags: ["Snowflake", "dbt", "Airflow", "Databricks", "PySpark", "Azure ADF", "SQL"],
+    desc: "I have built production ETL pipelines on Azure Data Factory, set up incremental data loads with high-water mark patterns on Databricks, and designed Snowflake-based reporting workflows at Fidelity. One side project I built had a full Medallion architecture on AWS (Kinesis, Firehose, Snowpipe, S3) with SCD Type 2 snapshots. I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure without silently breaking.",
+    tags: ["Snowflake", "Airflow", "Databricks", "PySpark", "Azure ADF", "AWS", "SQL"],
   },
   {
     title: "Analytics & BI",
-    desc: "At Fidelity I worked on marketing analytics across $35B in AUM — ran A/B tests at 140K impression scale and did MMM attribution analysis that actually shaped how the team thought about campaign spend. I write SQL and build dashboards that people trust enough to open on a Monday morning without second-guessing the numbers.",
-    tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "A/B Testing"],
+    desc: "I am extremely proficient in SQL. At Fidelity I designed a two-stage data quality framework with statistical boundary thresholds that cut reporting errors by 60% across 10+ streams. I have worked on Marketing Mix Model analysis spanning $35.6B in new client assets, audited Multi-Touch Attribution data across 20 paid channels, and used SQL window functions to analyze 270K+ social interactions for behavioral patterns.",
+    tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "Snowflake"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "I have built CNN classifiers on medical imaging data, LSTM anomaly detectors on industrial sensor telemetry, and distributed ML pipelines on Databricks with MLlib. I have also worked with LLMs and RAG — built a retrieval system using LangChain and FAISS. I know the gap between a model that performs in a notebook and one that can actually be put in front of someone.",
-    tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "LangChain", "RAG"],
+    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays), LSTM autoencoder models for predictive maintenance (89% precision, flagging failures 6 hours early), and distributed ML pipelines on Databricks with MLlib for MBTA transit prediction across 150M+ records. I know the gap between a model that performs in a notebook and one that holds up in production.",
+    tags: ["scikit-learn", "TensorFlow", "XGBoost", "LSTM", "CNN", "MLlib"],
   },
 ];
 
@@ -106,9 +106,9 @@ export default function Hire() {
               <strong>United States</strong>
             </div>
             <p className={styles.eligibilityDesc}>
-              Authorized to work on <strong>OPT + STEM extension</strong> (up to 3 years) immediately.
-              No sponsorship needed to start. Eligible for H-1B sponsorship thereafter. No $100K employer
-              fee — transitioning directly from F1 to H-1B.
+              Authorized to work on <strong>OPT + STEM extension</strong> (up to 3 years) immediately.{" "}
+              <strong>No sponsorship needed to start.</strong> Eligible for H-1B sponsorship thereafter.{" "}
+              <strong>No $100K employer fee</strong>, transitioning directly from F1 to H-1B.
             </p>
           </div>
           <div className={styles.eligibilityCard}>
@@ -117,8 +117,7 @@ export default function Hire() {
               <strong>Location Preference</strong>
             </div>
             <p className={styles.eligibilityDesc}>
-              Based in Boston, MA. Open to roles anywhere in the U.S. with reasonable relocation time.
-              Open to hybrid or in-office.
+              Based in Boston, MA. Open to roles anywhere in the U.S. Open to hybrid or in-office.
             </p>
           </div>
         </div>
@@ -132,14 +131,6 @@ export default function Hire() {
         </p>
         <div className={styles.cta}>
           <Link href="/contact" className={styles.btnPrimary}>Get in touch →</Link>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.btnSecondary}
-          >
-            Download resume
-          </a>
         </div>
       </motion.div>
 
