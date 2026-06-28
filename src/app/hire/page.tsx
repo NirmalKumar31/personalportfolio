@@ -7,13 +7,13 @@ const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
 
 const TLDR = [
   <>
-    <strong>I ramp up fast on new tools.</strong> Every role threw something unfamiliar at me — dbt at Fidelity, Databricks at Ideatec, Azure Data Factory at Diggibyte. Each time I got productive quickly, without needing everything handed to me.
+    <strong>I ramp up fast on new tools.</strong> At Ideatec I built LSTM autoencoder pipelines I had never worked with before. At Diggibyte I set up Azure Data Factory and Delta Lake from scratch. At Fidelity I was writing Snowflake automation and Python statistical testing frameworks for marketing analytics. Every role had something new and I got productive without needing everything handed to me.
   </>,
   <>
-    <strong>The work I have done actually ran in production.</strong> Pipelines at Fidelity touched $35B in assets. The Databricks jobs processed real records. The dashboards were opened by real analysts. Not just homework.
+    <strong>The work I have done actually ran in production.</strong> At Fidelity I built Snowflake Tasks that eliminated weekly manual reporting, ran A/B tests across 140K impressions that led leadership to scale the winning variant, and synthesized Marketing Mix Model outputs spanning $35.6B in new client assets. At Diggibyte the ADF pipeline I built cut processing time by 40%. Not just homework.
   </>,
   <>
-    <strong>I care about what the data means, not just moving it.</strong> I have run A/B tests, built attribution models, and written SQL that influenced how teams thought about spend and performance. The analysis part matters to me as much as the engineering.
+    <strong>I care about what the data means, not just moving it.</strong> At Fidelity I identified a 9% cost-per-acquisition reduction through A/B testing, audited Multi-Touch Attribution data across 20 paid channels, and wrote SQL that directly shaped how the team thought about spend allocation. The analysis side matters to me as much as the engineering.
   </>,
 ];
 
@@ -47,7 +47,7 @@ export default function Hire() {
       <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.header}>
         <h1 className={styles.heading}>Hire me!</h1>
         <p className={styles.subtitle}>
-          <em>Looking for data engineering, analytics, or ML roles. Here&apos;s what I bring.</em>
+          <em>Interested in hiring me? Read here to see what I can do!</em>
         </p>
         <div className={styles.pills}>
           <span className={styles.pill}>Actively looking</span>
