@@ -26,10 +26,10 @@ export default function Contact() {
         transition={{ duration: 0.5 }}
         className={styles.callout}
       >
-        If your team is building{" "}
-        <strong>data pipelines that power real decisions</strong>,{" "}
-        <strong>analytics systems that people actually trust</strong>, or{" "}
-        <strong>ML models that go beyond the notebook</strong>, I want to hear about it.
+        If your team needs someone who can turn raw data into insights people actually act on,
+        build <strong>analytics systems that hold up under scrutiny</strong>, design{" "}
+        <strong>pipelines that run reliably in production</strong>, or work on{" "}
+        <strong>ML that goes beyond the notebook</strong>, I want to hear about it.
         I care about doing the data work well, not just getting it done.
       </motion.blockquote>
 
