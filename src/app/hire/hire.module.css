@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  padding-top: 2.5rem;
   padding-bottom: 5rem;
   max-width: 920px;
+  margin: 0 auto;
 }
 
 /* ── Header ── */

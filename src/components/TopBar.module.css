@@ -17,9 +17,9 @@
   letter-spacing: 0.03em;
 }
 
-.dot {
-  font-weight: 300;
-  color: var(--color-muted);
+.emoji {
+  font-weight: 400;
+  font-style: normal;
 }
 
 .tagline {

@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  padding-top: 2.5rem;
   padding-bottom: 4rem;
   max-width: 920px;
+  margin: 0 auto;
 }
 
 .section {
