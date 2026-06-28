@@ -55,7 +55,7 @@ export default function Contact() {
         <div className={styles.terminalBody}>
           <div className={styles.termRow}>
             <span className={styles.termKey}>NAME</span>
-            <span className={styles.termVal}>Nirmalkumar Kesavan</span>
+            <span className={styles.termVal}>Nirmalkumar</span>
           </div>
           <div className={styles.termRow}>
             <span className={styles.termKey}>ROLE</span>

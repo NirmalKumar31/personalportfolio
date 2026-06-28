@@ -20,7 +20,7 @@ const TLDR = [
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I have built production ETL pipelines on Azure Data Factory, set up incremental data loads with high-water mark patterns on Databricks, and designed Snowflake-based reporting workflows at Fidelity. One side project I built had a full Medallion architecture on AWS (Kinesis, Firehose, Snowpipe, S3) with SCD Type 2 snapshots. I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure without silently breaking.",
+    desc: "I work with AWS and Azure regularly and have built real projects on both. On Azure I set up ADF pipelines for incremental ingestion with Delta Lake on Databricks. On AWS I designed an event-driven ELT architecture using Kinesis, Firehose, S3, Snowpipe, and Glue for a vacation rental marketplace project. At Fidelity I designed Snowflake-based reporting workflows and automated Snowflake Tasks that eliminated manual processing. I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure.",
     tags: ["Snowflake", "Airflow", "Databricks", "PySpark", "Azure ADF", "AWS", "SQL"],
   },
   {
