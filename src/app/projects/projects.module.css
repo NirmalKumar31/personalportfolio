@@ -1,7 +1,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
   padding-top: 2.5rem;
   padding-bottom: 5rem;
   max-width: 920px;
@@ -38,12 +38,12 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.6rem;
 }
 
 .sectionLabel {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
