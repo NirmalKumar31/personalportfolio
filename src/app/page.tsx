@@ -106,9 +106,9 @@ export default function HomePage() {
             <div>
               <span className={styles.didYouKnowLabel}>Did you know?</span>
               <p className={styles.didYouKnowText}>
-                I&apos;m on OPT and can start immediately — no H-1B needed upfront, and
-                no $100K sponsorship fee for the employer since I&apos;m transitioning
-                from F1 to H1B.
+                When you hire me, I can start immediately on OPT — no H-1B needed
+                upfront, and no $100K sponsorship fee since I&apos;m transitioning
+                directly from F1 to H-1B.
               </p>
             </div>
           </motion.div>
