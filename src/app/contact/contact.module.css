@@ -1,73 +1,210 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  padding-bottom: 4rem;
-  max-width: 560px;
+  gap: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
+/* ── Header ── */
 .heading {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-text);
   margin: 0 0 0.75rem;
   letter-spacing: -0.03em;
 }
 
-.subheading {
+.intro {
   font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-text);
   margin: 0;
 }
 
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.contactRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.25rem;
-  background: var(--color-card);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--color-text);
+/* ── Callout ── */
+.callout {
   font-family: var(--font-body);
   font-size: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s;
+  line-height: 1.82;
+  color: var(--color-muted);
+  margin: 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 3px solid var(--color-border);
+  background: var(--color-card);
+  border-radius: 0 8px 8px 0;
 }
 
-.contactRow:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+.callout strong {
+  color: var(--color-text);
 }
 
-.contactLabel {
+/* ── Reach out ── */
+.reachOut {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.emailLink {
+  color: var(--color-text) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
   font-weight: 500;
 }
 
-.contactArrow {
-  color: var(--color-muted);
-  font-size: 1rem;
-  transition: transform 0.2s;
+/* ── Terminal ── */
+.terminal {
+  background: #0f0f0e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
 }
 
-.contactRow:hover .contactArrow {
-  transform: translateX(4px);
-  color: var(--color-text);
+.terminalBar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  background: #1c1c1a;
+  border-bottom: 1px solid #2a2a28;
 }
 
-.note {
-  font-family: var(--font-hand);
-  font-size: 1rem;
+.termDots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.terminalTitle {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.72rem;
+  color: #6b6b67;
+  flex: 1;
+  text-align: center;
+  margin-right: 36px;
+}
+
+.terminalBody {
+  padding: 1.4rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.termRow {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1rem;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.termKey {
+  color: #6b6b67;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding-top: 1px;
+}
+
+.termVal {
+  color: #d4d0c8;
+}
+
+.statusDot {
+  color: #28c840;
+  margin-right: 0.3rem;
+}
+
+.termSpacer {
+  height: 0.6rem;
+}
+
+.termComment {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.78rem;
+  color: #6b6b67;
+  margin-bottom: 0.2rem;
+}
+
+.termCheck {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.78rem;
+  color: #28c840;
+  line-height: 1.7;
+}
+
+.termLink {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.78rem;
+  color: #58a6ff !important;
+  text-decoration: none !important;
+  transition: opacity 0.15s;
+}
+
+.termLink:hover {
+  opacity: 0.8;
+}
+
+.termPrompt {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", monospace;
+  font-size: 0.78rem;
+  color: #28c840;
+  margin-top: 0.2rem;
+}
+
+/* ── Find me at ── */
+.findMe {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.findMeLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--color-muted);
   margin: 0;
-  letter-spacing: 0.01em;
+}
+
+.findMeButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.findMeBtn {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text) !important;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  text-decoration: none !important;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.findMeBtn:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
