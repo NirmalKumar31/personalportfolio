@@ -60,10 +60,10 @@ export default function Hire() {
       {/* Intro */}
       <motion.p variants={fade} transition={{ duration: 0.5 }} className={styles.intro}>
         Thank you for stopping by! I am actively looking for a{" "}
-        <strong>data engineering, analytics engineering, or data science role</strong> and available to
-        start <strong>immediately</strong>. I have spent the last 1.5 years building real data systems
-        across multiple companies — production pipelines, marketing analytics at scale, and ML that actually
-        shipped — and I am ready to contribute from day one.
+        <strong>data analyst, data engineer, analytics engineer, or data science role</strong> and available
+        to start <strong>immediately</strong>. I've spent around 1.5 years building real data systems across
+        multiple companies, working on production pipelines, marketing analytics at scale, and ML that
+        actually shipped. I am ready to contribute from day one.
       </motion.p>
 
       {/* TL;DR */}

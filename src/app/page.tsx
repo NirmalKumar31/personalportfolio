@@ -91,13 +91,13 @@ export default function HomePage() {
           <motion.div variants={item} className={styles.divider} />
 
           <motion.p variants={item} className={styles.bioLead}>
-            I build pipelines, models, and dashboards that make data useful — end-to-end,
+            I build pipelines, models, and dashboards that make data useful, end-to-end,
             from raw inputs to something people can actually act on.
           </motion.p>
 
           <motion.p variants={item} className={styles.bioBody}>
             MS in Data Analytics Engineering at Northeastern (GPA: 3.8). Experience across
-            data engineering, marketing analytics, and ML — previously at Fidelity Investments.
+            data engineering, marketing analytics, and ML, previously at Fidelity Investments.
             Finishing up my degree and actively looking for full-time roles.
           </motion.p>
 
@@ -106,7 +106,7 @@ export default function HomePage() {
             <div>
               <span className={styles.didYouKnowLabel}>Did you know?</span>
               <p className={styles.didYouKnowText}>
-                I&apos;m on OPT and can start immediately — no H-1B needed upfront, and
+                I&apos;m on OPT and can start immediately. No H-1B needed upfront, and
                 no $100K sponsorship fee for the employer since I&apos;m transitioning
                 from F1 to H-1B.
               </p>
