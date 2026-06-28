@@ -28,8 +28,8 @@ export default function Contact() {
       >
         If your team needs someone who can turn raw data into insights people actually act on,
         build <strong>analytics systems that hold up under scrutiny</strong>, design{" "}
-        <strong>pipelines that run reliably in production</strong>, or work on{" "}
-        <strong>ML that goes beyond the notebook</strong>, I want to hear about it.
+        <strong>pipelines that run reliably in production</strong>, or push{" "}
+        <strong>ML beyond the notebook</strong>, let&apos;s talk.
         I care about doing the data work well, not just getting it done.
       </motion.blockquote>
 

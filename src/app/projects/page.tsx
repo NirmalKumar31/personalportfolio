@@ -44,19 +44,21 @@ export default function Projects() {
       {about.technical.display && (
         <section className={styles.section}>
           <p className={styles.sectionLabel}>Technologies</p>
-          {about.technical.skills.map((group, i) => (
-            <div key={i} className={styles.skillGroup}>
-              <p className={styles.skillGroupLabel}>{group.title}</p>
-              <div className={styles.tagRow}>
-                {(group.tags ?? []).map((tag) => (
-                  <span key={tag.name} className={styles.skillTag}>
-                    <span>{SKILL_EMOJIS[tag.name] ?? "🔹"}</span>
-                    {tag.name}
-                  </span>
-                ))}
+          <div className={styles.skillGroups}>
+            {about.technical.skills.map((group, i) => (
+              <div key={i} className={styles.skillGroup}>
+                <p className={styles.skillGroupLabel}>{group.title}</p>
+                <div className={styles.tagRow}>
+                  {(group.tags ?? []).map((tag) => (
+                    <span key={tag.name} className={styles.skillTag}>
+                      <span>{SKILL_EMOJIS[tag.name] ?? "🔹"}</span>
+                      {tag.name}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
       )}
 
