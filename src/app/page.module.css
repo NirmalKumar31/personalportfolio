@@ -229,15 +229,16 @@
 
 /* ── Did you know box ── */
 .didYouKnow {
-  font-family: var(--font-handwrite);
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.92rem;
   color: var(--color-muted);
   margin: 0 0 1.2rem;
   padding: 0.55rem 1rem;
   background: #fffdf5;
   border-left: 3px solid var(--hl-yellow);
   border-radius: 0 6px 6px 0;
-  line-height: 1.6;
+  line-height: 1.65;
   transform: rotate(-0.3deg);
 }
 
