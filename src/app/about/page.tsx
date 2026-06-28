@@ -28,10 +28,10 @@ export default function About() {
       {/* Headline — centered */}
       <motion.div variants={item} className={styles.headlineBlock}>
         <h1 className={styles.headline}>
-          <span className={styles.line}>Engineer the pipeline.</span>
-          <span className={styles.line}>Analyze the patterns.</span>
+          <span className={styles.line}>I engineer pipelines.</span>
+          <span className={styles.line}>I analyze the patterns.</span>
           <span className={styles.line}>
-            <span className={styles.lineHighlight}>Build the model. Ship it.</span>
+            <span className={styles.lineHighlight}>I build models. I ship them.</span>
           </span>
         </h1>
       </motion.div>
