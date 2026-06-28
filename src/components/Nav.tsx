@@ -27,6 +27,11 @@ export default function Nav() {
             <span className={styles.greenDot} />
             <span>actively looking for full time roles</span>
           </div>
+          <ul className={styles.meta}>
+            <li>📍 Boston, MA</li>
+            <li>🎓 MS Data Analytics · Northeastern</li>
+            <li>💼 Open to full-time</li>
+          </ul>
         </div>
 
         <ul className={styles.links}>

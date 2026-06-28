@@ -63,6 +63,22 @@
   flex-shrink: 0;
 }
 
+.meta {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.meta li {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
 .links {
   list-style: none;
   margin: 0;
