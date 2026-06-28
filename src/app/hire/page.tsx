@@ -7,30 +7,30 @@ const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
 
 const TLDR = [
   <>
-    <strong>I ramp up fast on new tools.</strong> LSTM autoencoder pipelines at Ideatec, Azure Data Factory and Delta Lake at Diggibyte, Snowflake automation and statistical testing exposure at Fidelity. Every role had something unfamiliar and I got up to speed without needing it handed to me.
+    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I taught myself LSTM autoencoders for predictive maintenance. At Diggibyte I got hands-on with Azure Data Factory and Delta Lake. At Fidelity I picked up Snowflake and statistical testing frameworks in a live marketing analytics environment.
   </>,
   <>
-    <strong>The work I have done actually ran in production.</strong> At Fidelity, Snowflake automations I built eliminated weekly manual reporting and Marketing Mix Model analysis covered $35.6B in client assets. Outside work, I shipped a full Medallion architecture on Databricks processing 150M+ MBTA transit records. Not just coursework.
+    <strong>The work I have done actually ran in production.</strong> At Fidelity I built automations that replaced manual weekly reporting and did analysis that touched $35.6B in client assets. On personal projects I have shipped a full cloud data platform on AWS — from Kinesis ingestion to Snowflake serving. Not just coursework.
   </>,
   <>
-    <strong>I care about what the data means, not just moving it.</strong> At Fidelity I built a SQL data quality framework that cut reporting errors by 60% across 10+ streams, and mined 270K+ social interactions via window functions to uncover patterns that drove a 13-point lift in engagement. The analysis side matters to me as much as the engineering.
+    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant turning MMM outputs into concrete targeting recommendations. Building something that runs is the floor — building something that informs a decision is the goal.
   </>,
 ];
 
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I work with AWS and Azure regularly and have built real projects on both. On Azure I set up ADF pipelines for incremental ingestion with Delta Lake on Databricks. On AWS I designed an event-driven ELT architecture using Kinesis, Firehose, S3, Snowpipe, and Glue for a vacation rental marketplace project. At Fidelity I designed Snowflake-based reporting workflows and automated Snowflake Tasks that eliminated manual processing. I treat pipelines the way good engineers treat code: testable, maintainable, and built to handle failure.",
-    tags: ["Snowflake", "Airflow", "Databricks", "PySpark", "Azure ADF", "AWS", "SQL"],
+    desc: "I build data pipelines end to end. I have worked with dbt for transformation layers, Airflow for orchestration, Snowflake for warehousing, and both Azure Data Factory and AWS (Kinesis, S3, Glue, Snowpipe) for ingestion. On Databricks I have built incremental loads with Delta Lake and processed data with PySpark. I treat pipelines the way good engineers treat code: tested, maintainable, and built to fail gracefully.",
+    tags: ["Snowflake", "dbt", "Airflow", "Databricks", "PySpark", "Azure ADF", "AWS"],
   },
   {
     title: "Analytics & BI",
-    desc: "I am extremely proficient in SQL. At Fidelity I designed a two-stage data quality framework with statistical boundary thresholds that cut reporting errors by 60% across 10+ streams. I have worked on Marketing Mix Model analysis spanning $35.6B in new client assets, audited Multi-Touch Attribution data across 20 paid channels, and used SQL window functions to analyze 270K+ social interactions for behavioral patterns.",
-    tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "Snowflake"],
+    desc: "Analytics has been central to almost every role and project I have worked on. I am extremely proficient in SQL and have used it across datasets exceeding 150M records. At Fidelity I built a data quality framework that cut reporting errors by 60%, synthesized Marketing Mix Model outputs spanning $35.6B in client assets into actionable targeting recommendations, and analyzed 270K+ social interactions to drive a 13-point engagement lift. I have built dashboards in both Tableau and Power BI.",
+    tags: ["SQL", "Tableau", "Power BI", "Python", "Pandas", "Snowflake"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays), LSTM autoencoder models for predictive maintenance (89% precision, flagging failures 6 hours early), and distributed ML pipelines on Databricks with MLlib for MBTA transit prediction across 150M+ records. I know the gap between a model that performs in a notebook and one that holds up in production.",
+    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays), LSTM autoencoder models for predictive maintenance (89% precision, flagging equipment failures 6 hours early), and distributed PySpark ML pipelines on Databricks with MLlib for transit performance prediction. I know the gap between a model that performs in a notebook and one that holds up in production.",
     tags: ["scikit-learn", "TensorFlow", "XGBoost", "LSTM", "CNN", "MLlib"],
   },
 ];
