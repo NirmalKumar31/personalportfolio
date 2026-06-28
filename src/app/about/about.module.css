@@ -43,13 +43,15 @@
   -webkit-box-decoration-break: clone;
 }
 
-/* ── Pills — centered ── */
+/* ── Pills — left-aligned with content column ── */
 .pills {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-bottom: 3rem;
-  justify-content: center;
+  justify-content: flex-start;
+  max-width: 680px;
+  width: 100%;
 }
 
 .pill {
