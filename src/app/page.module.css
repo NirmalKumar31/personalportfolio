@@ -264,6 +264,14 @@
   margin: 0;
 }
 
+.hlMint {
+  background: #b2f5ea;
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+  color: var(--color-text);
+  font-style: normal;
+}
+
 .roleTag {
   font-family: var(--font-body);
   font-size: 0.95rem;

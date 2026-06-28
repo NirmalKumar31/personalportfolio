@@ -91,8 +91,8 @@ export default function HomePage() {
           <motion.div variants={item} className={styles.divider} />
 
           <motion.p variants={item} className={styles.bioLead}>
-            I build pipelines, models, and dashboards that make data useful, end-to-end,
-            from raw inputs to something people can actually act on.
+            I analyse data, engineer pipelines, and build models that take raw inputs to
+            something decision-makers can actually use, end to end.
           </motion.p>
 
           <motion.p variants={item} className={styles.bioBody}>
@@ -106,9 +106,10 @@ export default function HomePage() {
             <div>
               <span className={styles.didYouKnowLabel}>Did you know?</span>
               <p className={styles.didYouKnowText}>
-                I&apos;m on OPT and can start immediately. No H-1B needed upfront, and
-                no $100K sponsorship fee for the employer since I&apos;m transitioning
-                from F1 to H-1B.
+                I&apos;m on OPT and can start immediately.{" "}
+                <mark className={styles.hlMint}>No H-1B needed upfront</mark>, and{" "}
+                <mark className={styles.hlMint}>no $100K sponsorship fee</mark> for the
+                employer since I&apos;m transitioning from F1 to H-1B.
               </p>
             </div>
           </motion.div>

@@ -5,12 +5,12 @@ import styles from "./Nav.module.css";
 import { person } from "@/resources";
 
 const navLinks = [
-  { href: "/", label: "home" },
-  { href: "/about", label: "about myself" },
-  { href: "/hire", label: "hire me" },
-  { href: "/work", label: "work & education" },
-  { href: "/projects", label: "projects & skills" },
-  { href: "/contact", label: "contact me" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About Myself" },
+  { href: "/hire", label: "Hire Me" },
+  { href: "/work", label: "Work & Education" },
+  { href: "/projects", label: "Projects & Skills" },
+  { href: "/contact", label: "Contact Me" },
 ];
 
 export default function Nav() {
