@@ -11,13 +11,13 @@ const fade = {
 
 const TLDR = [
   <>
-    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I taught myself LSTM autoencoders for predictive maintenance. At Diggibyte I got hands-on with Azure Data Factory and Delta Lake. At Fidelity I picked up Snowflake and statistical testing frameworks in a live marketing analytics environment.
+    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I taught myself LSTM autoencoders for predictive maintenance. At Diggibyte I got hands-on with Azure Data Factory and Delta Lake. At Fidelity I got up to speed on marketing and social analytics — statistical testing, topic modeling, and content performance analysis across 270K+ interactions.
   </>,
   <>
-    <strong>The work I have done actually ran in production.</strong> At Fidelity I built automations that replaced manual weekly reporting and did analysis that touched $35.6B in client assets. On personal projects I have shipped a full cloud data platform on AWS — from Kinesis ingestion to Snowflake serving. Not just coursework.
+    <strong>The work I have done actually ran in production.</strong> At Fidelity I built automated reporting systems — including a SQL data quality framework that cut reporting errors by 60% across 10+ dashboards. On personal projects I have shipped a full cloud data platform on AWS, from Kinesis ingestion to Snowflake serving. Not just coursework.
   </>,
   <>
-    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant turning MMM outputs into concrete targeting recommendations. Building something that runs is the floor — building something that informs a decision is the goal.
+    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant taking Marketing Mix Model (MMM) outputs spanning $35.6B in new client assets, computing impact-per-impression by segment and channel, and turning that into targeting recommendations that could actually change where the team spent money. Building something that runs is the floor — building something that informs a decision is the goal.
   </>,
 ];
 
