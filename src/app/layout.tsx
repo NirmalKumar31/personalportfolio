@@ -3,7 +3,7 @@ import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
 import "./portfolio.css";
-import { Providers, PageTransition } from "@/components";
+import { Providers } from "@/components";
 import Nav from "@/components/Nav";
 import TopBar from "@/components/TopBar";
 import MobileHeader from "@/components/MobileHeader";
@@ -45,9 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <MobileHeader />
             <div className="portfolioRight">
               <TopBar />
-              <main className="portfolioMain">
-                <PageTransition>{children}</PageTransition>
-              </main>
+              <main className="portfolioMain">{children}</main>
             </div>
           </div>
         </Providers>
