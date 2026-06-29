@@ -4,13 +4,14 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import styles from './page.module.css'
 
+const ease = [0.22, 1, 0.36, 1] as const;
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 22 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const } },
+  hidden: { opacity: 0, y: 24, scale: 0.96 },
+  show:   { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.52, ease } },
 }
 
 const ROLES = ['Data Engineer', 'Analytics Engineer', 'Data Analyst', 'Data Scientist']

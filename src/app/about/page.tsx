@@ -2,13 +2,14 @@
 import { motion } from "framer-motion";
 import styles from "./about.module.css";
 
+const ease = [0.22, 1, 0.36, 1] as const;
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 18 },
-  show:  { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] as const } },
+  hidden: { opacity: 0, y: 22, scale: 0.96 },
+  show:  { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.5, ease } },
 };
 
 const PILLS = [

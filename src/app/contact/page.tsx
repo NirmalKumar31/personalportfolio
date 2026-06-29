@@ -2,7 +2,11 @@
 import { motion } from "framer-motion";
 import styles from "./contact.module.css";
 
-const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
+const ease = [0.22, 1, 0.36, 1] as const;
+const fade = {
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  show:   { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.48, ease } },
+};
 
 export default function Contact() {
   return (
@@ -12,7 +16,7 @@ export default function Contact() {
       animate="show"
       variants={{ show: { transition: { staggerChildren: 0.1 } } }}
     >
-      <motion.div variants={fade} transition={{ duration: 0.5 }}>
+      <motion.div variants={fade} >
         <h1 className={styles.heading}>Let&apos;s Talk</h1>
         <p className={styles.intro}>
           I enjoy a good conversation, especially around data, interesting problems, and what teams
@@ -23,7 +27,7 @@ export default function Contact() {
 
       <motion.blockquote
         variants={fade}
-        transition={{ duration: 0.5 }}
+        
         className={styles.callout}
       >
         If your team needs someone who can turn raw data into insights people actually act on,
@@ -33,7 +37,7 @@ export default function Contact() {
         I care about doing the data work well, not just getting it done.
       </motion.blockquote>
 
-      <motion.p variants={fade} transition={{ duration: 0.5 }} className={styles.reachOut}>
+      <motion.p variants={fade}  className={styles.reachOut}>
         The best way to reach me is directly at{" "}
         <a href="mailto:thirupallikrishnan.n@northeastern.edu" className={styles.emailLink}>
           thirupallikrishnan.n@northeastern.edu
@@ -42,7 +46,7 @@ export default function Contact() {
         LinkedIn — I check it often and genuinely enjoy connecting with people there.
       </motion.p>
 
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.terminal}>
+      <motion.div variants={fade}  className={styles.terminal}>
         <div className={styles.terminalBar}>
           <div className={styles.termDots}>
             <span className={styles.dot} style={{ background: "#ff5f57" }} />
@@ -130,7 +134,7 @@ export default function Contact() {
         </div>
       </motion.div>
 
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.findMe}>
+      <motion.div variants={fade}  className={styles.findMe}>
         <p className={styles.findMeLabel}>FIND ME AT</p>
         <div className={styles.findMeButtons}>
           <a href="mailto:thirupallikrishnan.n@northeastern.edu" className={styles.findMeBtn}>

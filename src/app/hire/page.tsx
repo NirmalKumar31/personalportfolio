@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import styles from "./hire.module.css";
 
-const fade = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } };
+const ease = [0.22, 1, 0.36, 1] as const;
+const fade = {
+  hidden: { opacity: 0, y: 20, scale: 0.97 },
+  show:   { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.48, ease } },
+};
 
 const TLDR = [
   <>
@@ -41,10 +45,10 @@ export default function Hire() {
       className={styles.page}
       initial="hidden"
       animate="show"
-      variants={{ show: { transition: { staggerChildren: 0.1 } } }}
+      variants={{ show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } } }}
     >
       {/* Header */}
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.header}>
+      <motion.div variants={fade}  className={styles.header}>
         <h1 className={styles.heading}>Hire me!</h1>
         <p className={styles.subtitle}>
           <em>Interested in hiring me? Read here to see what I can do!</em>
@@ -55,11 +59,11 @@ export default function Hire() {
         </div>
       </motion.div>
 
-      <motion.hr variants={fade} transition={{ duration: 0.3 }} className={styles.divider} />
+      <motion.hr variants={fade}  className={styles.divider} />
 
       {/* Intro */}
-      <motion.p variants={fade} transition={{ duration: 0.5 }} className={styles.intro}>
-        Thank you for stopping by! I am actively looking for a{" "}
+      <motion.p variants={fade}  className={styles.intro}>
+        Thanks for stopping by! I am actively looking for a{" "}
         <strong>data analyst, data engineer, analytics engineer, or data science role</strong> and available
         to start <strong>immediately</strong>. I've spent around 1.5 years building real data systems across
         multiple companies, working on production pipelines, marketing analytics at scale, and machine
@@ -68,7 +72,7 @@ export default function Hire() {
       </motion.p>
 
       {/* TL;DR */}
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.section}>
+      <motion.div variants={fade}  className={styles.section}>
         <h2 className={styles.sectionTitle}>TL;DR</h2>
         <ul className={styles.bullets}>
           {TLDR.map((item, i) => (
@@ -78,7 +82,7 @@ export default function Hire() {
       </motion.div>
 
       {/* What can I do */}
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.section}>
+      <motion.div variants={fade}  className={styles.section}>
         <h2 className={styles.sectionTitle}>What can I do?</h2>
         <p className={styles.sectionNote}>
           <em>These areas are not siloed — most of my best work sits at the intersection of several. I am up to the challenge of combining them.</em>
@@ -97,7 +101,7 @@ export default function Hire() {
       </motion.div>
 
       {/* Location & Work Eligibility */}
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.section}>
+      <motion.div variants={fade}  className={styles.section}>
         <h2 className={styles.sectionTitle}>Location &amp; Work Eligibility</h2>
         <div className={styles.eligibilityGrid}>
           <div className={styles.eligibilityCard}>
@@ -124,7 +128,7 @@ export default function Hire() {
       </motion.div>
 
       {/* Closing */}
-      <motion.div variants={fade} transition={{ duration: 0.5 }} className={styles.closing}>
+      <motion.div variants={fade}  className={styles.closing}>
         <hr className={styles.divider} />
         <p className={styles.closingText}>
           <em>Feel free to go through my Work and Projects sections to see what I&apos;ve actually worked on and built. If something resonates, please reach out.</em>
