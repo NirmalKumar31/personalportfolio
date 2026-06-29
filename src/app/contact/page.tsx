@@ -99,8 +99,7 @@ export default function Contact() {
             <span className={styles.termKey}>EMAIL</span>
             <a
               href="mailto:thirupallikrishnan.n@northeastern.edu"
-              className={styles.termLink}
-              style={{ color: "#ffffff" }}
+              className={`${styles.termLink} ctaWhite`}
             >
               thirupallikrishnan.n@northeastern.edu
             </a>
@@ -111,8 +110,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/nirmalkumartk/"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.termLink}
-              style={{ color: "#ffffff" }}
+              className={`${styles.termLink} ctaWhite`}
             >
               linkedin.com/in/nirmalkumartk
             </a>
@@ -123,8 +121,7 @@ export default function Contact() {
               href="https://github.com/NirmalKumar31"
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.termLink}
-              style={{ color: "#ffffff" }}
+              className={`${styles.termLink} ctaWhite`}
             >
               github.com/NirmalKumar31
             </a>
