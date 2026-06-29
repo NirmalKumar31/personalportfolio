@@ -115,33 +115,35 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Designed a two-stage SQL data quality framework using statistical boundary thresholds
-            to flag social media data outliers automatically, reducing reporting errors by 60%
-            across 10+ Tableau dashboards.
+            Built a two-stage SQL framework that automatically flagged bad data in social media
+            feeds before it reached the dashboards — using statistical boundary thresholds to
+            catch outliers at ingestion. Cut reporting errors by 60% across 10+ Tableau reports.
           </>,
           <>
-            Analyzed 270K+ social media interactions by content type, platform, and timing using
-            SQL window functions, surfacing platform-specific patterns that drove a 13% increase
-            in user engagement.
+            Dug into 270K+ social media posts and interactions to understand what content was
+            actually performing, where, and when. Used SQL window functions to surface
+            platform-specific patterns that fed into a strategy change that lifted engagement by 13%.
           </>,
           <>
-            Constructed an automated reporting table using a Snowflake Task and complex SQL to
-            compute topic volume, growth, and seasonality, eliminating manual calculations and
-            cutting report turnaround by 95%.
+            Replaced a manual weekly reporting process by building an automated Snowflake pipeline
+            that computed topic volume, growth trends, and seasonality on a schedule. What used to
+            take hours of manual work got cut by 95%.
           </>,
           <>
-            Evaluated an A/B test across 140K impressions using SQL and Python, surfaced a
-            statistically significant 9% drop in cost per acquisition, and helped the team
-            scale the winning creative.
+            Ran the analysis on an A/B test across 140K ad impressions to figure out which creative
+            was actually working. Found a statistically significant 9% drop in cost per acquisition
+            that gave the team the signal they needed to scale the winning variant.
           </>,
           <>
-            Analyzed MMM outputs covering $35.6B in new client assets across owned media,
-            computed impact-per-impression by segment and channel to map high-value paths,
-            and delivered 4 recommendations for better customer targeting.
+            Synthesized Marketing Mix Model (MMM) outputs across $35.6B in new client assets to
+            identify which owned media channels were driving the most value per impression. Mapped
+            high-value audience paths by segment and channel, and delivered 4 targeting
+            recommendations that shaped how the team allocated spend.
           </>,
           <>
-            Audited weekly MTA spend and conversion data across 20 paid channels, catching
-            discrepancies before they skewed attribution.
+            Audited weekly Multi-Touch Attribution data across 20 paid channels to catch spend and
+            conversion discrepancies early — the kind that silently distort attribution if no one
+            is checking before the numbers go upstream.
           </>,
         ],
         images: [],
@@ -152,22 +154,24 @@ const about: About = {
         role: "Data Science Intern",
         achievements: [
           <>
-            Developed an LSTM-Autoencoder anomaly prediction model on industrial sensor telemetry
-            to flag developing machine failures early, achieving 89% precision in detecting
-            failures 6 hours ahead.
+            Built an LSTM-Autoencoder on industrial sensor telemetry to catch developing machine
+            failures before they happened — the model reached 89% precision and could flag a
+            problem 6 hours before the equipment actually failed, giving the team time to act.
           </>,
           <>
-            Engineered a Python ETL pipeline to extract and preprocess sensor data from SQL Server,
-            applying correlation analysis and PCA to remove feature redundancy and reduce
-            dimensionality.
+            Built the data pipeline underneath the model: extracted raw sensor readings from SQL
+            Server, cleaned and transformed them in Python, then applied correlation analysis and
+            PCA to strip out noisy or redundant features before feeding the data into training.
           </>,
           <>
-            Projected a 31% reduction in unplanned downtime by backtesting the model against
-            a year of unseen data and historical maintenance logs.
+            Backtested the model against a full year of historical sensor data and maintenance
+            records to estimate real-world impact — the results projected a 31% reduction in
+            unplanned downtime if the model was deployed in production.
           </>,
           <>
-            Built a Power BI dashboard for anomaly scores and threshold alerts, enabling the
-            team to shift from reactive to proactive operations.
+            Built a Power BI dashboard that surfaced anomaly scores and fired visual alerts when
+            readings crossed thresholds — so the operations team could stop reacting to failures
+            after the fact and start scheduling maintenance before things broke.
           </>,
         ],
         images: [],
@@ -178,14 +182,15 @@ const about: About = {
         role: "AI and Machine Learning Intern",
         achievements: [
           <>
-            Developed a CNN-based pneumonia detection model on 5,800 chest X-rays, reaching
-            92% accuracy, with Grad-CAM overlays highlighting the regions driving each
-            prediction to make the output clinically interpretable.
+            Trained a CNN on 5,800 labeled chest X-rays to detect pneumonia, reaching 92%
+            accuracy. Added Grad-CAM visualizations so the model would highlight the exact
+            region of each image driving its prediction — making the output explainable rather
+            than just a confidence score.
           </>,
           <>
-            Built a real-time computer vision system that recognizes 15 sign language gestures
-            from a live webcam feed at 95% accuracy, converting them to on-screen text and
-            deployed as an interactive educational demo.
+            Built a real-time computer vision system that reads live webcam input and recognizes
+            15 sign language gestures at 95% accuracy, converting them into on-screen text.
+            Packaged and deployed it as an interactive accessibility demo.
           </>,
         ],
         images: [],
@@ -196,13 +201,15 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline to ingest nested JSON from a REST API,
-            flattening the schema via Mapping Data Flows and parallelizing Copy Activities
-            across 4 source partitions to cut processing time by 40%.
+            Built an Azure Data Factory pipeline to pull nested JSON from a REST API and load
+            it into a structured format. Parallelized copy operations across 4 source partitions
+            and used Mapping Data Flows to flatten the schema — bringing total processing time
+            down by 40%.
           </>,
           <>
-            Implemented Delta Lake with date-partitioned Parquet in Databricks, reducing Spark
-            scans from 500 GB to 350 GB on time-range queries using partition pruning.
+            Set up Delta Lake in Databricks with date-partitioned Parquet files so time-range
+            queries only scan the data they actually need. Reduced query scan volume from 500 GB
+            to 350 GB through partition pruning.
           </>,
         ],
         images: [],
