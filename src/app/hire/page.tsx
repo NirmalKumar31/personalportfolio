@@ -50,7 +50,7 @@ export default function Hire() {
           <em>Interested in hiring me? Read here to see what I can do!</em>
         </p>
         <div className={styles.pills}>
-          <span className={styles.pill}>Actively looking</span>
+          <span className={styles.pill}>Actively looking for full time roles</span>
           <span className={styles.pill}>Available immediately</span>
         </div>
       </motion.div>
@@ -130,7 +130,7 @@ export default function Hire() {
           <em>Feel free to go through my Work and Projects sections to see what I&apos;ve actually worked on and built. If something resonates, please reach out.</em>
         </p>
         <div className={styles.cta}>
-          <Link href="/contact" className={styles.btnPrimary} style={{ color: "var(--color-bg)" }}>Get in touch →</Link>
+          <Link href="/contact" className={styles.btnPrimary} style={{ color: "#faf8f3" }}>Get in touch →</Link>
         </div>
       </motion.div>
 

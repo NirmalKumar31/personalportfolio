@@ -68,7 +68,7 @@ export default function Contact() {
           <div className={styles.termRow}>
             <span className={styles.termKey}>STATUS</span>
             <span className={styles.termVal}>
-              <span className={styles.statusDot}>•</span> Actively looking
+              <span className={styles.statusDot}>•</span> Actively looking for full time roles
             </span>
           </div>
           <div className={styles.termSpacer} />
