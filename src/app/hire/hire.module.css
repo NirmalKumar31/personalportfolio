@@ -231,7 +231,7 @@
 .btnPrimary {
   padding: 0.65rem 1.4rem;
   background: var(--color-text);
-  color: var(--color-bg);
+  color: #ffffff !important;
   border-radius: 8px;
   font-size: 0.9rem;
   font-family: var(--font-body);
