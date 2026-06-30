@@ -11,7 +11,7 @@ const fade = {
 
 const TLDR = [
   <>
-    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I taught myself LSTM autoencoders for predictive maintenance. At Diggibyte I got hands-on with Azure Data Factory and Delta Lake. At Fidelity I got up to speed on marketing and social analytics — statistical testing, topic modeling, and content performance analysis across 270K+ interactions.
+    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I got hands-on with Azure Synapse and PySpark, building Spark ETL pipelines that handled 900M+ row backfills and 2M+ rows of daily ingestion. At Diggibyte I got into Azure Data Factory and Delta Lake. At Fidelity I got up to speed on marketing and social analytics — statistical testing, topic modeling, and content performance analysis across 270K+ interactions.
   </>,
   <>
     <strong>The work I have done actually ran in production.</strong> At Fidelity I built automated reporting systems — including a SQL data quality framework that cut reporting errors by 60% across 10+ dashboards. On personal projects I have shipped a full cloud data platform on AWS, from Kinesis ingestion to Snowflake serving. Not just coursework.
@@ -24,8 +24,8 @@ const TLDR = [
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I build data pipelines end to end. I have worked with dbt for transformation layers, Airflow for orchestration, Snowflake for warehousing, and both Azure Data Factory and AWS (Kinesis, S3, Glue, Snowpipe) for ingestion. On Databricks I have built incremental loads with Delta Lake and processed data with PySpark. I treat pipelines the way good engineers treat code: tested, maintainable, and built to fail gracefully.",
-    tags: ["Snowflake", "dbt", "Airflow", "Databricks", "PySpark", "Azure ADF", "AWS"],
+    desc: "I build data pipelines end to end. At Ideatec I architected Azure Synapse Spark ETL pipelines handling 900M+ row backfills and daily ingestion at scale. At Diggibyte I worked with Azure Data Factory and Delta Lake. On personal projects I have built full cloud stacks on AWS — Kinesis, S3, Glue, Snowpipe into Snowflake. I have also used dbt for transformation layers and Airflow for orchestration. I treat pipelines the way good engineers treat code: tested, maintainable, and built to fail gracefully.",
+    tags: ["Snowflake", "dbt", "Airflow", "Azure Synapse", "PySpark", "Azure ADF", "AWS", "Databricks"],
   },
   {
     title: "Analytics & BI",
@@ -34,8 +34,8 @@ const SKILLS = [
   },
   {
     title: "Machine Learning & AI",
-    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays), LSTM autoencoder models for predictive maintenance (89% precision, flagging equipment failures 6 hours early), and distributed PySpark ML pipelines on Databricks with MLlib for transit performance prediction. I know the gap between a model that performs in a notebook and one that holds up in production.",
-    tags: ["scikit-learn", "TensorFlow", "XGBoost", "LSTM", "CNN", "MLlib"],
+    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays with Grad-CAM explainability), a real-time computer vision pipeline for sign language recognition at 95% accuracy, and applied clustering on industrial sensor signatures to identify the failure patterns behind 72% of equipment breakdowns. I know the gap between a model that performs in a notebook and one that holds up when real data comes in.",
+    tags: ["scikit-learn", "TensorFlow", "XGBoost", "CNN", "PySpark", "MLlib"],
   },
 ];
 

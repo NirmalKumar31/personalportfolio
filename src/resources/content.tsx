@@ -151,27 +151,37 @@ const about: About = {
       {
         company: "Ideatec Softwares",
         timeframe: "January 2024 – May 2024",
-        role: "Data Science Intern",
+        role: "Analytics Engineer Intern",
         achievements: [
           <>
-            Built an LSTM-Autoencoder on industrial sensor telemetry to catch developing machine
-            failures before they happened — the model reached 89% precision and could flag a
-            problem 6 hours before the equipment actually failed, giving the team time to act.
+            Architected an Azure Synapse Spark ETL pipeline to backfill 900M+ rows from the
+            client's on-premises historian into Azure Data Lake Storage, then automated daily
+            ingestion of 2M+ new rows — bringing data latency down from days to under 3 hours.
           </>,
           <>
-            Built the data pipeline underneath the model: extracted raw sensor readings from SQL
-            Server, cleaned and transformed them in Python, then applied correlation analysis and
-            PCA to strip out noisy or redundant features before feeding the data into training.
+            Built PySpark jobs to restructure raw sensor exports into analysis-ready Parquet
+            tables. The partitioning and format change alone cut query scan time by 60% for
+            anyone querying downstream.
           </>,
           <>
-            Backtested the model against a full year of historical sensor data and maintenance
-            records to estimate real-world impact — the results projected a 31% reduction in
-            unplanned downtime if the model was deployed in production.
+            Analyzed and clustered machine sensor signatures to identify what failure patterns
+            actually looked like in the data. Found that elevated vibration was the dominant
+            signal behind 72% of equipment breakdowns.
           </>,
           <>
-            Built a Power BI dashboard that surfaced anomaly scores and fired visual alerts when
-            readings crossed thresholds — so the operations team could stop reacting to failures
-            after the fact and start scheduling maintenance before things broke.
+            Integrated Azure Monitor alerts into the pipeline to catch duplicate inserts from
+            retry logic before they compounded into data quality problems — reduced data quality
+            issues by 25%.
+          </>,
+          <>
+            Backtested the anomaly detection model in SQL against a full year of historical
+            maintenance logs to estimate real-world impact. The projection came out to a 31%
+            reduction in unplanned downtime.
+          </>,
+          <>
+            Built a Power BI dashboard that surfaced anomaly scores and threshold alerts so the
+            operations team could stop reacting to equipment failures and start scheduling
+            maintenance before things broke.
           </>,
         ],
         images: [],
