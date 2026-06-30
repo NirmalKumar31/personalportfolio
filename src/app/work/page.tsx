@@ -40,8 +40,8 @@ export default function Work() {
                   >
                     <div className={styles.expHeader}>
                       <div className={styles.expMeta}>
-                        <h3 className={styles.company}>{exp.company}</h3>
                         <p className={styles.role}>{exp.role}</p>
+                        <h3 className={styles.company}>{exp.company}</h3>
                       </div>
                       <div className={styles.expRight}>
                         <span className={styles.timeframe}>{exp.timeframe}</span>

@@ -115,35 +115,34 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Built a two-stage SQL framework that automatically flagged bad data in social media
-            feeds before it reached the dashboards — using statistical boundary thresholds to
-            catch outliers at ingestion. Cut reporting errors by 60% across 10+ Tableau reports.
+            Designed a two-stage SQL data quality framework using statistical boundary thresholds
+            to automatically detect abnormalities in social media metrics before they reached the
+            dashboards. Reduced reporting errors by 60% across 10+ Tableau reports.
           </>,
           <>
-            Dug into 270K+ social media posts and interactions to understand what content was
-            actually performing, where, and when. Used SQL window functions to surface
-            platform-specific patterns that fed into a strategy change that lifted engagement by 13%.
+            Analyzed 270K+ social media interactions by content type, platform, and timing using
+            SQL window functions. Uncovered platform-specific behavioral patterns that were tied
+            to a 13% increase in user engagement.
           </>,
           <>
             Replaced a manual weekly reporting process by building an automated Snowflake pipeline
-            that computed topic volume, growth trends, and seasonality on a schedule. What used to
-            take hours of manual work got cut by 95%.
+            that computed topic volume, growth trends, and seasonality on a schedule. Cut report
+            turnaround by 95%.
           </>,
           <>
-            Ran the analysis on an A/B test across 140K ad impressions to figure out which creative
-            was actually working. Found a statistically significant 9% drop in cost per acquisition
-            that gave the team the signal they needed to scale the winning variant.
+            Evaluated an A/B test across 140K ad impressions using SQL and Python statistical
+            testing, identifying a statistically significant 9% reduction in cost per acquisition
+            that prompted leadership to scale the winning variant.
           </>,
           <>
-            Synthesized Marketing Mix Model (MMM) outputs across $35.6B in new client assets to
-            identify which owned media channels were driving the most value per impression. Mapped
-            high-value audience paths by segment and channel, and delivered 4 targeting
-            recommendations that shaped how the team allocated spend.
+            Analyzed Marketing Mix Model (MMM) outputs covering $35.6B in new client assets across
+            owned media by segment, computing impact-per-impression ratios to map conversion paths
+            and delivering 4 targeting recommendations that shaped how the team approached customer
+            acquisition.
           </>,
           <>
-            Audited weekly Multi-Touch Attribution data across 20 paid channels to catch spend and
-            conversion discrepancies early — the kind that silently distort attribution if no one
-            is checking before the numbers go upstream.
+            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid channels,
+            catching discrepancies before they skewed attribution and distorted downstream reporting.
           </>,
         ],
         images: [],
@@ -156,7 +155,7 @@ const about: About = {
           <>
             Architected an Azure Synapse Spark ETL pipeline to backfill 900M+ rows from the
             client's on-premises historian into Azure Data Lake Storage, then automated daily
-            ingestion of 2M+ new rows — bringing data latency down from days to under 3 hours.
+            ingestion of 2M+ new rows, bringing data latency down from days to under 3 hours.
           </>,
           <>
             Built PySpark jobs to restructure raw sensor exports into analysis-ready Parquet
@@ -170,7 +169,7 @@ const about: About = {
           </>,
           <>
             Integrated Azure Monitor alerts into the pipeline to catch duplicate inserts from
-            retry logic before they compounded into data quality problems — reduced data quality
+            retry logic before they compounded into data quality problems. Reduced data quality
             issues by 25%.
           </>,
           <>
