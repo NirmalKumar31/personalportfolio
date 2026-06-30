@@ -9,7 +9,7 @@ const SKILL_EMOJIS: Record<string, string> = {
   dbt: "🔧", Airflow: "💨", Snowflake: "❄️", Databricks: "⚡", PySpark: "🔥",
   Hadoop: "🐘", Kafka: "📨", "ETL/ELT": "🔄", "Data Modeling": "🗂️", Git: "🌿",
   AWS: "☁️", S3: "🪣", Redshift: "🔴", Glue: "🔗", Lambda: "🪄",
-  Azure: "🔷", Docker: "🐳", "CI/CD": "⚙️", PostgreSQL: "🐘", MySQL: "🐬", DynamoDB: "🗄️",
+  Azure: "🔷", "Azure Synapse": "🔷", ADLS: "🗄️", Docker: "🐳", "CI/CD": "⚙️", PostgreSQL: "🐘", MySQL: "🐬", DynamoDB: "🗄️",
   "Scikit-learn": "🤖", TensorFlow: "🧠", PyTorch: "🔥", XGBoost: "🌲",
   LangChain: "🔍", RAG: "🔍", "Time Series": "⏱️", Keras: "❤️",
   Spark: "🔥", Jupyter: "📔", R: "📊", MongoDB: "🍃", Kubernetes: "☸️",
