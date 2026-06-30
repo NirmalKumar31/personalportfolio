@@ -11,30 +11,30 @@ const fade = {
 
 const TLDR = [
   <>
-    <strong>I pick up new tools fast.</strong> Every role threw something unfamiliar at me and I got productive quickly. At Ideatec I got hands-on with Azure Synapse and PySpark, building Spark ETL pipelines that handled 900M+ row backfills and 2M+ rows of daily ingestion. At Diggibyte I got into Azure Data Factory and Delta Lake. At Fidelity I got up to speed on marketing and social analytics — statistical testing, topic modeling, and content performance analysis across 270K+ interactions.
+    <strong>I pick up new tools fast.</strong> Every role handed me something I hadn't used before and I just got in and figured it out. The ramp-up has been short across the board and I've never needed long to get useful.
   </>,
   <>
-    <strong>The work I have done actually ran in production.</strong> At Fidelity I built automated reporting systems — including a SQL data quality framework that cut reporting errors by 60% across 10+ dashboards. On personal projects I have shipped a full cloud data platform on AWS, from Kinesis ingestion to Snowflake serving. Not just coursework.
+    <strong>The work actually ran in production.</strong> Real pipelines, reporting systems that replaced manual processes, cloud platforms that kept running without anyone watching. Not just coursework or demo datasets.
   </>,
   <>
-    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant taking Marketing Mix Model (MMM) outputs spanning $35.6B in new client assets, computing impact-per-impression by segment and channel, and turning that into targeting recommendations that could actually change where the team put effort. Building something that runs is the floor — building something that informs a decision is the goal.
+    <strong>I care more about the output than the process.</strong> Getting something to run is table stakes. What I'm actually trying to do is build something that helps someone make a better call with the data.
   </>,
 ];
 
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I build data pipelines end to end. At Ideatec I architected Azure Synapse Spark ETL pipelines handling 900M+ row backfills and daily ingestion at scale. At Diggibyte I worked with Azure Data Factory and Delta Lake. On personal projects I have built full cloud stacks on AWS — Kinesis, S3, Glue, Snowpipe into Snowflake. I have also used dbt for transformation layers and Airflow for orchestration. I treat pipelines the way good engineers treat code: tested, maintainable, and built to fail gracefully.",
+    desc: "I've worked across the full pipeline stack. Azure Synapse Spark ETL handling 900M+ row backfills, Azure Data Factory, Delta Lake in Databricks, and full AWS stacks (Kinesis, S3, Glue, Snowpipe into Snowflake). I use dbt for transformations and Airflow for orchestration. I treat pipelines like code: tested, maintainable, and built to fail gracefully.",
     tags: ["Snowflake", "dbt", "Airflow", "Azure Synapse", "PySpark", "Azure ADF", "AWS", "Databricks"],
   },
   {
     title: "Analytics & BI",
-    desc: "Analytics has been central to almost every role and project I have worked on. I am extremely proficient in SQL and have used it across datasets exceeding 150M records. At Fidelity I built a data quality framework that cut reporting errors by 60%, synthesized Marketing Mix Model outputs spanning $35.6B in client assets into actionable targeting recommendations, and analyzed 270K+ social interactions to drive a 13-point engagement lift. I have built dashboards in both Tableau and Power BI.",
+    desc: "SQL is my most-used tool and I've run it across datasets exceeding 150M records. At Fidelity I built a data quality framework that cut reporting errors by 60%, synthesized Marketing Mix Model outputs across $35.6B in client assets into targeting recommendations, and analyzed 270K+ social interactions to drive a 13-point engagement lift. I build dashboards in both Tableau and Power BI.",
     tags: ["SQL", "Tableau", "Power BI", "Python", "Pandas", "Snowflake"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "I have built CNN classifiers on medical imaging data (92% accuracy on 5,800 chest X-rays with Grad-CAM explainability), a real-time computer vision pipeline for sign language recognition at 95% accuracy, and applied clustering on industrial sensor signatures to identify the failure patterns behind 72% of equipment breakdowns. I know the gap between a model that performs in a notebook and one that holds up when real data comes in.",
+    desc: "I've built CNN classifiers on 5,800 chest X-rays (92% accuracy with Grad-CAM explainability), a real-time computer vision pipeline for sign language recognition at 95% accuracy, and applied clustering on industrial sensor data to identify the failure patterns behind 72% of equipment breakdowns. I know the gap between a model that performs in a notebook and one that holds up when real data comes in.",
     tags: ["scikit-learn", "TensorFlow", "XGBoost", "CNN", "PySpark", "MLlib"],
   },
 ];
