@@ -17,7 +17,7 @@ const TLDR = [
     <strong>The work I have done actually ran in production.</strong> At Fidelity I built automated reporting systems — including a SQL data quality framework that cut reporting errors by 60% across 10+ dashboards. On personal projects I have shipped a full cloud data platform on AWS, from Kinesis ingestion to Snowflake serving. Not just coursework.
   </>,
   <>
-    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant taking Marketing Mix Model (MMM) outputs spanning $35.6B in new client assets, computing impact-per-impression by segment and channel, and turning that into targeting recommendations that could actually change where the team spent money. Building something that runs is the floor — building something that informs a decision is the goal.
+    <strong>I work closest to the business question, not just the pipeline.</strong> I have always cared about what the output is supposed to tell someone. At Fidelity that meant taking Marketing Mix Model (MMM) outputs spanning $35.6B in new client assets, computing impact-per-impression by segment and channel, and turning that into targeting recommendations that could actually change where the team put effort. Building something that runs is the floor — building something that informs a decision is the goal.
   </>,
 ];
 
