@@ -24,17 +24,17 @@ const TLDR = [
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "At Ideatec I used Azure Synapse and PySpark to move 900M+ rows from on-prem into Azure Data Lake — brought latency from days to under 3 hours. Also set up Delta Lake in Databricks at Diggibyte and built Snowflake pipelines. I reach for dbt when there's modeling to manage and Airflow when scheduling gets complicated.",
-    tags: ["Azure Synapse", "PySpark", "Databricks", "Snowflake", "dbt", "Airflow", "AWS", "ADF"],
+    desc: "I build pipelines that handle real production loads. At Ideatec, I used Azure Synapse and PySpark to backfill 900M+ rows from on-prem into Azure Data Lake and set up daily ingestion — cutting data latency from days to under 3 hours. At Diggibyte, I built an Azure Data Factory pipeline to pull and flatten nested JSON from a REST API, and configured Delta Lake in Databricks so time-range queries only scan what they actually need, bringing scan volume down from 500 GB to 350 GB. On the orchestration and transformation side, I'm comfortable with dbt for modeling and Airflow for scheduling. I've also worked with Snowflake for cloud data warehousing across academic and personal projects.",
+    tags: ["Azure Synapse", "PySpark", "ADF", "Databricks", "Delta Lake", "dbt", "Airflow", "Snowflake"],
   },
   {
     title: "Analytics & BI",
-    desc: "SQL is the tool I use most. At Fidelity I built a data quality framework that cut reporting errors by 60%, analyzed 270K+ social interactions to find the posting patterns tied to a 13% engagement increase, and synthesized MMM outputs into targeting recommendations. Built dashboards in both Tableau and Power BI. My MBTA project used Python and SQL to model transit delays across 2+ years of records.",
+    desc: "SQL is the tool I default to, and I've used it across datasets in the hundreds of thousands to hundreds of millions of rows. At Fidelity, I built a two-stage data quality framework that automatically caught metric anomalies before they hit dashboards, cutting reporting errors by 60% across 10+ Tableau reports. I also analyzed 270K+ social interactions to surface the content timing and format patterns that were tied to a 13% engagement increase, and synthesized Marketing Mix Model outputs into targeting recommendations for leadership. I build dashboards in both Tableau and Power BI — most recently a Power BI operations dashboard at Ideatec. Outside work, my MBTA on-time performance project used Python and SQL to model transit delays across 2+ years of ridership records.",
     tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "Snowflake"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "Built a CNN to classify chest X-rays (92% accuracy, Grad-CAM explainability) and a real-time sign language recognition system (95%) at Qwings. Used clustering on sensor data at Ideatec to pin down the failure signals behind 72% of equipment breakdowns. Also built a crime pattern prediction model for my LA crime analysis project using scikit-learn and geospatial data.",
+    desc: "I've worked on ML problems across a few different domains. At Qwings, I trained a CNN on 5,800 labeled chest X-rays to detect pneumonia at 92% accuracy, then added Grad-CAM visualizations so the model's output was actually interpretable — not just a confidence score. I also built a real-time sign language recognition system that reads live webcam input and classifies 15 gestures at 95% accuracy. At Ideatec, I used clustering on industrial sensor data to identify that elevated vibration was the dominant signal behind 72% of equipment breakdowns. My grad school work includes an LA crime pattern analysis with geospatial modeling and a transit delay prediction model built on MBTA historical data.",
     tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "CNN", "PySpark"],
   },
 ];
