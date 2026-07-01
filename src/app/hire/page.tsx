@@ -14,13 +14,13 @@ const TLDR = [
     <strong>Quick to pick up new tools.</strong> Every role I&apos;ve been in came with something I hadn&apos;t used before — a new cloud, an unfamiliar stack, a different domain. The ramp-up has been short every time and I&apos;ve never needed long before I was actually contributing.
   </>,
   <>
+    <strong>Analytical by instinct.</strong> Once the data is in shape, the interesting work starts — figuring out what it&apos;s actually saying. I look for the pattern behind the metric, the signal behind the noise, and what a number means for a decision someone actually has to make.
+  </>,
+  <>
     <strong>Cross-domain by experience.</strong> My background spans data engineering, analytics, and ML. I&apos;ve moved between all three depending on what the problem needed — and that range makes it easier to build things that hold up end to end.
   </>,
   <>
     <strong>The work ran in production.</strong> Real ETL pipelines, automated reporting that replaced manual processes, dashboards that operations teams actually depended on. Not just coursework or demo datasets.
-  </>,
-  <>
-    <strong>I care about what the data enables.</strong> Getting something to run is table stakes. What I&apos;m actually focused on is building something that helps someone make a better call, catch a problem earlier, or stop doing something by hand.
   </>,
 ];
 
