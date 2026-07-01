@@ -111,8 +111,8 @@ export default function Hire() {
             </div>
             <p className={styles.eligibilityDesc}>
               I&apos;m on <strong>OPT with a STEM extension</strong> — up to 3 years of work authorization,
-              no sponsorship needed to get started. When the time comes, I&apos;m eligible for H-1B, and
-              since I&apos;m transitioning directly from F1, there&apos;s <strong>no $100K employer fee</strong> involved.
+              no H-1B sponsorship needed to get started. And no <strong>$100K employer fee</strong> either,
+              since I&apos;m transitioning directly from F1 to H-1B.
             </p>
           </div>
           <div className={styles.eligibilityCard}>
