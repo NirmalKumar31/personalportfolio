@@ -173,7 +173,9 @@ export interface About extends BasePageConfig {
     title: string;
     /** List of institutions attended */
     institutions: Array<{
-      /** Institution name */
+      /** Degree or program name — shown outside the card */
+      degree: string;
+      /** Institution name — shown inside when expanded */
       name: string;
       /** Description of studies */
       description: React.ReactNode;

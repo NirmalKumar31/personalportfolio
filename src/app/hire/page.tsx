@@ -24,18 +24,18 @@ const TLDR = [
 const SKILLS = [
   {
     title: "Data Engineering",
-    desc: "I've worked across the full pipeline stack. Azure Synapse Spark ETL handling 900M+ row backfills, Azure Data Factory, Delta Lake in Databricks, and full AWS stacks (Kinesis, S3, Glue, Snowpipe into Snowflake). I use dbt for transformations and Airflow for orchestration. I treat pipelines like code: tested, maintainable, and built to fail gracefully.",
-    tags: ["Snowflake", "dbt", "Airflow", "Azure Synapse", "PySpark", "Azure ADF", "AWS", "Databricks"],
+    desc: "At Ideatec I used Azure Synapse and PySpark to move 900M+ rows from on-prem into Azure Data Lake — brought latency from days to under 3 hours. Also set up Delta Lake in Databricks at Diggibyte and built Snowflake pipelines. I reach for dbt when there's modeling to manage and Airflow when scheduling gets complicated.",
+    tags: ["Azure Synapse", "PySpark", "Databricks", "Snowflake", "dbt", "Airflow", "AWS", "ADF"],
   },
   {
     title: "Analytics & BI",
-    desc: "SQL is my most-used tool and I've run it across datasets exceeding 150M records. At Fidelity I built a data quality framework that cut reporting errors by 60%, synthesized Marketing Mix Model outputs across $35.6B in client assets into targeting recommendations, and analyzed 270K+ social interactions to drive a 13-point engagement lift. I build dashboards in both Tableau and Power BI.",
-    tags: ["SQL", "Tableau", "Power BI", "Python", "Pandas", "Snowflake"],
+    desc: "SQL is the tool I use most. At Fidelity I built a data quality framework that cut reporting errors by 60%, analyzed 270K+ social interactions to find the posting patterns tied to a 13% engagement increase, and synthesized MMM outputs into targeting recommendations. Built dashboards in both Tableau and Power BI. My MBTA project used Python and SQL to model transit delays across 2+ years of records.",
+    tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "Snowflake"],
   },
   {
     title: "Machine Learning & AI",
-    desc: "I've built CNN classifiers on 5,800 chest X-rays (92% accuracy with Grad-CAM explainability), a real-time computer vision pipeline for sign language recognition at 95% accuracy, and applied clustering on industrial sensor data to identify the failure patterns behind 72% of equipment breakdowns. I know the gap between a model that performs in a notebook and one that holds up when real data comes in.",
-    tags: ["scikit-learn", "TensorFlow", "XGBoost", "CNN", "PySpark", "MLlib"],
+    desc: "Built a CNN to classify chest X-rays (92% accuracy, Grad-CAM explainability) and a real-time sign language recognition system (95%) at Qwings. Used clustering on sensor data at Ideatec to pin down the failure signals behind 72% of equipment breakdowns. Also built a crime pattern prediction model for my LA crime analysis project using scikit-learn and geospatial data.",
+    tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "CNN", "PySpark"],
   },
 ];
 
@@ -66,8 +66,8 @@ export default function Hire() {
         Thanks for stopping by! I am actively looking for a{" "}
         <strong>data analyst, data engineer, analytics engineer, or data science role</strong> and available
         to start <strong>immediately</strong>. I've spent around 1.5 years building real data systems across
-        multiple companies, working on production pipelines, marketing analytics at scale, and machine
-        learning models that went into production. I am ready to learn more and contribute to the team
+        multiple companies, working on production data pipelines, marketing analytics at scale, and
+        building systems that real teams actually depended on. I am ready to learn more and contribute to the team
         and help you achieve your goals.
       </motion.p>
 
@@ -110,9 +110,9 @@ export default function Hire() {
               <strong>United States</strong>
             </div>
             <p className={styles.eligibilityDesc}>
-              Authorized to work on <strong>OPT + STEM extension</strong> (up to 3 years) immediately.{" "}
-              <strong>No sponsorship needed to start.</strong> Eligible for H-1B sponsorship thereafter.{" "}
-              <strong>No $100K employer fee</strong>, transitioning directly from F1 to H-1B.
+              I&apos;m on <strong>OPT with a STEM extension</strong> — up to 3 years of work authorization,
+              no sponsorship needed to get started. When the time comes, I&apos;m eligible for H-1B, and
+              since I&apos;m transitioning directly from F1, there&apos;s <strong>no $100K employer fee</strong> involved.
             </p>
           </div>
           <div className={styles.eligibilityCard}>

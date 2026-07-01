@@ -97,6 +97,7 @@ export default function Work() {
                   >
                     <div className={styles.expHeader}>
                       <div className={styles.expMeta}>
+                        <p className={styles.role}>{inst.degree}</p>
                         <h3 className={styles.company}>{inst.name}</h3>
                       </div>
                       <span className={styles.toggleIcon}>

@@ -54,7 +54,7 @@ export default function About() {
           <p className={styles.body}>
             My name is <mark className={styles.hlTeal}>Nirmalkumar Thirupallikrishnan Kesavan</mark>.
             I&apos;m a data professional who spends most of his time building pipelines, running
-            analyses, and occasionally training models. I work across the full data stack — from raw
+            analyses, and occasionally training models. <mark className={styles.hlYellow}>I work across the full data stack</mark> — from raw
             ingestion to the dashboard someone actually opens on a Monday morning.
           </p>
           <p className={styles.body}>
@@ -73,7 +73,7 @@ export default function About() {
             Last semester of my MS at Northeastern (GPA: 3.8).{" "}
             <mark className={styles.hlYellow}>Actively looking for full-time roles</mark> in data
             engineering, analytics engineering, or data science. In between, I&apos;m working on
-            side projects, attending meetups, and trying not to start five new things at once.
+            side projects, attending meetups, and generally keeping more tabs open than I should.
           </p>
           <p className={styles.body}>
             If something I&apos;ve built looks interesting to you, I&apos;d love to talk. Reach out
