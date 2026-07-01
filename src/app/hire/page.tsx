@@ -11,13 +11,16 @@ const fade = {
 
 const TLDR = [
   <>
-    <strong>I pick up new tools fast.</strong> Every role handed me something I hadn't used before and I just got in and figured it out. The ramp-up has been short across the board and I've never needed long to get useful.
+    <strong>Quick to pick up new tools.</strong> Every role I&apos;ve been in came with something I hadn&apos;t used before — a new cloud, an unfamiliar stack, a different domain. The ramp-up has been short every time and I&apos;ve never needed long before I was actually contributing.
   </>,
   <>
-    <strong>The work actually ran in production.</strong> Real pipelines, reporting systems that replaced manual processes, cloud platforms that kept running without anyone watching. Not just coursework or demo datasets.
+    <strong>Cross-domain by experience.</strong> My background spans data engineering, analytics, and ML. I&apos;ve moved between all three depending on what the problem needed — and that range makes it easier to build things that hold up end to end.
   </>,
   <>
-    <strong>I care more about the output than the process.</strong> Getting something to run is table stakes. What I'm actually trying to do is build something that helps someone make a better call with the data.
+    <strong>The work ran in production.</strong> Real ETL pipelines, automated reporting that replaced manual processes, dashboards that operations teams actually depended on. Not just coursework or demo datasets.
+  </>,
+  <>
+    <strong>I care about what the data enables.</strong> Getting something to run is table stakes. What I&apos;m actually focused on is building something that helps someone make a better call, catch a problem earlier, or stop doing something by hand.
   </>,
 ];
 
@@ -110,9 +113,10 @@ export default function Hire() {
               <strong>United States</strong>
             </div>
             <p className={styles.eligibilityDesc}>
-              I&apos;m on <strong>OPT with a STEM extension</strong> — up to 3 years of work authorization,
-              no H-1B sponsorship needed to get started. And no <strong>$100K employer fee</strong> either,
-              since I&apos;m transitioning directly from F1 to H-1B.
+              Authorized to work on <strong>OPT + STEM extension</strong> (up to 3 years) immediately.{" "}
+              <strong>No sponsorship needed to start.</strong> Eligible for H-1B sponsorship thereafter.{" "}
+              There is <strong>no need for the employer to pay the $100,000 fee</strong> to sponsor my H-1B
+              since I am transitioning from F1 to H-1B.
             </p>
           </div>
           <div className={styles.eligibilityCard}>
