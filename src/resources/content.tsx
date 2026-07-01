@@ -120,6 +120,12 @@ const about: About = {
             dashboards. Reduced reporting errors by 60% across 10+ Tableau reports.
           </>,
           <>
+            Analyzed Marketing Mix Model (MMM) outputs covering $35.6B in new client assets across
+            owned media by segment, computing impact-per-impression ratios to map conversion paths
+            and delivering 4 targeting recommendations that shaped how the team approached customer
+            acquisition.
+          </>,
+          <>
             Analyzed 270K+ social media interactions by content type, platform, and timing using
             SQL window functions. Uncovered platform-specific behavioral patterns that were tied
             to a 13% increase in user engagement.
@@ -133,12 +139,6 @@ const about: About = {
             Evaluated an A/B test across 140K ad impressions using SQL and Python statistical
             testing, identifying a statistically significant 9% reduction in cost per acquisition
             that prompted leadership to scale the winning variant.
-          </>,
-          <>
-            Analyzed Marketing Mix Model (MMM) outputs covering $35.6B in new client assets across
-            owned media by segment, computing impact-per-impression ratios to map conversion paths
-            and delivering 4 targeting recommendations that shaped how the team approached customer
-            acquisition.
           </>,
           <>
             Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid channels,

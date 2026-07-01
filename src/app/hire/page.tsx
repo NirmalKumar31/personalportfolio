@@ -32,7 +32,7 @@ const SKILLS = [
   },
   {
     title: "Analytics & BI",
-    desc: "SQL is the tool I default to, and I've used it across datasets in the hundreds of thousands to hundreds of millions of rows. At Fidelity, I built a two-stage data quality framework that automatically caught metric anomalies before they hit dashboards, cutting reporting errors by 60% across 10+ Tableau reports. I also analyzed 270K+ social interactions to surface the content timing and format patterns that were tied to a 13% engagement increase, and synthesized Marketing Mix Model outputs into targeting recommendations for leadership. I build dashboards in both Tableau and Power BI — most recently a Power BI operations dashboard at Ideatec. Outside work, my MBTA on-time performance project used Python and SQL to model transit delays across 2+ years of ridership records.",
+    desc: "SQL is the tool I reach for most, and I use it for everything from data quality checks to exploratory analysis. At Fidelity I worked with social media data, marketing mix model outputs, and multi-touch attribution across a large client asset base — the kind of work where the numbers mean something to the business, not just the dashboard. I build in Tableau and Power BI, and I'm comfortable owning the full chain from the query to the view someone else uses to make a call. Outside work, my MBTA on-time performance project used Python and SQL to dig into how transit delays actually pattern across routes and time.",
     tags: ["SQL", "Python", "Tableau", "Power BI", "Pandas", "Snowflake"],
   },
   {
