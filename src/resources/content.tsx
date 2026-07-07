@@ -117,12 +117,12 @@ const about: About = {
           <>
             Designed a two-stage SQL data quality framework using statistical boundary thresholds
             to automatically detect abnormalities in social media metrics before they reached the
-            dashboards. Reduced reporting errors by 60% across 10+ Tableau reports.
+            dashboards. Reduced reporting errors by 80% across 10+ Tableau dashboards.
           </>,
           <>
             Analyzed Marketing Mix Model (MMM) outputs covering $35.6B in new client assets across
             owned media by segment, computing impact-per-impression ratios to map conversion paths
-            and delivering 4 targeting recommendations that shaped how the team approached customer
+            and delivering 4 high-value targeting recommendations that shaped how the team approached customer
             acquisition.
           </>,
           <>
@@ -131,9 +131,8 @@ const about: About = {
             to a 13% increase in user engagement.
           </>,
           <>
-            Replaced a manual weekly reporting process by building an automated Snowflake pipeline
-            that computed topic volume, growth trends, and seasonality on a schedule. Cut report
-            turnaround by 95%.
+            Automated a Snowflake Task to compute topic volume, growth, and seasonality metrics,
+            eliminating manual calculations and cutting report turnaround by 97%.
           </>,
           <>
             Evaluated an A/B test across 140K ad impressions using SQL and Python statistical
