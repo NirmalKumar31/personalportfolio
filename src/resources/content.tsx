@@ -115,33 +115,33 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Designed a two-stage SQL data quality framework using statistical boundary thresholds
-            to automatically detect abnormalities in social media metrics before they reached the
-            dashboards. Reduced reporting errors by 80% across 10+ Tableau dashboards.
+            Developed a SQL data quality framework with statistical boundary thresholds to
+            automatically flag anomalies in social media KPIs, reducing reporting errors across
+            10+ Tableau dashboards by 80%.
           </>,
           <>
-            Analyzed Marketing Mix Model (MMM) outputs covering $35.6B in new client assets across
-            owned media by segment, computing impact-per-impression ratios to map conversion paths
-            and delivering 4 high-value targeting recommendations that shaped how the team approached customer
-            acquisition.
+            Synthesized Marketing Mix Model outputs covering $35.6B in new client assets,
+            computing impact-per-impression ratios to map high-conversion paths and delivering
+            4 targeting recommendations.
           </>,
           <>
-            Analyzed 270K+ social media interactions by content type, platform, and timing using
-            SQL window functions. Uncovered platform-specific behavioral patterns that were tied
-            to a 13% increase in user engagement.
+            Analyzed 270K+ social media interactions by content type, platform and timing using
+            SQL window functions, uncovering platform-specific behavioral patterns tied to
+            13% higher user engagement.
           </>,
           <>
-            Automated a Snowflake Task to compute topic volume, growth, and seasonality metrics,
-            eliminating manual calculations and cutting report turnaround by 97%.
+            Unified social care platform data via an automated Snowflake Task computing topic
+            growth KPIs and seasonal trends, cutting insight turnaround from hours to minutes
+            and reducing ad-hoc reporting requests through self-serve access.
           </>,
           <>
-            Evaluated an A/B test across 140K ad impressions using SQL and Python statistical
-            testing, identifying a statistically significant 9% reduction in cost per acquisition
-            that prompted leadership to scale the winning variant.
+            Evaluated an A/B test across 140K impressions using SQL and Python statistical
+            testing, identifying a 9% cost per acquisition reduction that prompted leadership
+            to scale the winning variant.
           </>,
           <>
-            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid channels,
-            catching discrepancies before they skewed attribution and distorted downstream reporting.
+            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid
+            channels, resolving discrepancies before attribution skew distorted downstream reporting.
           </>,
         ],
         images: [],
@@ -152,34 +152,25 @@ const about: About = {
         role: "Analytics Engineer Intern",
         achievements: [
           <>
-            Architected an Azure Synapse Spark ETL pipeline to backfill 900M+ rows from the
-            client's on-premises historian into Azure Data Lake Storage, then automated daily
-            ingestion of 2M+ new rows, bringing data latency down from days to under 3 hours.
+            Architected an Azure Synapse Spark ELT pipeline, backfilling 900M+ rows from the
+            client&apos;s on-prem historian into ADLS and automating ingestion of 2M+ daily rows
+            with sub-3-hour latency.
           </>,
           <>
-            Built PySpark jobs to restructure raw sensor exports into analysis-ready Parquet
-            tables. The partitioning and format change alone cut query scan time by 60% for
-            anyone querying downstream.
+            Analyzed and clustered sensor signatures, pinpointing a dominant failure pattern
+            responsible for 72% of equipment breakdowns.
           </>,
           <>
-            Analyzed and clustered machine sensor signatures to identify what failure patterns
-            actually looked like in the data. Found that elevated vibration was the dominant
-            signal behind 72% of equipment breakdowns.
+            Integrated Azure Monitor alerts into the Synapse pipeline, monitoring ingestion
+            health and reducing pipeline failures by 25%.
           </>,
           <>
-            Integrated Azure Monitor alerts into the pipeline to catch duplicate inserts from
-            retry logic before they compounded into data quality problems. Reduced data quality
-            issues by 25%.
+            Backtested the anomaly detection model in SQL against historical maintenance logs,
+            projecting a 31% reduction in unplanned downtime before deployment.
           </>,
           <>
-            Backtested the anomaly detection model in SQL against a full year of historical
-            maintenance logs to estimate real-world impact. The projection came out to a 31%
-            reduction in unplanned downtime.
-          </>,
-          <>
-            Built a Power BI dashboard that surfaced anomaly scores and threshold alerts so the
-            operations team could stop reacting to equipment failures and start scheduling
-            maintenance before things broke.
+            Developed a Power BI dashboard with anomaly-score and threshold alerts, helping
+            the operations team move from reactive to proactive maintenance workflows.
           </>,
         ],
         images: [],
@@ -190,15 +181,13 @@ const about: About = {
         role: "AI and Machine Learning Intern",
         achievements: [
           <>
-            Trained a CNN on 5,800 labeled chest X-rays to detect pneumonia, reaching 92%
-            accuracy. Added Grad-CAM visualizations so the model would highlight the exact
-            region of each image driving its prediction — making the output explainable rather
-            than just a confidence score.
+            Built a Convolutional Neural Network-based pneumonia detection model trained on
+            5,800 labeled chest X-rays, reaching 92% classification accuracy with Grad-CAM
+            visualizations to support clinical explainability.
           </>,
           <>
-            Built a real-time computer vision system that reads live webcam input and recognizes
-            15 sign language gestures at 95% accuracy, converting them into on-screen text.
-            Packaged and deployed it as an interactive accessibility demo.
+            Deployed a real-time computer-vision pipeline recognizing 15 sign-language gestures
+            via webcam at 95% accuracy, showcased as an interactive accessibility demonstration.
           </>,
         ],
         images: [],
@@ -209,15 +198,13 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Built an Azure Data Factory pipeline to pull nested JSON from a REST API and load
-            it into a structured format. Parallelized copy operations across 4 source partitions
-            and used Mapping Data Flows to flatten the schema — bringing total processing time
-            down by 40%.
+            Engineered an Azure Data Factory pipeline to ingest nested JSON from a REST API,
+            flattening the schema via Mapping Data Flows and parallelizing Copy Activities
+            across 4 source partitions to cut processing time by 40%.
           </>,
           <>
-            Set up Delta Lake in Databricks with date-partitioned Parquet files so time-range
-            queries only scan the data they actually need. Reduced query scan volume from 500 GB
-            to 350 GB through partition pruning.
+            Implemented Delta Lake with date-partitioned Parquet storage in Databricks, reducing
+            Spark scan volume from 500 GB to 350 GB on time-range queries through partition pruning.
           </>,
         ],
         images: [],
