@@ -115,24 +115,24 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Developed a SQL data quality framework with statistical boundary thresholds to
-            automatically flag anomalies in social media KPIs, reducing reporting errors across
-            10+ Tableau dashboards by 80%.
+            Developed a two-stage SQL data quality framework that automatically flagged abnormal
+            shifts in social media KPIs, improving reliability across 10+ Tableau dashboards and
+            reducing false alerts by 80%.
           </>,
           <>
-            Synthesized Marketing Mix Model outputs covering $35.6B in new client assets,
-            computing impact-per-impression ratios to map high-conversion paths and delivering
-            4 targeting recommendations.
+            Built the first automated Snowflake analytics product to compute &amp; report KPIs,
+            enabling stakeholders to monitor topic-growth and gather insights instantly,
+            eliminating any manual analysis.
+          </>,
+          <>
+            Identified high-value customer-channel segments across $35.6B in client asset inflows
+            through impact-per-impression analysis, delivering 4 acquisition strategies for
+            messaging and customer growth.
           </>,
           <>
             Analyzed 270K+ social media interactions by content type, platform and timing using
             SQL window functions, uncovering platform-specific behavioral patterns tied to
             13% higher user engagement.
-          </>,
-          <>
-            Unified social care platform data via an automated Snowflake Task computing topic
-            growth KPIs and seasonal trends, cutting insight turnaround from hours to minutes
-            and reducing ad-hoc reporting requests through self-serve access.
           </>,
           <>
             Evaluated an A/B test across 140K impressions using SQL and Python statistical
@@ -152,25 +152,25 @@ const about: About = {
         role: "Analytics Engineer Intern",
         achievements: [
           <>
-            Architected an Azure Synapse Spark ELT pipeline, backfilling 900M+ rows from the
+            Developed an Azure Synapse Spark ELT pipeline, backfilling 900M+ rows from the
             client&apos;s on-prem historian into ADLS and automating ingestion of 2M+ daily rows
             with sub-3-hour latency.
           </>,
           <>
-            Analyzed and clustered sensor signatures, pinpointing a dominant failure pattern
-            responsible for 72% of equipment breakdowns.
+            Modeled a unified Azure SQL analytics layer, integrating telemetry and maintenance
+            records for analytics and reporting.
           </>,
           <>
-            Integrated Azure Monitor alerts into the Synapse pipeline, monitoring ingestion
-            health and reducing pipeline failures by 25%.
+            Analyzed and clustered sensor data, pinpointing a dominant failure pattern associated
+            with 72% of equipment breakdowns.
           </>,
           <>
-            Backtested the anomaly detection model in SQL against historical maintenance logs,
+            Backtested the anomaly detection model against historical maintenance logs using SQL,
             projecting a 31% reduction in unplanned downtime before deployment.
           </>,
           <>
-            Developed a Power BI dashboard with anomaly-score and threshold alerts, helping
-            the operations team move from reactive to proactive maintenance workflows.
+            Designed a Power BI dashboard with anomaly-score and threshold alerts, helping the
+            operations team move from reactive to proactive maintenance workflow.
           </>,
         ],
         images: [],
@@ -198,7 +198,7 @@ const about: About = {
         role: "Data Engineering Intern",
         achievements: [
           <>
-            Engineered an Azure Data Factory pipeline to ingest nested JSON from a REST API,
+            Built an Azure Data Factory pipeline to ingest nested JSON from a REST API,
             flattening the schema via Mapping Data Flows and parallelizing Copy Activities
             across 4 source partitions to cut processing time by 40%.
           </>,
