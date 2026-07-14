@@ -176,23 +176,6 @@ const about: About = {
         images: [],
       },
       {
-        company: "Qwings – IIT Madras Research Park",
-        timeframe: "July 2023 – November 2023",
-        role: "AI and Machine Learning Intern",
-        achievements: [
-          <>
-            Built a Convolutional Neural Network-based pneumonia detection model trained on
-            5,800 labeled chest X-rays, reaching 92% classification accuracy with Grad-CAM
-            visualizations to support clinical explainability.
-          </>,
-          <>
-            Deployed a real-time computer-vision pipeline recognizing 15 sign-language gestures
-            via webcam at 95% accuracy, showcased as an interactive accessibility demonstration.
-          </>,
-        ],
-        images: [],
-      },
-      {
         company: "Diggibyte Technologies Pvt Ltd",
         timeframe: "March 2023 – April 2023",
         role: "Data Engineering Intern",
