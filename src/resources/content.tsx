@@ -135,42 +135,69 @@ const about: About = {
             13% higher user engagement.
           </>,
           <>
+            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid
+            channels, resolving discrepancies before attribution skew distorted downstream reporting.
+          </>,
+          <>
             Evaluated an A/B test across 140K impressions using SQL and Python statistical
             testing, identifying a 9% cost per acquisition reduction that prompted leadership
             to scale the winning variant.
-          </>,
-          <>
-            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid
-            channels, resolving discrepancies before attribution skew distorted downstream reporting.
           </>,
         ],
         images: [],
       },
       {
         company: "Ideatec Softwares",
-        timeframe: "January 2024 – May 2024",
+        timeframe: "January 2023 – May 2023",
         role: "Analytics Engineer Intern",
         achievements: [
           <>
-            Developed an Azure Synapse Spark ELT pipeline, backfilling 900M+ rows from the
-            client&apos;s on-prem historian into ADLS and automating ingestion of 2M+ daily rows
-            with sub-3-hour latency.
+            Developed a large scale PySpark pipeline in Azure Synapse, backfilling 900M+ rows
+            from the client&apos;s on-prem historian into ADLS and automating daily ingestion of
+            2M+ rows for downstream analytics.
           </>,
           <>
-            Modeled a unified Azure SQL analytics layer, integrating telemetry and maintenance
-            records for analytics and reporting.
+            Built a unified data model in Azure SQL, integrating 8+ operational sources to
+            support stakeholder reporting and ad hoc analysis.
           </>,
           <>
-            Analyzed and clustered sensor data, pinpointing a dominant failure pattern associated
-            with 72% of equipment breakdowns.
+            Performed root-cause analysis by clustering sensor data, pinpointing a dominant
+            failure pattern linked to 72% of breakdowns to support anomaly-detection model
+            development.
           </>,
           <>
-            Backtested the anomaly detection model against historical maintenance logs using SQL,
-            projecting a 31% reduction in unplanned downtime before deployment.
+            Quantified the operational impact of predictive-maintenance alerts using SQL,
+            projecting a 31% decrease in machine downtime.
           </>,
           <>
-            Designed a Power BI dashboard with anomaly-score and threshold alerts, helping the
-            operations team move from reactive to proactive maintenance workflow.
+            Version-controlled data workflows in Git, supporting code reviews and reliable
+            pipeline changes.
+          </>,
+          <>
+            Designed a Power BI dashboard with anomaly-score and alerts, helping the operations
+            team to shift to proactive maintenance.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "Qwings",
+        timeframe: "July 2023 – September 2023",
+        role: "Data Analyst Intern",
+        achievements: [
+          <>
+            Cross-referenced contract and product-deployment data across 20+ B2B clients,
+            mapping usage trends to identify low-adoption offerings and present product expansion
+            opportunities to key account stakeholders.
+          </>,
+          <>
+            Reconstructed the sales funnel across 200+ enquiries, identifying the largest
+            conversion bottleneck and high-potential prospects to guide sales prioritization.
+          </>,
+          <>
+            Evaluated product deployment and utilization across client locations, presenting a
+            cost-reduction strategy to business leadership that resolved a 15% inventory surplus
+            and reduced quarterly purchasing.
           </>,
         ],
         images: [],
@@ -186,8 +213,8 @@ const about: About = {
             across 4 source partitions to cut processing time by 40%.
           </>,
           <>
-            Implemented Delta Lake with date-partitioned Parquet storage in Databricks, reducing
-            Spark scan volume from 500 GB to 350 GB on time-range queries through partition pruning.
+            Optimized PySpark workloads in Databricks by partitioning Delta tables on time-based
+            columns, reducing scanned data from 500 GB to 350 GB through partition pruning.
           </>,
         ],
         images: [],

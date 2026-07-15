@@ -37,7 +37,7 @@ const SKILLS = [
   },
   {
     title: "Machine Learning & AI",
-    desc: "I've worked on ML problems across a few different domains. At Qwings, I trained a CNN on 5,800 labeled chest X-rays to detect pneumonia at 92% accuracy, then added Grad-CAM visualizations so the model's output was actually interpretable — not just a confidence score. I also built a real-time sign language recognition system that reads live webcam input and classifies 15 gestures at 95% accuracy. At Ideatec, I used clustering on industrial sensor data to identify that elevated vibration was the dominant signal behind 72% of equipment breakdowns. My grad school work includes an LA crime pattern analysis with geospatial modeling and a transit delay prediction model built on MBTA historical data.",
+    desc: "I've applied ML techniques across different problem types. At Ideatec, I used clustering to perform root-cause analysis on sensor data, pinpointing a dominant failure pattern linked to 72% of equipment breakdowns — then used SQL to project the impact of acting on it. My grad school work includes an LA crime pattern analysis with geospatial modeling and a transit delay prediction model built on 2+ years of MBTA historical data. I'm comfortable with the full workflow from feature engineering to model evaluation.",
     tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "CNN", "PySpark"],
   },
 ];

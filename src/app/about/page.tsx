@@ -59,7 +59,7 @@ export default function About() {
           </p>
           <p className={styles.body}>
             Over the last few years I&apos;ve worked across some pretty different spaces:
-            predictive maintenance on factory machines, medical imaging models, and data pipelines
+            predictive maintenance on factory machines, B2B client analytics, and data pipelines
             and marketing analytics at a financial firm. Not the most linear path — but the
             domains kept changing, which kept it interesting. My experience sits somewhere between{" "}
             <mark className={styles.hlYellow}>data engineering, analytics, and ML</mark>. I&apos;ve
