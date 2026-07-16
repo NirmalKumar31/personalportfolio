@@ -1,7 +1,8 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { useState } from 'react'
 import styles from './page.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -33,8 +34,14 @@ const RECOMMENDATIONS = [
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const recoRef      = useRef<HTMLElement>(null)
   const { scrollY }  = useScroll()
   const avatarY      = useTransform(scrollY, [0, 300], [0, -18])
+  const [cueVisible, setCueVisible] = useState(true)
+
+  useMotionValueEvent(scrollY, "change", (v) => {
+    setCueVisible(v < 60)
+  })
 
   return (
     <div className={styles.page} ref={containerRef}>
@@ -121,8 +128,26 @@ export default function HomePage() {
         </div>
       </motion.div>
 
+      {/* Scroll cue */}
+      <motion.button
+        className={styles.scrollCue}
+        onClick={() => recoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+        animate={{ opacity: cueVisible ? 1 : 0, y: cueVisible ? 0 : 8 }}
+        transition={{ duration: 0.3 }}
+        aria-label="Scroll to recommendations"
+      >
+        <motion.span
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          className={styles.scrollCueInner}
+        >
+          What they say ↓
+        </motion.span>
+      </motion.button>
+
       {/* Recommendations */}
       <motion.section
+        ref={recoRef}
         className={styles.recoSection}
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
