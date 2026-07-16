@@ -1,8 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
-import { useState } from 'react'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import styles from './page.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -37,11 +36,7 @@ export default function HomePage() {
   const recoRef      = useRef<HTMLElement>(null)
   const { scrollY }  = useScroll()
   const avatarY      = useTransform(scrollY, [0, 300], [0, -18])
-  const [cueVisible, setCueVisible] = useState(true)
-
-  useMotionValueEvent(scrollY, "change", (v) => {
-    setCueVisible(v < 60)
-  })
+  const recoInView   = useInView(recoRef, { margin: "0px 0px -80px 0px" })
 
   return (
     <div className={styles.page} ref={containerRef}>
@@ -128,21 +123,21 @@ export default function HomePage() {
         </div>
       </motion.div>
 
-      {/* Scroll cue */}
+      {/* Sticky side cue */}
       <motion.button
         className={styles.scrollCue}
         onClick={() => recoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-        animate={{ opacity: cueVisible ? 1 : 0, y: cueVisible ? 0 : 8 }}
-        transition={{ duration: 0.3 }}
+        animate={{ opacity: recoInView ? 0 : 1, x: recoInView ? -10 : 0 }}
+        transition={{ duration: 0.35 }}
         aria-label="Scroll to recommendations"
       >
-        <motion.span
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
-          className={styles.scrollCueInner}
-        >
-          What they say ↓
-        </motion.span>
+        <div className={styles.scrollCueLine} />
+        <span className={styles.scrollCueText}>what they say</span>
+        <motion.div
+          className={styles.scrollCueDot}
+          animate={{ y: [0, 4, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+        />
       </motion.button>
 
       {/* Recommendations */}
