@@ -16,6 +16,21 @@ const item = {
 
 const ROLES = ['Data Engineer', 'Analytics Engineer', 'Data Analyst', 'Data Scientist']
 
+const RECOMMENDATIONS = [
+  {
+    name: "Shyam Daraboina",
+    role: "Director, Social Data Platforms Analytics",
+    company: "Fidelity Investments",
+    text: "He picked up social media analytics & data nuances in no time, which is not easy due to its complex and unstructured nature. He was able to bring new technical dimensions to the regular analyses, demonstrating his out-of-box thinking. Nirmal has strong technical skills especially in data wrangling, manipulation and modeling — an asset to any team solving complex analytics questions for marketing stakeholders. I would strongly recommend Nirmal for any analytics team that wants a technically savvy, intellectually curious quick learner.",
+  },
+  {
+    name: "Jennifer LaPlaca Sherman",
+    role: "Director, Marketing Measurement & Analytics",
+    company: "Fidelity Investments",
+    text: "Nirmal was an excellent addition to our Analytics team during his time as a Co-op. He is a very quick learner and provided detailed and digestible marketing insights for our team and business stakeholders. He is always eager to learn more and not afraid to step outside of his comfort zone. Thank you for all your support over the last 6 months, Nirmal!",
+  },
+];
+
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollY }  = useScroll()
@@ -23,6 +38,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.page} ref={containerRef}>
+
       <motion.div
         className={styles.hero}
         variants={container}
@@ -104,6 +120,37 @@ export default function HomePage() {
 
         </div>
       </motion.div>
+
+      {/* Recommendations */}
+      <motion.section
+        className={styles.recoSection}
+        initial={{ opacity: 0, y: 28 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease, delay: 0.55 }}
+      >
+        <p className={styles.recoLabel}>What they say</p>
+        <div className={styles.recoGrid}>
+          {RECOMMENDATIONS.map((r, i) => (
+            <div key={i} className={styles.recoCard}>
+              <span className={styles.recoMark}>&ldquo;</span>
+              <p className={styles.recoText}>{r.text}</p>
+              <div className={styles.recoFooter}>
+                <span className={styles.recoName}>{r.name}</span>
+                <span className={styles.recoMeta}>{r.role} · {r.company}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <a
+          href="https://www.linkedin.com/in/nirmalkumartk/details/recommendations/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.recoLink}
+        >
+          View on LinkedIn ↗
+        </a>
+      </motion.section>
+
     </div>
   )
 }
