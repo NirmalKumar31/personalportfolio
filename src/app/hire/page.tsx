@@ -103,6 +103,43 @@ export default function Hire() {
         </div>
       </motion.div>
 
+      {/* Recommendations */}
+      <motion.div variants={fade} className={styles.section}>
+        <h2 className={styles.sectionTitle}>Recommendations</h2>
+        <p className={styles.sectionNote}>
+          <em>From people I&apos;ve worked with. Peek below — full versions on LinkedIn.</em>
+        </p>
+        <a
+          href="https://www.linkedin.com/in/nirmalkumartk/details/recommendations/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.recoCard}
+        >
+          <div className={styles.recoPreview}>
+            {[
+              [["45%", "88%", "65%"], ["30%", "72%", "55%", "80%"]],
+              [["38%", "82%", "60%"], ["35%", "68%", "78%"]],
+            ].map((item, i) => (
+              <div key={i} className={styles.recoItem}>
+                <div className={styles.recoAvatar} />
+                <div className={styles.recoBody}>
+                  {item[0].map((w, j) => (
+                    <div key={j} className={styles.recoMeta} style={{ width: w }} />
+                  ))}
+                  <div className={styles.recoSpacer} />
+                  {item[1].map((w, j) => (
+                    <div key={j} className={styles.recoLine} style={{ width: w }} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.recoOverlay}>
+            <span className={styles.recoOverlayText}>View recommendations on LinkedIn ↗</span>
+          </div>
+        </a>
+      </motion.div>
+
       {/* Location & Work Eligibility */}
       <motion.div variants={fade}  className={styles.section}>
         <h2 className={styles.sectionTitle}>Location &amp; Work Eligibility</h2>

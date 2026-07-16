@@ -207,6 +207,108 @@
   background: var(--color-bg);
 }
 
+/* ── Recommendations peek card ── */
+.recoCard {
+  position: relative;
+  display: block;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--color-card);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.recoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+}
+
+.recoPreview {
+  padding: 1.5rem 1.75rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  filter: blur(3.5px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.recoItem {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.recoAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.recoBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.recoMeta {
+  height: 9px;
+  border-radius: 4px;
+  background: var(--color-border);
+  opacity: 0.7;
+}
+
+.recoSpacer {
+  height: 6px;
+}
+
+.recoLine {
+  height: 9px;
+  border-radius: 4px;
+  background: var(--color-border);
+  opacity: 0.45;
+}
+
+.recoOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(252, 251, 248, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: background 0.22s ease;
+}
+
+.recoCard:hover .recoOverlay {
+  background: rgba(252, 251, 248, 0.55);
+}
+
+.recoOverlayText {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.recoCard:hover .recoOverlayText {
+  background: var(--color-text);
+  color: #ffffff;
+  border-color: var(--color-text);
+}
+
 /* ── Closing ── */
 .closing {
   display: flex;
