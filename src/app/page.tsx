@@ -102,12 +102,6 @@ export default function HomePage() {
             Finishing up my degree and actively looking for full-time roles.
           </motion.p>
 
-          <motion.div variants={item} className={styles.didYouKnow}>
-            <span className={styles.didYouKnowLabel}>💡 Did you know?</span>
-            I&apos;m on OPT and can start immediately. No H-1B needed upfront, and no $100K
-            sponsorship fee for the employer since I&apos;m transitioning from F1 to H-1B.
-          </motion.div>
-
         </div>
       </motion.div>
     </div>

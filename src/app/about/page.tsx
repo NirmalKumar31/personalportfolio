@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./about.module.css";
 
@@ -11,6 +12,19 @@ const item = {
   hidden: { opacity: 0, y: 22, scale: 0.96 },
   show:  { opacity: 1, y: 0,  scale: 1, transition: { duration: 0.5, ease } },
 };
+
+const RECOMMENDATIONS = [
+  {
+    name: "Recommender Name",
+    role: "Title, Company",
+    text: "PLACEHOLDER — share your LinkedIn recommendation text and I'll fill this in.",
+  },
+  {
+    name: "Recommender Name",
+    role: "Title, Company",
+    text: "PLACEHOLDER — share your LinkedIn recommendation text and I'll fill this in.",
+  },
+];
 
 const PILLS = [
   { icon: "📍", label: "Boston, MA" },
@@ -79,6 +93,29 @@ export default function About() {
             If something I&apos;ve built looks interesting to you, I&apos;d love to talk. Reach out
             through the contact page or my socials.
           </p>
+        </div>
+
+        <div className={styles.section}>
+          <p className={styles.sectionLabel}>03 / RECOMMENDATIONS</p>
+          <div className={styles.recoCards}>
+            {RECOMMENDATIONS.map((r, i) => (
+              <div key={i} className={styles.recoCard}>
+                <p className={styles.recoQuote}>&ldquo;{r.text}&rdquo;</p>
+                <div className={styles.recoAuthor}>
+                  <span className={styles.recoName}>{r.name}</span>
+                  <span className={styles.recoRole}>{r.role}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a
+            href="https://www.linkedin.com/in/nirmalkumartk/details/recommendations/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.recoLinkedIn}
+          >
+            View all on LinkedIn ↗
+          </a>
         </div>
 
       </motion.div>
