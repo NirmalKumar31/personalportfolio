@@ -328,6 +328,15 @@
   min-width: 0;
 }
 
+.recoTeaserLabel {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
 .recoTeaserQuote {
   font-family: var(--font-body);
   font-size: 0.82rem;

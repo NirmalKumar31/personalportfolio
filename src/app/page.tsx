@@ -129,8 +129,9 @@ export default function HomePage() {
               <div className={styles.recoAvatar} style={{ background: '#ccfbf1', color: '#0f5a4e' }}>J</div>
             </div>
             <div className={styles.recoTeaserBody}>
+              <span className={styles.recoTeaserLabel}>What they say</span>
               <span className={styles.recoTeaserQuote}>&ldquo;technically savvy, intellectually curious, quick learner&rdquo;</span>
-              <span className={styles.recoTeaserHint}>2 Directors at Fidelity · scroll to read ↓</span>
+              <span className={styles.recoTeaserHint}><strong>2 Directors at Fidelity</strong> · scroll to read ↓</span>
             </div>
           </motion.button>
 
