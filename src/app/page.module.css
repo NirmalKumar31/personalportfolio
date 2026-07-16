@@ -276,63 +276,74 @@
   white-space: nowrap;
 }
 
-/* ── Sticky side cue ── */
-.scrollCue {
-  position: fixed;
-  left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+/* ── Reco teaser (avatar row) ── */
+.recoTeaser {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
   background: none;
-  border: none;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
-  padding: 0.5rem;
+  text-align: left;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  margin-top: 0.4rem;
+  width: 100%;
+}
+
+.recoTeaser:hover {
+  background: var(--color-card);
+  border-color: #ccc;
+  transform: translateY(-1px);
+}
+
+.recoAvatars {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.recoAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border: 2px solid var(--color-bg);
+  margin-left: -8px;
+}
+
+.recoAvatars .recoAvatar:first-child {
+  margin-left: 0;
+}
+
+.recoTeaserBody {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  pointer-events: all;
+  gap: 0.18rem;
+  min-width: 0;
 }
 
-.scrollCueLine {
-  width: 1px;
-  height: 40px;
-  background: var(--color-border);
-  border-radius: 1px;
-  transition: background 0.2s;
-}
-
-.scrollCue:hover .scrollCueLine {
-  background: var(--color-muted);
-}
-
-.scrollCueText {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+.recoTeaserQuote {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-text);
+  line-height: 1.45;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recoTeaserHint {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
   color: var(--color-muted);
   white-space: nowrap;
-  transition: color 0.2s;
-}
-
-.scrollCue:hover .scrollCueText {
-  color: var(--color-text);
-}
-
-.scrollCueDot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-muted);
-  transition: background 0.2s;
-}
-
-.scrollCue:hover .scrollCueDot {
-  background: var(--color-text);
 }
 
 /* ── Recommendations ── */

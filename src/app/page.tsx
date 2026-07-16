@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import styles from './page.module.css'
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -36,7 +36,6 @@ export default function HomePage() {
   const recoRef      = useRef<HTMLElement>(null)
   const { scrollY }  = useScroll()
   const avatarY      = useTransform(scrollY, [0, 300], [0, -18])
-  const recoInView   = useInView(recoRef, { margin: "0px 0px -80px 0px" })
 
   return (
     <div className={styles.page} ref={containerRef}>
@@ -120,25 +119,23 @@ export default function HomePage() {
             Finishing up my degree and actively looking for full-time roles.
           </motion.p>
 
+          <motion.button
+            variants={item}
+            className={styles.recoTeaser}
+            onClick={() => recoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          >
+            <div className={styles.recoAvatars}>
+              <div className={styles.recoAvatar} style={{ background: '#fef3c7', color: '#92400e' }}>S</div>
+              <div className={styles.recoAvatar} style={{ background: '#ccfbf1', color: '#0f5a4e' }}>J</div>
+            </div>
+            <div className={styles.recoTeaserBody}>
+              <span className={styles.recoTeaserQuote}>&ldquo;technically savvy, intellectually curious, quick learner&rdquo;</span>
+              <span className={styles.recoTeaserHint}>2 Directors at Fidelity · scroll to read ↓</span>
+            </div>
+          </motion.button>
+
         </div>
       </motion.div>
-
-      {/* Sticky side cue */}
-      <motion.button
-        className={styles.scrollCue}
-        onClick={() => recoRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-        animate={{ opacity: recoInView ? 0 : 1, x: recoInView ? -10 : 0 }}
-        transition={{ duration: 0.35 }}
-        aria-label="Scroll to recommendations"
-      >
-        <div className={styles.scrollCueLine} />
-        <span className={styles.scrollCueText}>what they say</span>
-        <motion.div
-          className={styles.scrollCueDot}
-          animate={{ y: [0, 4, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-        />
-      </motion.button>
 
       {/* Recommendations */}
       <motion.section
