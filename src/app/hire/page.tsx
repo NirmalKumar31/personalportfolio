@@ -22,7 +22,7 @@ const SKILLS = [
   },
   {
     title: "Machine Learning & AI",
-    desc: "I've applied ML techniques across different problem types. At Ideatec, I used clustering to perform root-cause analysis on sensor data, pinpointing a dominant failure pattern linked to 72% of equipment breakdowns — then used SQL to project the impact of acting on it. My grad school work includes an LA crime pattern analysis with geospatial modeling and a transit delay prediction model built on 2+ years of MBTA historical data. I'm comfortable with the full workflow from feature engineering to model evaluation.",
+    desc: "I've applied ML techniques across different problem types. At Ideatec, I used clustering to perform root-cause analysis on sensor data, pinpointing a dominant failure pattern linked to 72% of equipment breakdowns — then used SQL to project the impact of acting on it. My grad school work includes an LA crime pattern analysis and a transit delay prediction model built on 2+ years of MBTA historical data. I'm comfortable with the full workflow from feature engineering to model evaluation.",
     tags: ["scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "CNN", "PySpark"],
   },
 ];

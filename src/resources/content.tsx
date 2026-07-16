@@ -115,14 +115,14 @@ const about: About = {
         role: "Data Analyst, Marketing & Social Analytics",
         achievements: [
           <>
-            Developed a two-stage SQL data quality framework that automatically flagged abnormal
-            shifts in social media KPIs, improving reliability across 10+ Tableau dashboards and
-            reducing false alerts by 80%.
+            Built the team&apos;s first automated Snowflake reporting system to compute and track
+            KPIs, eliminating manual analysis and reducing report preparation time by 95% while
+            enabling stakeholders to access insights on demand.
           </>,
           <>
-            Built the first automated Snowflake analytics product to compute &amp; report KPIs,
-            enabling stakeholders to monitor topic-growth and gather insights instantly,
-            eliminating any manual analysis.
+            Developed a two-stage SQL data quality framework that automatically flagged outliers
+            in social media KPIs, improving reliability across 10+ Tableau dashboards and reducing
+            false alerts by 80%.
           </>,
           <>
             Identified high-value customer-channel segments across $35.6B in client asset inflows
@@ -135,8 +135,13 @@ const about: About = {
             13% higher user engagement.
           </>,
           <>
-            Audited weekly Multi-Touch Attribution spend and conversion data across 20 paid
-            channels, resolving discrepancies before attribution skew distorted downstream reporting.
+            Audited weekly spend and conversion data across 20 paid channels using Excel,
+            resolving discrepancies before attribution skew distorted downstream reporting.
+          </>,
+          <>
+            Defined 5 customer engagement KPIs with cross-functional analytics teams across
+            agile sprints, establishing a standardized measurement framework adopted for
+            executive reporting.
           </>,
           <>
             Evaluated an A/B test across 140K impressions using SQL and Python statistical
@@ -186,18 +191,18 @@ const about: About = {
         role: "Data Analyst Intern",
         achievements: [
           <>
-            Cross-referenced contract and product-deployment data across 20+ B2B clients,
-            mapping usage trends to identify low-adoption offerings and present product expansion
-            opportunities to key account stakeholders.
+            Built an Excel Solver allocation model using deployment forecasts and location-level
+            stock; redirected 15% excess inventory and reduced planned quarterly purchases.
           </>,
           <>
-            Reconstructed the sales funnel across 200+ enquiries, identifying the largest
-            conversion bottleneck and high-potential prospects to guide sales prioritization.
+            Reconstructed the B2B acquisition funnel across 200+ prospects using SQL and Excel,
+            identified the largest conversion bottleneck with 41% of total drop-offs and
+            prioritized 10 high-intent prospects for follow-up.
           </>,
           <>
-            Evaluated product deployment and utilization across client locations, presenting a
-            cost-reduction strategy to business leadership that resolved a 15% inventory surplus
-            and reduced quarterly purchasing.
+            Cross-referenced contract and product-deployment data across 20+ clients, mapping
+            usage trends to identify low-adoption offerings and present product expansion
+            opportunities to business stakeholders.
           </>,
         ],
         images: [],
