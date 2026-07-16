@@ -106,37 +106,49 @@ export default function Hire() {
       {/* Recommendations */}
       <motion.div variants={fade} className={styles.section}>
         <h2 className={styles.sectionTitle}>Recommendations</h2>
-        <p className={styles.sectionNote}>
-          <em>From people I&apos;ve worked with. Peek below — full versions on LinkedIn.</em>
-        </p>
+        <div className={styles.recoCards}>
+          {[
+            {
+              name: "Shyam Daraboina",
+              role: "Director, Social Data Platforms Analytics",
+              company: "Fidelity Investments",
+              date: "December 2025",
+              initial: "S",
+              bg: "#fef3c7",
+              color: "#92400e",
+              text: "Nirmal helped us with some of the social analytics work here at Fidelity. Right from the get go, he was very professional and thoughtful about the work he touched and I was pleasantly surprised to know that this was his first corporate job in the US. He is very inquisitive about the data and analysis we do here and picked up social media analytics & data nuances in no time, which is not easy due to its complex and unstructured nature. He was able to bring new technical dimensions to the regular analyses, demonstrating his out-of-box thinking. Nirmal has strong technical skills especially in data wrangling, manipulation and modeling — an asset to any team solving complex analytics questions for marketing stakeholders. His story telling ability is the icing on the cake which should take him to good heights in his analytics career. I would strongly recommend Nirmal for any analytics team that wants a technically savvy, intellectually curious and a quick learner that can effectively present analytics solutions to solve a complex business question.",
+            },
+            {
+              name: "Jennifer LaPlaca Sherman",
+              role: "Director, Marketing Measurement & Analytics",
+              company: "Fidelity Investments",
+              date: "November 2025",
+              initial: "J",
+              bg: "#ccfbf1",
+              color: "#0f5a4e",
+              text: "Nirmal was an excellent addition to our Analytics team during his time as a Co-op. He is a very quick learner and provided detailed and digestible marketing insights for our team and business stakeholders. He is always eager to learn more and not afraid to step outside of his comfort zone. Thank you for all your support over the last 6 months, Nirmal!",
+            },
+          ].map((r, i) => (
+            <div key={i} className={styles.recoCard}>
+              <p className={styles.recoText}>&ldquo;{r.text}&rdquo;</p>
+              <div className={styles.recoFooter}>
+                <div className={styles.recoInitial} style={{ background: r.bg, color: r.color }}>{r.initial}</div>
+                <div className={styles.recoAuthor}>
+                  <span className={styles.recoName}>{r.name}</span>
+                  <span className={styles.recoRole}>{r.role} · {r.company}</span>
+                </div>
+                <span className={styles.recoDate}>{r.date}</span>
+              </div>
+            </div>
+          ))}
+        </div>
         <a
           href="https://www.linkedin.com/in/nirmalkumartk/details/recommendations/"
           target="_blank"
           rel="noopener noreferrer"
-          className={styles.recoCard}
+          className={styles.recoLinkedIn}
         >
-          <div className={styles.recoPreview}>
-            {[
-              [["45%", "88%", "65%"], ["30%", "72%", "55%", "80%"]],
-              [["38%", "82%", "60%"], ["35%", "68%", "78%"]],
-            ].map((item, i) => (
-              <div key={i} className={styles.recoItem}>
-                <div className={styles.recoAvatar} />
-                <div className={styles.recoBody}>
-                  {item[0].map((w, j) => (
-                    <div key={j} className={styles.recoMeta} style={{ width: w }} />
-                  ))}
-                  <div className={styles.recoSpacer} />
-                  {item[1].map((w, j) => (
-                    <div key={j} className={styles.recoLine} style={{ width: w }} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.recoOverlay}>
-            <span className={styles.recoOverlayText}>View recommendations on LinkedIn ↗</span>
-          </div>
+          View on LinkedIn ↗
         </a>
       </motion.div>
 
