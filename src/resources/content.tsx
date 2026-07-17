@@ -153,7 +153,7 @@ const about: About = {
       },
       {
         company: "Ideatec Softwares",
-        timeframe: "January 2023 – May 2023",
+        timeframe: "January 2024 – May 2024",
         role: "Analytics Engineer Intern",
         achievements: [
           <>
