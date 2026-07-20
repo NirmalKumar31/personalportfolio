@@ -116,18 +116,23 @@ const about: About = {
         achievements: [
           <>
             Built the team&apos;s first automated Snowflake reporting system to compute and track
-            KPIs, eliminating manual analysis and reducing report preparation time by 95% while
-            enabling stakeholders to access insights on demand.
+            KPIs, eliminating manual analysis and reducing report preparation time by 95% and
+            giving stakeholders self-service access to insights on demand.
           </>,
           <>
-            Developed a two-stage SQL data quality framework that automatically flagged outliers
-            in social media KPIs, improving reliability across 10+ Tableau dashboards and reducing
-            false alerts by 80%.
+            Developed a two-stage SQL data quality framework that automatically flagged
+            abnormalities in social media KPIs, improving reliability across 10+ Tableau
+            dashboards and reducing false alerts by 80%.
           </>,
           <>
             Identified high-value customer-channel segments across $35.6B in client asset inflows
-            through impact-per-impression analysis, delivering 4 acquisition strategies for
-            messaging and customer growth.
+            through impact-per-impression analysis using Power BI and DAX, translating insights
+            into four strategies for customer acquisition.
+          </>,
+          <>
+            Defined 5 core customer engagement KPIs with cross-functional analytics teams across
+            agile sprints, establishing a standardized measurement framework adopted for
+            executive reporting.
           </>,
           <>
             Analyzed 270K+ social media interactions by content type, platform and timing using
@@ -135,16 +140,26 @@ const about: About = {
             13% higher user engagement.
           </>,
           <>
-            Audited weekly spend and conversion data across 20 paid channels using Excel,
+            Audited weekly spend and conversion data across 20 paid channels using advance Excel,
             resolving discrepancies before attribution skew distorted downstream reporting.
           </>,
           <>
-            Defined 5 customer engagement KPIs with cross-functional analytics teams across
-            agile sprints, establishing a standardized measurement framework adopted for
-            executive reporting.
+            Performed social listening on brand and product sentiment, surfacing a spike in
+            negative reaction to a flagship product launch and flagging the product-perception
+            risk to product and marketing teams.
           </>,
           <>
-            Evaluated an A/B test across 140K impressions using SQL and Python statistical
+            Defined core engagement metrics across a multi-channel ecosystem, translating
+            community interaction data into actionable insights to terminate underperforming
+            assets and maximize content reach.
+          </>,
+          <>
+            Formulated and initiated a hypothesis-driven analytical workflow to study customer
+            escalation paths, examining past social issue incidents and prior cross-channel
+            activity to identify potential early-warning signals.
+          </>,
+          <>
+            Evaluated an A/B test across 140K unique users using SQL and Python statistical
             testing, identifying a 9% cost per acquisition reduction that prompted leadership
             to scale the winning variant.
           </>,
