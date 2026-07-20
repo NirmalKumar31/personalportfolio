@@ -244,6 +244,10 @@ const about: About = {
             Optimized PySpark workloads in Databricks by partitioning Delta tables on time-based
             columns, reducing scanned data from 500 GB to 350 GB through partition pruning.
           </>,
+          <>
+            Transformed raw data into Databricks gold Delta tables, adding Delta Live Tables
+            validations to eliminate manual data cleanup.
+          </>,
         ],
         images: [],
       },
