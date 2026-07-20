@@ -223,6 +223,10 @@ const about: About = {
             usage trends to identify low-adoption offerings and present product expansion
             opportunities to business stakeholders.
           </>,
+          <>
+            Prototyped an LLM-assisted workflow to summarize open-ended user feedback and
+            highlight critical adoption barriers.
+          </>,
         ],
         images: [],
       },
