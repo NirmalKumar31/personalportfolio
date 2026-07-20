@@ -135,13 +135,14 @@ const about: About = {
             executive reporting.
           </>,
           <>
+            Formulated and initiated a hypothesis-driven analytical workflow to study customer
+            escalation paths, examining past social issue incidents and prior cross-channel
+            activity to identify potential early-warning signals.
+          </>,
+          <>
             Analyzed 270K+ social media interactions by content type, platform and timing using
             SQL window functions, uncovering platform-specific behavioral patterns tied to
             13% higher user engagement.
-          </>,
-          <>
-            Audited weekly spend and conversion data across 20 paid channels using advance Excel,
-            resolving discrepancies before attribution skew distorted downstream reporting.
           </>,
           <>
             Performed social listening on brand and product sentiment, surfacing a spike in
@@ -154,14 +155,13 @@ const about: About = {
             assets and maximize content reach.
           </>,
           <>
-            Formulated and initiated a hypothesis-driven analytical workflow to study customer
-            escalation paths, examining past social issue incidents and prior cross-channel
-            activity to identify potential early-warning signals.
-          </>,
-          <>
             Evaluated an A/B test across 140K unique users using SQL and Python statistical
             testing, identifying a 9% cost per acquisition reduction that prompted leadership
             to scale the winning variant.
+          </>,
+          <>
+            Audited weekly spend and conversion data across 20 paid channels using advance Excel,
+            resolving discrepancies before attribution skew distorted downstream reporting.
           </>,
         ],
         images: [],
