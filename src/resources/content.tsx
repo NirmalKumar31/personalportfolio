@@ -172,30 +172,34 @@ const about: About = {
         role: "Analytics Engineer Intern",
         achievements: [
           <>
-            Developed a large scale PySpark pipeline in Azure Synapse, backfilling 900M+ rows
-            from the client&apos;s on-prem historian into ADLS and automating daily ingestion of
-            2M+ rows for downstream analytics.
-          </>,
-          <>
-            Built a unified data model in Azure SQL, integrating 8+ operational sources to
-            support stakeholder reporting and ad hoc analysis.
+            Developed an end-to-end scalable pipeline in Azure Synapse, backfilling 900M+ rows
+            of historical telemetry data into ADLS Gen2 and automating 2M+ daily data loads to
+            feed production machine learning models.
           </>,
           <>
             Performed root-cause analysis by clustering sensor data, pinpointing a dominant
-            failure pattern linked to 72% of breakdowns to support anomaly-detection model
+            failure pattern linked to 72% of equipment breakdowns to support anomaly model
             development.
+          </>,
+          <>
+            Built a unified relational data model in Azure SQL, integrating 8+ data sources to
+            support recurring reporting and ad hoc analysis.
+          </>,
+          <>
+            Validated schema, duplicate, and timestamp conditions with PySpark, improving trust
+            in downstream dashboards and daily metrics.
           </>,
           <>
             Quantified the operational impact of predictive-maintenance alerts using SQL,
             projecting a 31% decrease in machine downtime.
           </>,
           <>
-            Version-controlled data workflows in Git, supporting code reviews and reliable
-            pipeline changes.
-          </>,
-          <>
             Designed a Power BI dashboard with anomaly-score and alerts, helping the operations
             team to shift to proactive maintenance.
+          </>,
+          <>
+            Version-controlled data workflows in Git, utilizing structured branching to
+            streamline code reviews and ensure reliable deployments.
           </>,
         ],
         images: [],
