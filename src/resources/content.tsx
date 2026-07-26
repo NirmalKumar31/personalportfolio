@@ -206,7 +206,7 @@ const about: About = {
       },
       {
         company: "Qwings",
-        timeframe: "July 2023 – September 2023",
+        timeframe: "July 2023 – November 2023",
         role: "Data Analyst Intern",
         achievements: [
           <>
