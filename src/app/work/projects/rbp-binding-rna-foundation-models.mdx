@@ -1,0 +1,100 @@
+---
+title: "RNA-Binding Protein Prediction with RNA Foundation Models"
+publishedAt: "2025-07-01"
+summary: "End-to-end computational biology pipeline comparing a CNN against three RNA foundation models (RNA-FM, RNABERT, SpliceBERT) across 16 RNA-binding proteins — SpliceBERT achieved mean AUROC 0.893 and transferred to ClinVar variant-effect analysis with AUROC 0.837 on noncoding variants, without any disease-label training."
+images: []
+projectType: "Academic Project"
+tags: ["PyTorch", "HuggingFace", "LoRA", "Slurm", "Python", "Bioinformatics"]
+link: "https://github.com/NirmalKumar31/rbp-binding"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "ML Engineer / Computational Biology"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+RNA-binding proteins (RBPs) regulate splicing, transcript stability, localization, and translation. A single nucleotide variant doesn't need to change an amino acid to have a biological effect — it can destroy or create an RBP-binding site and disrupt post-transcriptional regulation entirely.
+
+This project answers two connected questions:
+
+1. **Binding prediction**: Given a 101-nucleotide RNA sequence, can a model predict whether a specific RBP binds near its center?
+2. **Variant effect**: If one nucleotide is replaced with a ClinVar alternate allele, does the predicted binding probability shift enough to separate pathogenic from benign variants?
+
+I trained and compared four model architectures across 16 RNA-binding proteins, ran a confound-testing ablation, and applied the best model to ClinVar variant scoring — all on an HPC cluster with Slurm job orchestration.
+
+## Data
+
+| Source | What it provides |
+|---|---|
+| ENCODE reproducible eCLIP peaks | Positive binding windows per RBP |
+| GENCODE v45 GRCh38 primary assembly | Strand-corrected 101-nt sequence windows |
+| GENCODE v45 GTF | Splice-site coordinates for distance features and ablation |
+| ClinVar GRCh38 (Pathogenic / Benign SNVs) | 6,055 variants located at real binding sites |
+
+Negatives were matched on transcript, genomic region, GC content, and distance from positive peaks to prevent trivial shortcut learning. Train / validation / test splits were done by whole chromosome to eliminate sequence leakage.
+
+## Models
+
+**CNN (DeepBind-style baseline)** — Lightweight convolutional architecture trained from scratch. Fast, interpretable, and a strong baseline for sequence motif detection.
+
+**RNA-FM + LoRA** — 640M-parameter RNA language model with Low-Rank Adaptation fine-tuning. LoRA freezes the pretrained weights and trains only small rank-decomposition matrices, keeping compute cost manageable while adapting the model to the binding task.
+
+**RNABERT** — Smaller RNA transformer, fully fine-tuned end-to-end per protein. Covers the middle ground between the lightweight CNN and the large foundation models.
+
+**SpliceBERT** — Transformer pretrained specifically on pre-mRNA sequences with splice-site–aware objectives. Fully fine-tuned per protein.
+
+In total: 16 proteins × 4 model families = 64 primary training runs, producing 80 checkpoints (20 CNN + 60 language-model).
+
+## Results
+
+SpliceBERT was the strongest model overall:
+
+| Model | Mean test AUROC | Proteins won (of 16) |
+|---|---|---|
+| **SpliceBERT** | **0.893** | **13** |
+| RNABERT | 0.871 | 2 |
+| RNA-FM + LoRA | 0.858 | 1 |
+| CNN | 0.841 | 0 |
+
+SpliceBERT's pretraining on splice-site–rich pre-mRNA gave it a structural advantage: RBP binding sites are often near exon–intron boundaries, so a model that already learned splice grammar starts with a useful inductive bias.
+
+## Confound Ablation — Did the Model Learn Real Signal?
+
+SpliceBERT's advantage could be a shortcut: if positive windows are disproportionately close to splice sites, a model that detects splice-site proximity rather than RBP-specific binding patterns would score well for the wrong reason.
+
+To test this, I designed a **splice-distance-matched ablation** on 4 proteins. Negative windows were re-sampled to match the splice-site distance distribution of positive windows, removing any distance-based information. If SpliceBERT was exploiting splice proximity, its AUROC should drop substantially under this harder negative set.
+
+The observed AUROC changes were small (< 0.02 across all four proteins), supporting the conclusion that SpliceBERT learned **genuine RBP-binding signal** rather than a splice-site detection shortcut.
+
+## ClinVar Variant-Effect Scoring
+
+Without training on any disease labels, I used the tuned SpliceBERT models to score 6,055 ClinVar pathogenic and benign SNVs at real RBP-binding sites. The variant score is the absolute change in predicted binding probability when the reference nucleotide is swapped for the alternate allele.
+
+| Variant class | SpliceBERT AUROC |
+|---|---|
+| Noncoding variants | **0.837** |
+| Coding variants | ~0.55 (near chance) |
+
+The noncoding result (0.837) is strong for a model that saw no disease labels. The weak coding result is expected and is a scientifically honest finding — an RNA-binding model should capture regulatory disruption at binding sites, not coding-sequence effects.
+
+## HPC Engineering
+
+All training ran on the Northeastern Explorer cluster using NVIDIA Tesla V100-SXM2-32GB GPUs and Slurm job scheduling. Practical engineering challenges included:
+
+- Writing parameterized Slurm batch scripts with per-protein job arrays
+- Managing environment conflicts between PyTorch, CUDA 11.8, and HuggingFace PEFT
+- Checkpoint saving and rsync-based transfer for 80 model files
+- Monitoring GPU utilization and catching OOM conditions before full training runs
+
+The pipeline is fully reproducible: a single entry-point script stages data, submits Slurm jobs in dependency order, and collects results.
+
+## Technologies Used
+
+- **PyTorch + CUDA 11.8** — model training and GPU execution
+- **HuggingFace Transformers + PEFT (LoRA)** — foundation model fine-tuning
+- **RNA-FM, RNABERT, SpliceBERT** — pretrained RNA language models
+- **Slurm / HPC** — Northeastern Explorer cluster job orchestration
+- **Python** — data preprocessing, window extraction, evaluation, ablation analysis
+- **ENCODE / GENCODE / ClinVar** — public genomics data sources

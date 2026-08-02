@@ -358,6 +358,8 @@ const about: About = {
           { name: "XGBoost", icon: "document" },
           { name: "LangChain", icon: "document" },
           { name: "RAG", icon: "document" },
+          { name: "LoRA / PEFT", icon: "document" },
+          { name: "HuggingFace", icon: "document" },
           { name: "Time Series", icon: "document" },
           { name: "Keras", icon: "keras" },
         ],
