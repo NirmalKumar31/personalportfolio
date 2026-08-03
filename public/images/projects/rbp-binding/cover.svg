@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#07040f"/>
+      <stop offset="100%" stop-color="#0b1520"/>
+    </linearGradient>
+    <linearGradient id="bottomFade" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0b1520" stop-opacity="0"/>
+      <stop offset="60%" stop-color="#0b1520" stop-opacity="0.88"/>
+      <stop offset="100%" stop-color="#0b1520" stop-opacity="0.98"/>
+    </linearGradient>
+    <filter id="sglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="dglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="amborb" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="60"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Ambient glow orbs -->
+  <circle cx="180" cy="300" r="240" fill="#6d28d9" opacity="0.22" filter="url(#amborb)"/>
+  <circle cx="1020" cy="330" r="240" fill="#0d9488" opacity="0.22" filter="url(#amborb)"/>
+  <circle cx="600" cy="315" r="160" fill="#1e0a40" opacity="0.6" filter="url(#amborb)"/>
+
+  <!-- Subtle dot grid background -->
+  <g opacity="0.07" fill="#ffffff">
+    <circle cx="120" cy="100" r="1.2"/><circle cx="240" cy="100" r="1.2"/><circle cx="360" cy="100" r="1.2"/>
+    <circle cx="480" cy="100" r="1.2"/><circle cx="600" cy="100" r="1.2"/><circle cx="720" cy="100" r="1.2"/>
+    <circle cx="840" cy="100" r="1.2"/><circle cx="960" cy="100" r="1.2"/><circle cx="1080" cy="100" r="1.2"/>
+    <circle cx="120" cy="200" r="1.2"/><circle cx="240" cy="200" r="1.2"/><circle cx="360" cy="200" r="1.2"/>
+    <circle cx="480" cy="200" r="1.2"/><circle cx="600" cy="200" r="1.2"/><circle cx="720" cy="200" r="1.2"/>
+    <circle cx="840" cy="200" r="1.2"/><circle cx="960" cy="200" r="1.2"/><circle cx="1080" cy="200" r="1.2"/>
+    <circle cx="120" cy="430" r="1.2"/><circle cx="240" cy="430" r="1.2"/><circle cx="360" cy="430" r="1.2"/>
+    <circle cx="480" cy="430" r="1.2"/><circle cx="600" cy="430" r="1.2"/><circle cx="720" cy="430" r="1.2"/>
+    <circle cx="840" cy="430" r="1.2"/><circle cx="960" cy="430" r="1.2"/><circle cx="1080" cy="430" r="1.2"/>
+  </g>
+
+  <!-- Rungs -->
+  <g stroke="#c4b5fd" stroke-width="1" opacity="0.18">
+    <line x1="60"   y1="225" x2="60"   y2="405"/>
+    <line x1="180"  y1="225" x2="180"  y2="405"/>
+    <line x1="300"  y1="225" x2="300"  y2="405"/>
+    <line x1="420"  y1="225" x2="420"  y2="405"/>
+    <line x1="540"  y1="225" x2="540"  y2="405"/>
+    <line x1="660"  y1="225" x2="660"  y2="405"/>
+    <line x1="780"  y1="225" x2="780"  y2="405"/>
+    <line x1="900"  y1="225" x2="900"  y2="405"/>
+    <line x1="1020" y1="225" x2="1020" y2="405"/>
+    <line x1="1140" y1="225" x2="1140" y2="405"/>
+  </g>
+
+  <!-- Strand 2 (teal) -->
+  <path d="M 0,315 C 40,225 80,225 120,315 C 160,405 200,405 240,315 C 280,225 320,225 360,315 C 400,405 440,405 480,315 C 520,225 560,225 600,315 C 640,405 680,405 720,315 C 760,225 800,225 840,315 C 880,405 920,405 960,315 C 1000,225 1040,225 1080,315 C 1120,405 1160,405 1200,315"
+        fill="none" stroke="#2dd4bf" stroke-width="2.8" opacity="0.9" filter="url(#sglow)"/>
+
+  <!-- Strand 1 (purple) -->
+  <path d="M 0,315 C 40,405 80,405 120,315 C 160,225 200,225 240,315 C 280,405 320,405 360,315 C 400,225 440,225 480,315 C 520,405 560,405 600,315 C 640,225 680,225 720,315 C 760,405 800,405 840,315 C 880,225 920,225 960,315 C 1000,405 1040,405 1080,315 C 1120,225 1160,225 1200,315"
+        fill="none" stroke="#a78bfa" stroke-width="2.8" opacity="0.92" filter="url(#sglow)"/>
+
+  <!-- Nucleotide dots — Strand 1 -->
+  <!-- Glow halos -->
+  <circle cx="60"   cy="405" r="12" fill="#f59e0b" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="180"  cy="225" r="12" fill="#a78bfa" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="300"  cy="405" r="12" fill="#2dd4bf" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="420"  cy="225" r="12" fill="#f472b6" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="540"  cy="405" r="12" fill="#f59e0b" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="660"  cy="225" r="12" fill="#a78bfa" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="780"  cy="405" r="12" fill="#2dd4bf" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="900"  cy="225" r="12" fill="#f472b6" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="1020" cy="405" r="12" fill="#f59e0b" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="1140" cy="225" r="12" fill="#a78bfa" opacity="0.35" filter="url(#dglow)"/>
+  <!-- Solid dots -->
+  <circle cx="60"   cy="405" r="5.5" fill="#f59e0b"/>
+  <circle cx="180"  cy="225" r="5.5" fill="#a78bfa"/>
+  <circle cx="300"  cy="405" r="5.5" fill="#2dd4bf"/>
+  <circle cx="420"  cy="225" r="5.5" fill="#f472b6"/>
+  <circle cx="540"  cy="405" r="5.5" fill="#f59e0b"/>
+  <circle cx="660"  cy="225" r="5.5" fill="#a78bfa"/>
+  <circle cx="780"  cy="405" r="5.5" fill="#2dd4bf"/>
+  <circle cx="900"  cy="225" r="5.5" fill="#f472b6"/>
+  <circle cx="1020" cy="405" r="5.5" fill="#f59e0b"/>
+  <circle cx="1140" cy="225" r="5.5" fill="#a78bfa"/>
+
+  <!-- Nucleotide dots — Strand 2 -->
+  <circle cx="60"   cy="225" r="12" fill="#2dd4bf" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="180"  cy="405" r="12" fill="#f472b6" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="300"  cy="225" r="12" fill="#f59e0b" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="420"  cy="405" r="12" fill="#a78bfa" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="540"  cy="225" r="12" fill="#2dd4bf" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="660"  cy="405" r="12" fill="#f472b6" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="780"  cy="225" r="12" fill="#f59e0b" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="900"  cy="405" r="12" fill="#a78bfa" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="1020" cy="225" r="12" fill="#2dd4bf" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="1140" cy="405" r="12" fill="#f472b6" opacity="0.35" filter="url(#dglow)"/>
+  <circle cx="60"   cy="225" r="5.5" fill="#2dd4bf"/>
+  <circle cx="180"  cy="405" r="5.5" fill="#f472b6"/>
+  <circle cx="300"  cy="225" r="5.5" fill="#f59e0b"/>
+  <circle cx="420"  cy="405" r="5.5" fill="#a78bfa"/>
+  <circle cx="540"  cy="225" r="5.5" fill="#2dd4bf"/>
+  <circle cx="660"  cy="405" r="5.5" fill="#f472b6"/>
+  <circle cx="780"  cy="225" r="5.5" fill="#f59e0b"/>
+  <circle cx="900"  cy="405" r="5.5" fill="#a78bfa"/>
+  <circle cx="1020" cy="225" r="5.5" fill="#2dd4bf"/>
+  <circle cx="1140" cy="405" r="5.5" fill="#f472b6"/>
+
+  <!-- Nucleotide labels -->
+  <g font-family="monospace" font-size="11" font-weight="700">
+    <text x="67" y="421" fill="#f59e0b" opacity="0.85">A</text>
+    <text x="187" y="213" fill="#a78bfa" opacity="0.85">G</text>
+    <text x="307" y="421" fill="#2dd4bf" opacity="0.85">U</text>
+    <text x="427" y="213" fill="#f472b6" opacity="0.85">C</text>
+    <text x="547" y="421" fill="#f59e0b" opacity="0.85">A</text>
+    <text x="667" y="213" fill="#a78bfa" opacity="0.85">G</text>
+    <text x="787" y="421" fill="#2dd4bf" opacity="0.85">U</text>
+    <text x="907" y="213" fill="#f472b6" opacity="0.85">C</text>
+    <text x="67"  y="213" fill="#2dd4bf" opacity="0.85">U</text>
+    <text x="187" y="421" fill="#f472b6" opacity="0.85">C</text>
+    <text x="307" y="213" fill="#f59e0b" opacity="0.85">A</text>
+    <text x="427" y="421" fill="#a78bfa" opacity="0.85">G</text>
+  </g>
+
+  <!-- Bottom gradient overlay (for text readability) -->
+  <rect x="0" y="370" width="1200" height="260" fill="url(#bottomFade)"/>
+
+  <!-- Top label -->
+  <text x="600" y="55" text-anchor="middle"
+        font-family="'Courier New', monospace" font-size="11" letter-spacing="5"
+        fill="#a78bfa" opacity="0.75">BIOINFORMATICS · MACHINE LEARNING · HPC</text>
+
+  <!-- Main title -->
+  <text x="600" y="508" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700"
+        fill="#ffffff">RNA-Binding Protein Prediction</text>
+  <text x="600" y="546" text-anchor="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="400"
+        fill="#c4b5fd">with RNA Foundation Models</text>
+
+  <!-- Stats row -->
+  <g font-family="'Courier New', monospace" font-size="13" text-anchor="middle">
+    <text x="340" y="590" fill="#a78bfa">16 RNA-binding proteins</text>
+    <text x="560" y="590" fill="#6b7280">·</text>
+    <text x="680" y="590" fill="#f0fdf4">SpliceBERT AUROC 0.893</text>
+    <text x="876" y="590" fill="#6b7280">·</text>
+    <text x="980" y="590" fill="#2dd4bf">ClinVar 0.837</text>
+  </g>
+</svg>

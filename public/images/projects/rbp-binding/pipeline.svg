@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 260" width="980" height="260">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#9ca3af"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="980" height="260" fill="#faf9f5" rx="12"/>
+
+  <!-- Stage boxes: x positions -->
+  <!-- Box width=158, gap=24 (arrow zone), 5 boxes -->
+  <!-- Total: 5×158 + 4×24 = 790+96=886, centered in 980: margin=(980-886)/2=47 -->
+
+  <!-- Box 1: Data Sources (x=47) -->
+  <rect x="47" y="60" width="158" height="140" rx="10" fill="#ffffff" stroke="#e5e3dc" stroke-width="1.2"/>
+  <rect x="47" y="60" width="158" height="6" rx="10" fill="#7c3aed" opacity="0.7"/>
+  <text x="126" y="95" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">Data Sources</text>
+  <text x="126" y="115" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">ENCODE eCLIP peaks</text>
+  <text x="126" y="130" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">GENCODE GRCh38</text>
+  <text x="126" y="145" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">ClinVar SNVs</text>
+  <text x="126" y="165" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#a78bfa" font-weight="600">16 RBP targets</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="207" y1="130" x2="228" y2="130" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Box 2: Window Extraction (x=229) -->
+  <rect x="229" y="60" width="158" height="140" rx="10" fill="#ffffff" stroke="#e5e3dc" stroke-width="1.2"/>
+  <rect x="229" y="60" width="158" height="6" rx="10" fill="#0d9488" opacity="0.7"/>
+  <text x="308" y="95" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">Window Extraction</text>
+  <text x="308" y="115" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">101-nt RNA windows</text>
+  <text x="308" y="130" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">Strand-corrected</text>
+  <text x="308" y="145" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">GC + distance matched</text>
+  <text x="308" y="165" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#0d9488" font-weight="600">Chrom-level split</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="389" y1="130" x2="410" y2="130" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Box 3: Model Training (x=411) -->
+  <rect x="411" y="60" width="158" height="140" rx="10" fill="#ffffff" stroke="#e5e3dc" stroke-width="1.2"/>
+  <rect x="411" y="60" width="158" height="6" rx="10" fill="#f59e0b" opacity="0.7"/>
+  <text x="490" y="95" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">4 Model Families</text>
+  <text x="490" y="113" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">CNN (DeepBind-style)</text>
+  <text x="490" y="128" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">RNA-FM + LoRA</text>
+  <text x="490" y="143" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">RNABERT (fine-tuned)</text>
+  <text x="490" y="158" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">SpliceBERT (fine-tuned)</text>
+  <text x="490" y="176" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#f59e0b" font-weight="600">80 checkpoints · V100</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="571" y1="130" x2="592" y2="130" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Box 4: Evaluation (x=593) -->
+  <rect x="593" y="60" width="158" height="140" rx="10" fill="#ffffff" stroke="#e5e3dc" stroke-width="1.2"/>
+  <rect x="593" y="60" width="158" height="6" rx="10" fill="#7c3aed" opacity="0.7"/>
+  <text x="672" y="95" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">AUROC Evaluation</text>
+  <text x="672" y="115" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">Held-out test chrom</text>
+  <text x="672" y="130" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">Splice-distance ablation</text>
+  <text x="672" y="145" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">Confound testing</text>
+  <text x="672" y="165" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#7c3aed" font-weight="600">SpliceBERT 0.893</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="753" y1="130" x2="774" y2="130" stroke="#9ca3af" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+  <!-- Box 5: ClinVar Transfer (x=775) -->
+  <rect x="775" y="60" width="158" height="140" rx="10" fill="#ffffff" stroke="#e5e3dc" stroke-width="1.2"/>
+  <rect x="775" y="60" width="158" height="6" rx="10" fill="#0d9488" opacity="0.7"/>
+  <text x="854" y="95" text-anchor="middle" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">ClinVar Transfer</text>
+  <text x="854" y="115" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">6,055 pathogenic /</text>
+  <text x="854" y="130" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">benign SNVs at sites</text>
+  <text x="854" y="145" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#6b7280">No disease labels used</text>
+  <text x="854" y="165" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#0d9488" font-weight="600">Noncoding AUROC 0.837</text>
+
+  <!-- Bottom label -->
+  <text x="490" y="242" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af" letter-spacing="1">END-TO-END RESEARCH PIPELINE</text>
+</svg>

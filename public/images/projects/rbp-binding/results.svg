@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" width="720" height="320">
+
+  <!-- Background -->
+  <rect width="720" height="320" fill="#faf9f5" rx="12"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#1a1a18">Mean Held-out Test AUROC — 16 RNA-Binding Proteins</text>
+
+  <!-- Chart area: x from 190 (after labels) to 670 (480px wide), AUROC 0.82→0.90 (range 0.08) -->
+  <!-- Scale: 480 / 0.08 = 6000px per unit -->
+  <!-- Bar y positions: CNN=65, RNA-FM=125, RNABERT=185, SpliceBERT=245 (bar height=45, gap=15) -->
+
+  <!-- Axis line -->
+  <line x1="190" y1="60" x2="190" y2="275" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="190" y1="275" x2="675" y2="275" stroke="#d1d5db" stroke-width="1"/>
+
+  <!-- X-axis grid lines and labels -->
+  <!-- 0.82: x=190 -->
+  <line x1="190" y1="60" x2="190" y2="275" stroke="#e5e7eb" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="190" y="292" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af">0.82</text>
+  <!-- 0.84: x=190+120=310 -->
+  <line x1="310" y1="60" x2="310" y2="275" stroke="#e5e7eb" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="310" y="292" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af">0.84</text>
+  <!-- 0.86: x=190+240=430 -->
+  <line x1="430" y1="60" x2="430" y2="275" stroke="#e5e7eb" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="430" y="292" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af">0.86</text>
+  <!-- 0.88: x=190+360=550 -->
+  <line x1="550" y1="60" x2="550" y2="275" stroke="#e5e7eb" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="550" y="292" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af">0.88</text>
+  <!-- 0.90: x=190+480=670 -->
+  <line x1="670" y1="60" x2="670" y2="275" stroke="#e5e7eb" stroke-width="0.8" stroke-dasharray="3,3"/>
+  <text x="670" y="292" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af">0.90</text>
+
+  <!-- CNN bar: 0.841 → (0.841-0.82)/0.08×480 = 0.021/0.08×480 = 126px -->
+  <rect x="190" y="70" width="126" height="40" rx="4" fill="#d1d5db"/>
+  <text x="182" y="95" text-anchor="end" font-family="'Inter', sans-serif" font-size="12" fill="#6b7280">CNN</text>
+  <text x="322" y="95" text-anchor="start" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#6b7280" dx="5">0.841</text>
+
+  <!-- RNA-FM bar: 0.858 → (0.858-0.82)/0.08×480 = 0.038/0.08×480 = 228px -->
+  <rect x="190" y="130" width="228" height="40" rx="4" fill="#bfdbfe"/>
+  <text x="182" y="155" text-anchor="end" font-family="'Inter', sans-serif" font-size="12" fill="#6b7280">RNA-FM + LoRA</text>
+  <text x="424" y="155" text-anchor="start" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#3b82f6" dx="5">0.858</text>
+
+  <!-- RNABERT bar: 0.871 → (0.871-0.82)/0.08×480 = 0.051/0.08×480 = 306px -->
+  <rect x="190" y="190" width="306" height="40" rx="4" fill="#c4b5fd"/>
+  <text x="182" y="215" text-anchor="end" font-family="'Inter', sans-serif" font-size="12" fill="#6b7280">RNABERT</text>
+  <text x="502" y="215" text-anchor="start" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#7c3aed" dx="5">0.871</text>
+
+  <!-- SpliceBERT bar: 0.893 → (0.893-0.82)/0.08×480 = 0.073/0.08×480 = 438px — HIGHLIGHTED -->
+  <rect x="190" y="250" width="438" height="40" rx="4" fill="#7c3aed"/>
+  <!-- Winner badge -->
+  <rect x="190" y="250" width="438" height="40" rx="4" fill="url(#spliceGrad)"/>
+  <text x="182" y="275" text-anchor="end" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#1a1a18">SpliceBERT</text>
+  <text x="634" y="275" text-anchor="start" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#7c3aed" dx="5">0.893 ★</text>
+
+  <defs>
+    <linearGradient id="spliceGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Inner text on SpliceBERT bar -->
+  <text x="390" y="274" text-anchor="middle" font-family="'Inter', sans-serif" font-size="11" fill="#ffffff" opacity="0.85">Won 13 of 16 proteins</text>
+
+  <!-- AUROC axis label -->
+  <text x="430" y="312" text-anchor="middle" font-family="'Inter', sans-serif" font-size="10" fill="#9ca3af" letter-spacing="1">AUROC</text>
+</svg>

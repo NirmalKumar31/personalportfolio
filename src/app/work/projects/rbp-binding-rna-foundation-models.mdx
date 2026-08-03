@@ -2,7 +2,8 @@
 title: "RNA-Binding Protein Prediction with RNA Foundation Models"
 publishedAt: "2025-07-01"
 summary: "End-to-end computational biology pipeline comparing a CNN against three RNA foundation models (RNA-FM, RNABERT, SpliceBERT) across 16 RNA-binding proteins — SpliceBERT achieved mean AUROC 0.893 and transferred to ClinVar variant-effect analysis with AUROC 0.837 on noncoding variants, without any disease-label training."
-images: []
+images:
+  - "/images/projects/rbp-binding/cover.svg"
 projectType: "Academic Project"
 tags: ["PyTorch", "HuggingFace", "LoRA", "Slurm", "Python", "Bioinformatics"]
 link: "https://github.com/NirmalKumar31/rbp-binding"
@@ -23,6 +24,8 @@ This project answers two connected questions:
 2. **Variant effect**: If one nucleotide is replaced with a ClinVar alternate allele, does the predicted binding probability shift enough to separate pathogenic from benign variants?
 
 I trained and compared four model architectures across 16 RNA-binding proteins, ran a confound-testing ablation, and applied the best model to ClinVar variant scoring — all on an HPC cluster with Slurm job orchestration.
+
+![End-to-end research pipeline](/images/projects/rbp-binding/pipeline.svg)
 
 ## Data
 
@@ -50,6 +53,8 @@ In total: 16 proteins × 4 model families = 64 primary training runs, producing 
 ## Results
 
 SpliceBERT was the strongest model overall:
+
+![Model AUROC comparison](/images/projects/rbp-binding/results.svg)
 
 | Model | Mean test AUROC | Proteins won (of 16) |
 |---|---|---|
