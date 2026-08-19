@@ -169,7 +169,7 @@ const about: About = {
       {
         company: "Ideatec Softwares",
         timeframe: "January 2024 – May 2024",
-        role: "Analytics Engineer Intern",
+        role: "Data Science Intern (Analytics & ML Engineering)",
         achievements: [
           <>
             Developed an end-to-end scalable pipeline in Azure Synapse, backfilling 900M+ rows
@@ -207,7 +207,7 @@ const about: About = {
       {
         company: "Qwings",
         timeframe: "July 2023 – November 2023",
-        role: "Data Analyst Intern",
+        role: "Data Analyst Intern (Machine Learning & AI)",
         achievements: [
           <>
             Built an Excel Solver allocation model using deployment forecasts and location-level
