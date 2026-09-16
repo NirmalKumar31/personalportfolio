@@ -12,7 +12,7 @@ const PROTOCOLS = [
   {
     name: "Dinucleotide-matched negatives",
     tag: "Protocol A",
-    desc: "Negative windows are sampled to match the dinucleotide frequencies of the positives. This is the loosest constraint — it controls for local sequence composition at the two-nucleotide level but leaves higher-order structure unconstrained.",
+    desc: "Negative windows are sampled to match the dinucleotide frequencies of the positives. This is the loosest constraint: it controls for local sequence composition at the two-nucleotide level but leaves higher-order structure unconstrained.",
     delta: "+0.0663 incremental AUROC",
   },
   {
@@ -130,7 +130,7 @@ export default function Research() {
         </p>
         <p className={styles.body}>
           While checking that, what kept getting in the way was the negatives. Every AUROC I
-          computed depended on which windows I had decided to call &ldquo;not bound&rdquo; — and I
+          computed depended on which windows I had decided to call &ldquo;not bound&rdquo;, and I
           could not find a paper in the literature that reported what a plain nucleotide counter
           scores on its own negative set. So I stopped chasing a better model number and measured
           the thing all the numbers rest on.
@@ -202,7 +202,7 @@ export default function Research() {
         <p className={styles.body}>
           The standard two-stage estimator used in the literature returns a non-zero incremental
           contribution even when the model contains no information the composition baseline does not.
-          Applied to that null case, it returns values between +0.011 and +0.014 — which is 90% of
+          Applied to that null case, it returns values between +0.011 and +0.014, which is 90% of
           the smallest arm&apos;s reported increment.
         </p>
         <p className={styles.body}>
