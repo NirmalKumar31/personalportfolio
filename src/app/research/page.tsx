@@ -24,7 +24,7 @@ const PROTOCOLS = [
   {
     name: "Bias-aware negatives",
     tag: "Protocol C",
-    desc: "The strictest protocol — negatives are drawn to neutralize higher-order composition biases simultaneously. Under this constraint the incremental contribution is smallest in absolute terms, but the composition baseline itself is hardest to beat.",
+    desc: "The strictest protocol: negatives are drawn to neutralize higher-order composition biases simultaneously. Under this constraint the incremental contribution is smallest in absolute terms, but the composition baseline itself is hardest to beat.",
     delta: "+0.0122 incremental AUROC",
   },
 ];
@@ -48,7 +48,7 @@ export default function Research() {
       <motion.div variants={fade} className={styles.header}>
         <div className={styles.badge}>
           <span className={styles.badgeDot} />
-          Preprint · Research Square · 2025
+          Preprint · Research Square · 2026
         </div>
         <h1 className={styles.title}>
           Apparent sequence-model contribution depends strongly on negative-set construction
@@ -56,7 +56,7 @@ export default function Research() {
         <p className={styles.subtitle}>
           Across 94 ENCODE eCLIP datasets, how much a sequence model appears to add beyond
           nucleotide composition shifts by a factor of nearly five depending solely on how the
-          negative examples are constructed — with the model, source peaks, and fold design held fixed.
+          negative examples are constructed, with the model, source peaks, and fold design held fixed.
         </p>
       </motion.div>
 
@@ -244,7 +244,7 @@ export default function Research() {
           The CPU-heavy preprocessing and fold scoring ran on GCP Batch with results written to GCS.
           GPU fine-tuning used Modal, which handled container provisioning and returned scores
           locally rather than back to GCS. Final analysis and figure generation ran locally against
-          the downloaded tables. Total spend on the published run was roughly $20.
+          the downloaded tables.
         </p>
         <div className={styles.tagRow}>
           {["Python", "GCP Batch", "Google Cloud Storage", "Modal", "PyTorch", "scikit-learn", "Zenodo", "pytest"].map(t => (

@@ -84,7 +84,7 @@
 }
 
 .linkBtnPrimary {
-  background: var(--color-text);
+  background: #7c3aed;
   color: #fff !important;
   border: 1px solid transparent;
 }
