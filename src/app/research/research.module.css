@@ -1,0 +1,301 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  width: fit-content;
+}
+
+.badgeDot {
+  width: 5px;
+  height: 5px;
+  background: #7c3aed;
+  border-radius: 50%;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ── Link buttons ── */
+.links {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.linkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, background 0.18s ease;
+  white-space: nowrap;
+}
+
+.linkBtn:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.linkBtnPrimary {
+  background: var(--color-text);
+  color: #fff !important;
+  border: 1px solid transparent;
+}
+
+.linkBtnSecondary {
+  background: var(--color-card);
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border);
+}
+
+.linkBtnSecondary:hover {
+  background: var(--color-bg);
+  opacity: 1;
+}
+
+.linkIcon {
+  flex-shrink: 0;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ── Section ── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.body {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  line-height: 1.82;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.bodyDark {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  line-height: 1.82;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Stat cards ── */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+.statCard {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+/* ── Protocol cards ── */
+.protocolGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.protocolCard {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.protocolName {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.protocolDesc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.72;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.protocolTag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: #7c3aed;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  width: fit-content;
+}
+
+/* ── Finding callout ── */
+.finding {
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 10px;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.findingLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #7c3aed;
+}
+
+.findingText {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.75;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Verification block ── */
+.codeBlock {
+  background: #1e1e2e;
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #cdd6f4;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+.codeComment {
+  color: #6c7086;
+}
+
+.codeGreen {
+  color: #a6e3a1;
+}
+
+/* ── Infrastructure tags ── */
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.18rem 0.55rem;
+  background: var(--color-bg);
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .statGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .links {
+    gap: 0.5rem;
+  }
+
+  .linkBtn {
+    font-size: 0.78rem;
+    padding: 0.5rem 0.85rem;
+  }
+}

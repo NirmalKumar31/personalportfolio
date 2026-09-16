@@ -172,14 +172,18 @@ const about: About = {
         role: "Data Science Intern (Analytics & ML Engineering)",
         achievements: [
           <>
-            Developed an end-to-end scalable pipeline in Azure Synapse, backfilling 900M+ rows
-            of historical telemetry data into ADLS Gen2 and automating 2M+ daily data loads to
-            feed production machine learning models.
+            Developed an LSTM autoencoder in Azure ML to detect anomalies in multivariate sensor
+            telemetry, surfacing 82% of confirmed equipment failures at least four hours before
+            they occurred.
           </>,
           <>
-            Performed root-cause analysis by clustering sensor data, pinpointing a dominant
-            failure pattern linked to 72% of equipment breakdowns to support anomaly model
-            development.
+            Built a scalable Azure Synapse pipeline, backfilling 900M+ rows of historical
+            telemetry into ADLS Gen2 and automating 2M+ daily data loads to feed production
+            ML models.
+          </>,
+          <>
+            Performed root-cause analysis using PCA and K-Means clustering on sensor telemetry,
+            pinpointing the dominant failure pattern driving 72% of equipment failures.
           </>,
           <>
             Built a unified relational data model in Azure SQL, integrating 8+ data sources to
