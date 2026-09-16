@@ -12,19 +12,19 @@ const PROTOCOLS = [
   {
     name: "Dinucleotide-matched negatives",
     tag: "Protocol A",
-    desc: "Negative windows are sampled to match the dinucleotide frequencies of the positives. This is the loosest constraint: it controls for local sequence composition at the two-nucleotide level but leaves higher-order structure unconstrained.",
+    desc: "Negative windows are matched to the positives on dinucleotide frequencies. This is the tightest composition constraint: it achieves a lower median GC gap than GC-matching and cuts dinucleotide mismatch 2.27-fold, producing a composition baseline of 0.627 and the most headroom for a sequence model to contribute.",
     delta: "+0.0663 incremental AUROC",
   },
   {
     name: "GC-matched negatives",
     tag: "Protocol B",
-    desc: "Negatives are matched on overall GC content rather than dinucleotide frequencies. A stricter composition constraint than Protocol A, which reduces the apparent AUROC while the estimated incremental contribution rises.",
+    desc: "Negatives are matched on overall GC content. GC is a single summary statistic, so dinucleotide patterns can remain mismatched — a looser constraint than Protocol A. The composition baseline rises to 0.783 and the measured incremental contribution falls accordingly.",
     delta: "+0.0265 incremental AUROC",
   },
   {
     name: "Bias-aware negatives",
     tag: "Protocol C",
-    desc: "The strictest protocol: negatives are drawn to neutralize higher-order composition biases simultaneously. Under this constraint the incremental contribution is smallest in absolute terms, but the composition baseline itself is hardest to beat.",
+    desc: "Negatives are drawn from other proteins' binding sites rather than randomly sampled windows. This arm is not a third setting of the same composition-matching knob: only 20% of pairs end up composition-matched, and not by design. The high composition baseline (0.825) leaves little headroom for a model to add anything.",
     delta: "+0.0122 incremental AUROC",
   },
 ];
@@ -180,9 +180,10 @@ export default function Research() {
       <motion.div variants={fade} className={styles.section}>
         <h2 className={styles.sectionTitle}>Three negative-set protocols</h2>
         <p className={styles.body}>
-          Each protocol resamples only the negatives. The positives, model architecture, source
-          peaks, and fold design stay identical across all three arms, isolating the effect of
-          negative construction.
+          Across all three arms the positives, model architecture, source peaks, and fold design
+          stay fixed. Protocols A and B vary the composition-matching constraint on randomly
+          sampled windows. Protocol C changes the candidate pool entirely, drawing from other
+          proteins&apos; binding sites rather than varying a matching threshold.
         </p>
         <div className={styles.protocolGrid}>
           {PROTOCOLS.map((p) => (
