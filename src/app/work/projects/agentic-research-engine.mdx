@@ -16,9 +16,9 @@ team:
 
 ## Overview
 
-A single model asked to research a question can produce fluent prose with fabricated citations, misattributed quotes, and no mechanism to check any of it. The standard fix — telling the model to "cite your sources" — doesn't work, because the model that writes the claim also decides whether to trust the citation.
+A single model asked to research a question can produce fluent prose with fabricated citations, misattributed quotes, and no mechanism to check any of it. The standard fix of telling the model to "cite your sources" does not work, because the model that writes the claim also decides whether to trust the citation.
 
-This engine separates the roles. A generative model writes claims and extracts exact quotes. A separate, pinned NLI entailment classifier decides whether each claim is supported by its own cited evidence. A publication gate withholds anything that doesn't pass. The connection from citation to exact quote to source URL is structural — the model cannot supply or forge it.
+This engine separates the roles. A generative model writes claims and extracts exact quotes. A separate, pinned NLI entailment classifier decides whether each claim is supported by its own cited evidence. A publication gate withholds anything that does not pass. The connection from citation to exact quote to source URL is structural; the model cannot supply or forge it.
 
 **Live demo:** [agentic-research-engine-live.onrender.com](https://agentic-research-engine-live.onrender.com) (free tier, ~1 min cold start)
 
@@ -47,7 +47,7 @@ Blue nodes are fan-in barriers. The only back-edge (the coverage loop) is budget
 
 ## Answer contract
 
-Before any retrieval begins, the engine builds a contract from the question. A comparison naming fewer than two entities produces a contract with no valid slots — the engine refuses rather than guesses. This prevents a class of hallucination where the model fills in an implied entity it invented.
+Before any retrieval begins, the engine builds a contract from the question. A comparison naming fewer than two entities produces a contract with no valid slots, so the engine refuses rather than guesses. This prevents a class of hallucination where the model fills in an implied entity it invented.
 
 ## Two-model design
 
@@ -59,16 +59,16 @@ The separation between writing and verification is the central design decision:
 | Decide what to publish | NLI entailment classifier (pinned, separate) | Score entailment of claim against cited quote |
 | Gate relevance | Critic model (separate from synthesizer) | Judge whether an entailed claim answers the question |
 
-The model cannot supply citation links directly — it references evidence IDs, which the engine resolves to registered sources. A claim that references a non-existent evidence ID fails resolution and is withheld.
+The model cannot supply citation links directly; it references evidence IDs, which the engine resolves to registered sources. A claim that references a non-existent evidence ID fails resolution and is withheld.
 
 ## Verification layer
 
 Each claim goes through a two-stage gate:
 
-1. **NLI entailment:** Is this claim entailed by its own cited quote at a threshold of ≥ 0.996 confidence? If not, withheld.
-2. **Relevance gate:** Does an entailed claim actually answer something in the question? The critic judges this. Relevance fails closed — if the judgment cannot be obtained, the claims it would cover are withheld.
+1. **NLI entailment:** Is this claim entailed by its own cited quote at a threshold of 0.996 confidence? If not, withheld.
+2. **Relevance gate:** Does an entailed claim actually answer something in the question? The critic judges this. Relevance fails closed; if the judgment cannot be obtained, the claims it would cover are withheld.
 
-This design means a claim can be factually correct and still be withheld if it is irrelevant to the question or if the entailment judgment is unavailable.
+This means a claim can be factually correct and still be withheld if it is irrelevant to the question or if the entailment judgment is unavailable.
 
 ## Security controls
 
@@ -92,25 +92,25 @@ This design means a claim can be factually correct and still be withheld if it i
 | Precision (blinded) | 1.00 |
 | Recall (blinded) | 0.58 |
 
-Zero unsupported or uncertain claims were published. Recall is limited by design — the engine withholds rather than guesses.
+Zero unsupported or uncertain claims were published. Recall is limited by design; the engine withholds rather than guesses.
 
 **Adversarial regression (11 cases, 17 claims, two releases):**
 
-Irrelevant published claims went from 6 to 0 across releases. Correctly published claims fell from 14 to 6 in the same window, and one correct claim was wrongly withheld — the tradeoff between precision and recall is visible and recorded.
+Irrelevant published claims went from 6 to 0 across releases. Correctly published claims fell from 14 to 6 in the same window, and one correct claim was wrongly withheld, reflecting the tradeoff between precision and recall, which is visible and recorded.
 
 **Performance (frozen corpus, no significance claimed):**
 
 | Mode | Time per run |
 |---|---|
-| Cloud (OpenAI) | 8.84–28.51 seconds |
-| Local (qwen3:4b) | 54.50–118.21 seconds |
+| Cloud (OpenAI) | 8.84 to 28.51 seconds |
+| Local (qwen3:4b) | 54.50 to 118.21 seconds |
 
 ## Modes
 
 | Mode | Description |
 |---|---|
-| `local` | Ollama qwen3:4b, no API key or search provider needed |
-| `cloud` | OpenAI, faster, metered |
-| `hybrid` | Extraction local, reasoning cloud |
+| local | Ollama qwen3:4b, no API key or search provider needed |
+| cloud | OpenAI, faster, metered |
+| hybrid | Extraction local, reasoning cloud |
 
 `ALLOW_CLOUD_FALLBACK` defaults to false. Replay mode (the default for the hosted demo) serves committed recorded runs with no API key needed.

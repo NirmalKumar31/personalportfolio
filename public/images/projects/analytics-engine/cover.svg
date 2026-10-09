@@ -1,133 +1,113 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
   <defs>
-    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#0f1f38"/>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#06101e"/>
+      <stop offset="100%" stop-color="#040c18"/>
     </linearGradient>
-    <marker id="arrB" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/>
-    </marker>
-    <marker id="arrG2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#10b981"/>
-    </marker>
-    <marker id="arrR" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#f87171"/>
-    </marker>
+    <linearGradient id="nodeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="checkGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
   </defs>
 
   <rect width="800" height="450" fill="url(#bg2)"/>
 
-  <!-- Subtle grid -->
-  <g stroke="#1e3a5f" stroke-width="0.4" opacity="0.3">
-    <line x1="0" y1="90" x2="800" y2="90"/>
-    <line x1="0" y1="180" x2="800" y2="180"/>
-    <line x1="0" y1="270" x2="800" y2="270"/>
-    <line x1="0" y1="360" x2="800" y2="360"/>
-    <line x1="133" y1="0" x2="133" y2="450"/>
-    <line x1="266" y1="0" x2="266" y2="450"/>
-    <line x1="399" y1="0" x2="399" y2="450"/>
-    <line x1="532" y1="0" x2="532" y2="450"/>
-    <line x1="665" y1="0" x2="665" y2="450"/>
+  <!-- Dot grid -->
+  <pattern id="dots2" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1" fill="#0f2040"/>
+  </pattern>
+  <rect width="800" height="450" fill="url(#dots2)" opacity="0.8"/>
+
+  <!-- Glow behind central element -->
+  <ellipse cx="400" cy="225" rx="120" ry="80" fill="#1d4ed8" opacity="0.06" filter="url(#glow2)"/>
+
+  <!-- Central flow diagram: Q → contract → DuckDB → check → A -->
+  <g transform="translate(400, 228)">
+    <!-- Question node -->
+    <rect x="-190" y="-26" width="70" height="52" rx="10" fill="#0f172a" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="-155" y="-8" text-anchor="middle" fill="#93c5fd" font-size="11" font-family="monospace">question</text>
+    <text x="-155" y="8" text-anchor="middle" fill="#475569" font-size="9" font-family="monospace">natural lang</text>
+    <text x="-155" y="20" text-anchor="middle" fill="#475569" font-size="9" font-family="monospace">input</text>
+
+    <!-- Arrow 1 -->
+    <line x1="-120" y1="0" x2="-96" y2="0" stroke="#1d4ed8" stroke-width="1.5"/>
+    <polygon points="-96,0 -102,-4 -102,4" fill="#1d4ed8"/>
+
+    <!-- Rule resolver node -->
+    <rect x="-94" y="-26" width="72" height="52" rx="10" fill="#0f172a" stroke="#1d4ed8" stroke-width="1.5"/>
+    <text x="-58" y="-6" text-anchor="middle" fill="#93c5fd" font-size="10" font-family="monospace">resolve</text>
+    <text x="-58" y="8" text-anchor="middle" fill="#475569" font-size="9" font-family="monospace">5 states</text>
+    <text x="-58" y="20" text-anchor="middle" fill="#3b82f6" font-size="8" font-family="monospace">EXACT/AMB...</text>
+
+    <!-- Arrow 2 -->
+    <line x1="-22" y1="0" x2="2" y2="0" stroke="#1d4ed8" stroke-width="1.5"/>
+    <polygon points="2,0 -4,-4 -4,4" fill="#1d4ed8"/>
+
+    <!-- DuckDB node (center, slightly larger) -->
+    <rect x="4" y="-30" width="72" height="60" rx="10" fill="url(#nodeGrad)" opacity="0.9"/>
+    <text x="40" y="-8" text-anchor="middle" fill="#fff" font-size="11" font-family="monospace" font-weight="600">DuckDB</text>
+    <text x="40" y="8" text-anchor="middle" fill="#bfdbfe" font-size="9" font-family="monospace">read-only</text>
+    <text x="40" y="22" text-anchor="middle" fill="#bfdbfe" font-size="9" font-family="monospace">MCP</text>
+
+    <!-- Arrow 3 -->
+    <line x1="76" y1="0" x2="100" y2="0" stroke="#10b981" stroke-width="1.5"/>
+    <polygon points="100,0 94,-4 94,4" fill="#10b981"/>
+
+    <!-- Verify node -->
+    <rect x="102" y="-26" width="72" height="52" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+    <text x="138" y="-6" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="monospace">verify</text>
+    <text x="138" y="8" text-anchor="middle" fill="#475569" font-size="9" font-family="monospace">coverage</text>
+    <text x="138" y="20" text-anchor="middle" fill="#475569" font-size="9" font-family="monospace">+ numeric</text>
+
+    <!-- Arrow 4 -->
+    <line x1="174" y1="0" x2="196" y2="0" stroke="#10b981" stroke-width="1.5"/>
+    <polygon points="196,0 190,-4 190,4" fill="#10b981"/>
+
+    <!-- Answer node -->
+    <rect x="198" y="-30" width="70" height="60" rx="10" fill="#022c22" stroke="#10b981" stroke-width="1.5"/>
+    <!-- Checkmark -->
+    <polyline points="214,0 224,12 244,-10" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="233" y="28" text-anchor="middle" fill="#6ee7b7" font-size="9" font-family="monospace">cited</text>
   </g>
 
+  <!-- Label below flow -->
+  <text x="400" y="310" text-anchor="middle" fill="#334155" font-size="10" font-family="monospace">model never executes SQL · engine owns all arithmetic · every answer is verifiable</text>
+
+  <!-- Top label -->
+  <text x="400" y="85" text-anchor="middle" fill="#94a3b8" font-size="11" font-family="system-ui" letter-spacing="0.12em">PERSONAL PROJECT</text>
+
   <!-- Title -->
-  <text x="40" y="55" fill="#f8fafc" font-size="22" font-family="system-ui" font-weight="700">Agentic Analytics Engine</text>
-  <text x="40" y="76" fill="#94a3b8" font-size="12" font-family="system-ui">Governed analytical Q&amp;A over structured data — no unverified SQL, no fabricated numbers</text>
+  <text x="400" y="122" text-anchor="middle" fill="#f8fafc" font-size="26" font-family="system-ui" font-weight="700">Agentic Analytics Engine</text>
+  <text x="400" y="148" text-anchor="middle" fill="#64748b" font-size="13" font-family="system-ui">Governed Q&amp;A over structured data — no unverified SQL</text>
 
-  <!-- Badges -->
-  <rect x="40" y="92" width="72" height="20" rx="10" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1"/>
-  <text x="76" y="106" text-anchor="middle" fill="#93c5fd" font-size="9" font-family="system-ui" font-weight="600">LangGraph</text>
-  <rect x="122" y="92" width="56" height="20" rx="10" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
-  <text x="150" y="106" text-anchor="middle" fill="#6ee7b7" font-size="9" font-family="system-ui" font-weight="600">DuckDB</text>
-  <rect x="188" y="92" width="56" height="20" rx="10" fill="#1e1b4b" stroke="#818cf8" stroke-width="1"/>
-  <text x="216" y="106" text-anchor="middle" fill="#c4b5fd" font-size="9" font-family="system-ui" font-weight="600">FastAPI</text>
-  <rect x="254" y="92" width="44" height="20" rx="10" fill="#0c1a2e" stroke="#60a5fa" stroke-width="1"/>
-  <text x="276" y="106" text-anchor="middle" fill="#93c5fd" font-size="9" font-family="system-ui" font-weight="600">MCP</text>
-  <rect x="308" y="92" width="50" height="20" rx="10" fill="#1a1a2e" stroke="#a78bfa" stroke-width="1"/>
-  <text x="333" y="106" text-anchor="middle" fill="#c4b5fd" font-size="9" font-family="system-ui" font-weight="600">React</text>
+  <!-- Bottom tag strip -->
+  <rect x="0" y="400" width="800" height="50" fill="#040c18"/>
+  <line x1="0" y1="400" x2="800" y2="400" stroke="#0f1e35" stroke-width="1"/>
 
-  <!-- Rule resolver -->
-  <rect x="40" y="145" width="120" height="100" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="100" y="168" text-anchor="middle" fill="#3b82f6" font-size="9" font-family="monospace" font-weight="600">RULE RESOLVER</text>
-  <text x="100" y="184" text-anchor="middle" fill="#64748b" font-size="8" font-family="monospace">5 states:</text>
-  <text x="100" y="196" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">EXACT</text>
-  <text x="100" y="207" text-anchor="middle" fill="#fbbf24" font-size="8" font-family="monospace">AMBIGUOUS</text>
-  <text x="100" y="218" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">UNSAFE / UNSUPPORTED</text>
-  <text x="100" y="229" text-anchor="middle" fill="#94a3b8" font-size="8" font-family="monospace">UNRESOLVED</text>
+  <g font-family="system-ui" font-size="11" fill="#475569">
+    <text x="56" y="431">LangGraph</text>
+    <circle cx="126" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="136" y="431">DuckDB</text>
+    <circle cx="195" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="205" y="431">FastAPI</text>
+    <circle cx="257" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="267" y="431">React</text>
+    <circle cx="305" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="315" y="431">TypeScript</text>
+    <circle cx="386" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="396" y="431">MCP</text>
+    <circle cx="427" cy="427" r="1.5" fill="#1e293b"/>
+    <text x="437" y="431">Python</text>
+  </g>
 
-  <!-- Question input -->
-  <rect x="40" y="278" width="120" height="36" rx="6" fill="#0f172a" stroke="#475569" stroke-width="1"/>
-  <text x="100" y="294" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="monospace">"What are top 5</text>
-  <text x="100" y="306" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="monospace"> products by revenue?"</text>
-  <line x1="100" y1="278" x2="100" y2="245" stroke="#475569" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrB)"/>
-
-  <!-- Arrow right from resolver: EXACT path -->
-  <line x1="160" y1="175" x2="195" y2="175" stroke="#6ee7b7" stroke-width="1.5" marker-end="url(#arrG2)"/>
-
-  <!-- Typed contract -->
-  <rect x="195" y="155" width="110" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-  <text x="250" y="172" text-anchor="middle" fill="#10b981" font-size="9" font-family="monospace">TYPED CONTRACT</text>
-  <text x="250" y="185" text-anchor="middle" fill="#64748b" font-size="8" font-family="monospace">query spec + shape</text>
-
-  <!-- Arrow to DuckDB -->
-  <line x1="305" y1="175" x2="340" y2="175" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG2)"/>
-
-  <!-- DuckDB -->
-  <rect x="340" y="155" width="90" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-  <text x="385" y="172" text-anchor="middle" fill="#10b981" font-size="9" font-family="monospace">DuckDB</text>
-  <text x="385" y="185" text-anchor="middle" fill="#64748b" font-size="8" font-family="monospace">read-only + MCP</text>
-
-  <!-- Arrow to verify -->
-  <line x1="430" y1="175" x2="465" y2="175" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG2)"/>
-
-  <!-- Verification -->
-  <rect x="465" y="155" width="100" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-  <text x="515" y="172" text-anchor="middle" fill="#10b981" font-size="9" font-family="monospace">VERIFICATION</text>
-  <text x="515" y="185" text-anchor="middle" fill="#64748b" font-size="8" font-family="monospace">coverage + numeric</text>
-
-  <!-- Arrow to answer -->
-  <line x1="565" y1="175" x2="600" y2="175" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrG2)"/>
-
-  <!-- Answer -->
-  <rect x="600" y="145" width="160" height="100" rx="8" fill="#022c22" stroke="#10b981" stroke-width="1.5"/>
-  <text x="680" y="165" text-anchor="middle" fill="#10b981" font-size="9" font-family="monospace" font-weight="600">ANSWER + PROVENANCE</text>
-  <text x="680" y="180" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">table + chart</text>
-  <text x="680" y="193" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">cited cells</text>
-  <text x="680" y="206" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">generated SQL</text>
-  <text x="680" y="219" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">snapshot link</text>
-  <text x="680" y="232" text-anchor="middle" fill="#6ee7b7" font-size="8" font-family="monospace">accepted contract</text>
-
-  <!-- AMBIGUOUS path -->
-  <line x1="160" y1="210" x2="195" y2="210" stroke="#fbbf24" stroke-width="1.5"/>
-  <rect x="195" y="198" width="110" height="24" rx="5" fill="#1e293b" stroke="#fbbf24" stroke-width="1"/>
-  <text x="250" y="213" text-anchor="middle" fill="#fbbf24" font-size="8" font-family="monospace">GOVERNED AI PLANNER</text>
-  <!-- AI planner connects back to contract -->
-  <line x1="305" y1="210" x2="340" y2="210" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,2"/>
-  <line x1="340" y1="210" x2="340" y2="195" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,2" marker-end="url(#arrG2)"/>
-
-  <!-- UNSAFE path -->
-  <line x1="160" y1="235" x2="225" y2="235" stroke="#f87171" stroke-width="1.5" marker-end="url(#arrR)"/>
-  <rect x="225" y="224" width="80" height="22" rx="5" fill="#450a0a" stroke="#f87171" stroke-width="1"/>
-  <text x="265" y="238" text-anchor="middle" fill="#f87171" font-size="8" font-family="monospace">CLEAR REFUSAL</text>
-
-  <!-- Stat row -->
-  <rect x="40" y="340" width="170" height="58" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="125" y="364" text-anchor="middle" fill="#3b82f6" font-size="20" font-family="system-ui" font-weight="700">156/156</text>
-  <text x="125" y="381" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">browser matrix cells passed</text>
-  <text x="125" y="392" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">(Chromium, Firefox, WebKit)</text>
-
-  <rect x="225" y="340" width="170" height="58" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="310" y="364" text-anchor="middle" fill="#10b981" font-size="20" font-family="system-ui" font-weight="700">0 unverified</text>
-  <text x="310" y="381" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">SQL executions by the model</text>
-  <text x="310" y="392" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">engine owns all SQL</text>
-
-  <rect x="410" y="340" width="170" height="58" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="495" y="364" text-anchor="middle" fill="#f8fafc" font-size="20" font-family="system-ui" font-weight="700">5 states</text>
-  <text x="495" y="381" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">rule resolver outputs</text>
-  <text x="495" y="392" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">most paths: no LLM call</text>
-
-  <rect x="595" y="340" width="165" height="58" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-  <text x="677" y="364" text-anchor="middle" fill="#f8fafc" font-size="20" font-family="system-ui" font-weight="700">4 audit modes</text>
-  <text x="677" y="381" text-anchor="middle" fill="#64748b" font-size="9" font-family="system-ui">Governed / Deterministic</text>
-  <text x="677" y="392" text-anchor="middle" fill="#64748b" font-size="8" font-family="system-ui">AI / Side-by-side compare</text>
+  <!-- Blue accent line -->
+  <rect x="0" y="0" width="800" height="3" fill="#1d4ed8" opacity="0.7"/>
 </svg>
