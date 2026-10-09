@@ -20,6 +20,9 @@ const PROJECT_ICONS: Record<string, string> = {
   "clinical-trial-data-management-system": "🏥",
   "apple-data-analysis-with-sql": "🍎",
   "los-angeles-crime-analysis-and-predictive-modeling": "🔍",
+  "aml-evaluation-harness": "🏦",
+  "agentic-analytics-engine": "📊",
+  "agentic-research-engine": "🔬",
 };
 
 export default function Projects() {
@@ -39,28 +42,6 @@ export default function Projects() {
           Projects I&apos;ve actually built. Tools I actually use.
         </p>
       </div>
-
-      {/* Skills */}
-      {about.technical.display && (
-        <section className={styles.section}>
-          <p className={styles.sectionLabel}>Technologies</p>
-          <div className={styles.skillGroups}>
-            {about.technical.skills.map((group, i) => (
-              <div key={i} className={styles.skillGroup}>
-                <p className={styles.skillGroupLabel}>{group.title}</p>
-                <div className={styles.tagRow}>
-                  {(group.tags ?? []).map((tag) => (
-                    <span key={tag.name} className={styles.skillTag}>
-                      <span>{SKILL_EMOJIS[tag.name] ?? "🔹"}</span>
-                      {tag.name}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
 
       {/* Projects — card grid */}
       <section className={styles.section}>
@@ -97,6 +78,28 @@ export default function Projects() {
           })}
         </div>
       </section>
+
+      {/* Skills */}
+      {about.technical.display && (
+        <section className={styles.section}>
+          <p className={styles.sectionLabel}>Technologies</p>
+          <div className={styles.skillGroups}>
+            {about.technical.skills.map((group, i) => (
+              <div key={i} className={styles.skillGroup}>
+                <p className={styles.skillGroupLabel}>{group.title}</p>
+                <div className={styles.tagRow}>
+                  {(group.tags ?? []).map((tag) => (
+                    <span key={tag.name} className={styles.skillTag}>
+                      <span>{SKILL_EMOJIS[tag.name] ?? "🔹"}</span>
+                      {tag.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
     </div>
   );

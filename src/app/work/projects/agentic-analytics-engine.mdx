@@ -1,0 +1,94 @@
+---
+title: "Agentic Analytics Engine"
+publishedAt: "2026-10-01"
+summary: "A governed analytical question-answering system over structured data. The model never executes SQL and never directly calculates a published value — it compiles questions into typed analytical contracts, executes them locally over DuckDB, and verifies every result before publishing, with full provenance attached."
+images:
+  - "/images/projects/analytics-engine/cover.svg"
+projectType: "Personal Project"
+tags: ["LangGraph", "DuckDB", "FastAPI", "React", "TypeScript", "Python", "MCP"]
+link: "https://github.com/NirmalKumar31/agentic-analytics-engine"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "ML / Data Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+LLM-generated SQL and analytics can produce confident, incorrect numbers. The standard failure mode: the model computes something plausible-sounding, the user trusts it, and there is no way to check. This engine is built around a different contract — the model never executes SQL, never performs arithmetic, and never decides what gets published. Those responsibilities belong to a deterministic layer the model cannot reach.
+
+**Live demo:** [agentic-analytics-engine.onrender.com](https://agentic-analytics-engine.onrender.com)
+
+<video
+  src="https://github.com/user-attachments/assets/d1730a84-6861-4254-97d6-ccab0758a5d4"
+  controls
+  style={{ width: "100%", borderRadius: "10px", marginTop: "1rem" }}
+/>
+
+## How questions are resolved
+
+Every incoming question passes through a rule resolver that returns one of five states:
+
+| State | What happens |
+|---|---|
+| `EXACT` | Resolved locally with no model call — directly to a typed contract |
+| `AMBIGUOUS` | Reaches the governed AI planner for exactly four resolvable issue types |
+| `UNRESOLVED` | Engine cannot map the question to a measurable outcome |
+| `UNSUPPORTED` | Operation type not supported (unsupported statistical test, etc.) |
+| `UNSAFE` | Question would require unsafe SQL or data access — refused immediately |
+
+Most questions are `EXACT` or resolvable locally. The model is only consulted for four specific ambiguity types: unclear column role, competing measure candidates, competing dimension candidates, and an unbound filter. Period ambiguity is excluded because a model cannot determine the business calendar from wording — the engine asks the user instead.
+
+## Full system architecture
+
+![End-to-end system architecture](/images/projects/analytics-engine/01-end-to-end.svg)
+
+The engine owns the SQL, the read-only guard on DuckDB, the metric definitions, the statistics layer, the chart specification, and the arithmetic verification. A published answer requires: cited cells, numeric support, evidence support, and question relevance. A breakdown is described as complete only where coverage was measured.
+
+## Governed AI planning
+
+![Governed AI planning detail](/images/projects/analytics-engine/02-governed-planning.svg)
+
+When the rule resolver returns `AMBIGUOUS`, the AI planner receives the question, the schema, and a list of allowed aggregate labels. It returns a planning proposal — the engine validates it locally against the schema and the semantic metric layer before proceeding. The planner cannot instruct the engine to execute arbitrary SQL or bypass verification.
+
+## Runtime and data layer
+
+![Runtime and data layer](/images/projects/analytics-engine/03-runtime-and-data.svg)
+
+The runtime is a FastAPI backend with SSE streaming to a React + TypeScript + Vega-Lite frontend. The analytical workflow runs through LangGraph with a typed state machine. DuckDB executes all queries in read-only mode via an MCP boundary — the website speaks MCP in-process, with no network hop. For external callers, `/mcp` is a separately guarded Streamable HTTP transport that answers 503 when no host allow-list is configured.
+
+## Upload analytics
+
+User-uploaded CSV and Parquet files are supported through a capability-based session. The cloud planner receives the question, schema information, and allowed aggregate labels — never unaggregated rows. Near-unique text columns are withheld from grouping. Structurally ambiguous numeric columns (a value between 18 and 65 could be age or a store number) trigger a session-scoped role confirmation.
+
+## Four audit modes
+
+| Mode | Description |
+|---|---|
+| Governed Analysis (default) | Rule resolver + AI planner for eligible ambiguities |
+| Deterministic Analytics | Rule-based path only, no model cost |
+| AI Analytics | Cloud-assisted path inspection |
+| Side-by-side comparison | Compare two paths on the same question |
+
+## Verification and test results
+
+Production audit run on 6 October 2026:
+
+- 10 CI jobs passed, including Docker build and three browser engines (Chromium, Firefox, WebKit)
+- 60 credential-free API acceptance checks passed
+- 156 of 156 browser matrix cells passed — width, theme, and state cells with no upload, analysis, comparison, or provider request
+- One separately authorized Compare canary passed 41 checks at $0.000158
+
+The engine is designed so that correctness of published numbers does not depend on trusting the model — every number is verifiable from the cited cells and generated SQL in the response.
+
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React, TypeScript, Vite, Vega-Lite |
+| API and streaming | FastAPI, SSE |
+| Workflow | LangGraph, typed state |
+| Calculation | DuckDB, SciPy (supported statistical tests) |
+| Safety | AST-based SQL guard, read-only DuckDB, capability sessions |
+| Deployment | Docker on Render |

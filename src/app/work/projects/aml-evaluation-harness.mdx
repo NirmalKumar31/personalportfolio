@@ -1,0 +1,93 @@
+---
+title: "AML Evaluation Harness"
+publishedAt: "2026-09-01"
+summary: "A budget-constrained alert evaluation framework for anti-money-laundering transaction monitoring, built on IBM's AMLworld benchmark. Reports precision@k under a fixed daily alert budget with a random-ranker null, an attainable ceiling, and content-addressed provenance — so every published number traces to a committed artifact."
+images:
+  - "/images/projects/aml-harness/cover.svg"
+projectType: "Personal Project"
+tags: ["Python", "LightGBM", "DuckDB", "Azure", "scikit-learn", "GitHub Actions"]
+link: "https://github.com/NirmalKumar31/aml-evaluation-harness"
+team:
+  - name: "Nirmalkumar Thirupallikrishnan Kesavan"
+    role: "ML Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/nirmalkumartk/"
+---
+
+## Overview
+
+AML review teams operate under a hard daily constraint: they can only work through a fixed number of flagged alerts per day. Standard evaluation metrics like ROC-AUC don't capture this. The operative question isn't "what is the AUC" — it's "of the accounts we can afford to look at today, how many are worth looking at?"
+
+This harness answers that question with budget-aware evaluation primitives that are falsifiable. Every published metric comes with a random-ranker null, an attainable ceiling, a per-day budget-binding check, and content-addressed provenance — so any decimal can be traced to a specific run, a specific commit, and the data that produced it.
+
+<video
+  src="https://github.com/user-attachments/assets/1da62aed-96dd-423e-88d7-d65a7dc3f385"
+  controls
+  style={{ width: "100%", borderRadius: "10px", marginTop: "1rem" }}
+/>
+
+## The core metric
+
+The evaluation unit is an **(account, calendar-day)** pair under a daily alert budget `k`. Precision@k — the share of alerted accounts that are genuinely suspicious — is the number that matters when your team can only work `k` cases today.
+
+The harness computes three reference points alongside every model score:
+
+| Reference point | What it means |
+|---|---|
+| Random-ranker null | What you'd get by randomly selecting accounts — the floor |
+| Attainable ceiling | The maximum achievable precision@k given the generator's prevalence |
+| Budget-binding check | Whether `k` actually constrained the model on this day |
+
+A pooled metric that averages across unbinding days overstates performance. The harness tracks this and flags it.
+
+## Evaluation pipeline
+
+![Full evaluation pipeline](/images/projects/aml-harness/01-evaluation-pipeline.svg)
+
+The pipeline runs from raw synthetic transactions through feature engineering, a ring-aware temporal train/test split (with ring-participant disjointness), per-seed model fits, account-day budget metric computation, artifact archival, and a publication gate.
+
+**The publication gate refuses to publish a number not backed by a committed artifact.** `make release-check` runs the full suite, then rejects any decimal not found in a committed artifact, any value from a superseded lineage, or any value the retraction registry has withdrawn.
+
+## Azure execution (HI-Large run)
+
+![Azure execution topology](/images/projects/aml-harness/02-azure-execution.svg)
+
+The 179M-transaction HI-Large run on Azure used a deliberate no-registry approach:
+
+- Source code was `git archive`d at a fixed commit and uploaded to ADLS Gen2
+- The container was built on the VM itself, tagged `aml:<git-sha>` — no image pulled from a registry
+- Access used managed identity with no stored secrets and shared-key access disabled
+- DuckDB handled spill disk within the VM
+- Three seeds produced byte-identical training matrices
+
+## CI and release pipeline
+
+![CI and release pipeline](/images/projects/aml-harness/03-ci-release.svg)
+
+Container build, vulnerability scan, GHCR publish, and interactive website delivery all run through GitHub Actions. The release tag is the same manifest bytes as the tested commit tag — there is no gap between what was tested and what ships.
+
+## Key findings
+
+Three findings from one synthetic generator (not generalizable without further study):
+
+**Finding 1 — Window composition dominates pooled metrics (HI-Medium):**
+After the benchmark generator winds down at 2022-09-10, daily transaction volume drops from 3,021,866 to 7 and laundering prevalence jumps from 0.0008 to 0.4286. A random ranker already scores precision@50 between 0.45 and 0.49 on this window. A pooled budget metric here is mostly a statement about window composition.
+
+**Finding 2 — On the volume segment, signal is real and small (HI-Medium, 7 active days):**
+Random-ranker null: 0.00243–0.00244. Logistic model precision@50 = 0.04286, which is 17.6x the null. The ceiling is 409.8x — so there is headroom, and the model uses a fraction of it.
+
+**Finding 3 — Seed variance is large and localized to budget metrics:**
+Across 8 seeds on HI-Medium, precision@50 spans 37.2% of its mean while ROC-AUC moves only 0.1%. Reporting a single-seed budget metric on this benchmark is not meaningful.
+
+## Scale and reproducibility
+
+| Item | Value |
+|---|---|
+| HI-Large transactions | 179,702,229 |
+| Training matrix (HI-Large) | 124,992,128 × 32 |
+| LightGBM peak memory | 14.9 GB |
+| scikit-learn equivalent | 33.5 GB (overflows 31 GB) |
+| Test assertions | 568 collected |
+| Reproducibility tiers | Synthetic demo · Aggregate verification · Full replay |
+
+The full replay tier recomputes budget metrics exactly from stored rows and requires the licensed AMLworld CSVs or generated bundles. The aggregate verification tier traces every published figure to a committed artifact with no dataset needed.
