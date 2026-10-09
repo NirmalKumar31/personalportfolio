@@ -24,9 +24,9 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1d4ed8;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
   padding: 0.2rem 0.75rem;
   width: fit-content;
@@ -35,7 +35,7 @@
 .badgeDot {
   width: 5px;
   height: 5px;
-  background: #1d4ed8;
+  background: var(--color-text);
   border-radius: 50%;
 }
 
@@ -84,8 +84,8 @@
 }
 
 .linkBtnPrimary {
-  background: #1d4ed8;
-  color: #fff !important;
+  background: var(--color-text);
+  color: var(--color-bg) !important;
   border: 1px solid transparent;
 }
 
@@ -211,9 +211,9 @@
 .protocolTag {
   font-family: var(--font-body);
   font-size: 0.75rem;
-  color: #1d4ed8;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  color: var(--color-text);
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   padding: 0.1rem 0.45rem;
   width: fit-content;
@@ -221,8 +221,8 @@
 
 /* ── Finding callout ── */
 .finding {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 1.2rem 1.4rem;
   display: flex;
@@ -236,7 +236,7 @@
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #1d4ed8;
+  color: var(--color-muted);
 }
 
 .findingText {
