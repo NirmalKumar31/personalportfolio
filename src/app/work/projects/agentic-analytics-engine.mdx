@@ -30,15 +30,17 @@ LLM-generated SQL and analytics can produce confident, incorrect numbers. The st
 
 Every incoming question passes through a rule resolver that returns one of five states:
 
-| State | What happens |
-|---|---|
-| EXACT | Resolved locally with no model call, directly to a typed contract |
-| AMBIGUOUS | Reaches the governed AI planner for exactly four resolvable issue types |
-| UNRESOLVED | Engine cannot map the question to a measurable outcome |
-| UNSUPPORTED | Operation type not supported (unsupported statistical test, etc.) |
-| UNSAFE | Question would require unsafe SQL or data access, refused immediately |
+**EXACT:** Resolved locally with no model call, directly to a typed contract.
 
-Most questions are EXACT or resolvable locally. The model is only consulted for four specific ambiguity types: unclear column role, competing measure candidates, competing dimension candidates, and an unbound filter. Period ambiguity is excluded because a model cannot determine the business calendar from wording; the engine asks the user instead.
+**AMBIGUOUS:** Reaches the governed AI planner for exactly four resolvable issue types: unclear column role, competing measure candidates, competing dimension candidates, and an unbound filter.
+
+**UNRESOLVED:** Engine cannot map the question to a measurable outcome.
+
+**UNSUPPORTED:** Operation type not supported — for example, an unsupported statistical test.
+
+**UNSAFE:** Question would require unsafe SQL or data access; refused immediately.
+
+Most questions are EXACT or resolvable locally. Period ambiguity is excluded from the planner because a model cannot determine the business calendar from wording; the engine asks the user instead.
 
 ## Full system architecture
 
@@ -64,12 +66,13 @@ User-uploaded CSV and Parquet files are supported through a capability-based ses
 
 ## Four audit modes
 
-| Mode | Description |
-|---|---|
-| Governed Analysis (default) | Rule resolver plus AI planner for eligible ambiguities |
-| Deterministic Analytics | Rule-based path only, no model cost |
-| AI Analytics | Cloud-assisted path inspection |
-| Side-by-side comparison | Compare two paths on the same question |
+**Governed Analysis (default):** Rule resolver plus AI planner for eligible ambiguities.
+
+**Deterministic Analytics:** Rule-based path only, no model cost.
+
+**AI Analytics:** Cloud-assisted path inspection.
+
+**Side-by-side comparison:** Compare two paths on the same question.
 
 ## Verification and test results
 
@@ -84,11 +87,14 @@ The engine is designed so that correctness of published numbers does not depend 
 
 ## Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React, TypeScript, Vite, Vega-Lite |
-| API and streaming | FastAPI, SSE |
-| Workflow | LangGraph, typed state |
-| Calculation | DuckDB, SciPy (supported statistical tests) |
-| Safety | AST-based SQL guard, read-only DuckDB, capability sessions |
-| Deployment | Docker on Render |
+**Frontend:** React, TypeScript, Vite, Vega-Lite
+
+**API and streaming:** FastAPI, SSE
+
+**Workflow:** LangGraph, typed state machine
+
+**Calculation:** DuckDB, SciPy (supported statistical tests)
+
+**Safety:** AST-based SQL guard, read-only DuckDB, capability sessions
+
+**Deployment:** Docker on Render

@@ -53,64 +53,53 @@ Before any retrieval begins, the engine builds a contract from the question. A c
 
 The separation between writing and verification is the central design decision:
 
-| Role | Component | What it can do |
-|---|---|---|
-| Write claims and quotes | Generative model (local: qwen3:4b / cloud: OpenAI) | Compose prose, extract text from pages, reference evidence IDs |
-| Decide what to publish | NLI entailment classifier (pinned, separate) | Score entailment of claim against cited quote |
-| Gate relevance | Critic model (separate from synthesizer) | Judge whether an entailed claim answers the question |
+**Write claims and quotes:** A generative model (local: qwen3:4b / cloud: OpenAI) composes prose, extracts text from pages, and references evidence IDs. It cannot supply citation links directly; it references IDs, which the engine resolves to registered sources.
 
-The model cannot supply citation links directly; it references evidence IDs, which the engine resolves to registered sources. A claim that references a non-existent evidence ID fails resolution and is withheld.
+**Decide what to publish:** A pinned NLI entailment classifier (separate from the generative model) scores whether each claim is entailed by its own cited quote. The model cannot influence this judgment.
+
+**Gate relevance:** A critic model (separate from the synthesizer) judges whether an entailed claim actually answers the question. Relevance fails closed; if the judgment cannot be obtained, the claims it would cover are withheld.
 
 ## Verification layer
 
 Each claim goes through a two-stage gate:
 
 1. **NLI entailment:** Is this claim entailed by its own cited quote at a threshold of 0.996 confidence? If not, withheld.
-2. **Relevance gate:** Does an entailed claim actually answer something in the question? The critic judges this. Relevance fails closed; if the judgment cannot be obtained, the claims it would cover are withheld.
-
-This means a claim can be factually correct and still be withheld if it is irrelevant to the question or if the entailment judgment is unavailable.
+2. **Relevance gate:** Does an entailed claim actually answer something in the question? The critic judges this. A claim can be factually correct and still be withheld if it is irrelevant or if the entailment judgment is unavailable.
 
 ## Security controls
 
-| Concern | Control |
-|---|---|
-| SSRF | Deny-by-default on loopback, private, link-local, multicast, and reserved addresses |
-| DNS rebinding | Connects to validated address; every redirect hop is revalidated and re-pinned |
-| Spend | Ceilings reserved before each provider request; output-token ceilings exact |
-| Prompt injection | Retrieved text is framed as untrusted data; extractor has no tools |
-| Secrets | gitleaks runs over full history with a positive control |
+**SSRF:** Deny-by-default on loopback, private, link-local, multicast, and reserved addresses.
+
+**DNS rebinding:** Connects to validated address; every redirect hop is revalidated and re-pinned.
+
+**Spend:** Ceilings reserved before each provider request; output-token ceilings exact.
+
+**Prompt injection:** Retrieved text is framed as untrusted data; extractor has no tools.
+
+**Secrets:** gitleaks runs over full history with a positive control.
 
 ## Results
 
-**Blinded self-review (three recorded local qwen3:4b runs):**
+Blinded self-review across three recorded local qwen3:4b runs:
 
-| Metric | Result |
-|---|---|
-| Candidates checked | 21 |
-| Published | 11 |
-| Withheld (not entailed) | 10 |
-| Precision (blinded) | 1.00 |
-| Recall (blinded) | 0.58 |
+- 21 unique candidates checked; 11 published, 10 withheld (not entailed)
+- Precision: 1.00 — zero unsupported or uncertain claims published
+- Recall: 0.58 — limited by design; the engine withholds rather than guesses
 
-Zero unsupported or uncertain claims were published. Recall is limited by design; the engine withholds rather than guesses.
+Adversarial regression (11 cases, 17 claims, two releases): irrelevant published claims went from 6 to 0 across releases. Correctly published claims fell from 14 to 6 in the same window, reflecting the precision-recall tradeoff, which is visible and recorded.
 
-**Adversarial regression (11 cases, 17 claims, two releases):**
+**Performance on frozen corpus (n=2, no significance claimed):**
 
-Irrelevant published claims went from 6 to 0 across releases. Correctly published claims fell from 14 to 6 in the same window, and one correct claim was wrongly withheld, reflecting the tradeoff between precision and recall, which is visible and recorded.
+Cloud (OpenAI): 8.84 to 28.51 seconds per run.
 
-**Performance (frozen corpus, no significance claimed):**
-
-| Mode | Time per run |
-|---|---|
-| Cloud (OpenAI) | 8.84 to 28.51 seconds |
-| Local (qwen3:4b) | 54.50 to 118.21 seconds |
+Local (qwen3:4b): 54.50 to 118.21 seconds completed; 120 to 122 seconds timeout.
 
 ## Modes
 
-| Mode | Description |
-|---|---|
-| local | Ollama qwen3:4b, no API key or search provider needed |
-| cloud | OpenAI, faster, metered |
-| hybrid | Extraction local, reasoning cloud |
+**local:** Ollama qwen3:4b, no API key or search provider needed. Around 15 minutes per run on an M-series laptop.
+
+**cloud:** OpenAI, substantially faster, at metered cost.
+
+**hybrid:** Extraction local, reasoning cloud. Extraction is the highest-volume role and is mechanical.
 
 `ALLOW_CLOUD_FALLBACK` defaults to false. Replay mode (the default for the hosted demo) serves committed recorded runs with no API key needed.

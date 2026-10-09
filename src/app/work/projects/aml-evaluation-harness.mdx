@@ -32,13 +32,11 @@ The evaluation unit is an **(account, calendar-day)** pair under a daily alert b
 
 The harness computes three reference points alongside every model score:
 
-| Reference point | What it means |
-|---|---|
-| Random-ranker null | Score from randomly selecting accounts (the floor) |
-| Attainable ceiling | Maximum achievable precision@k given the generator's prevalence |
-| Budget-binding check | Whether k actually constrained the model on this day |
+**Random-ranker null:** Score from randomly selecting accounts — the floor any useful model must beat.
 
-A pooled metric that averages across unbinding days overstates performance. The harness tracks this and flags it.
+**Attainable ceiling:** Maximum achievable precision@k given the generator's prevalence on that day.
+
+**Budget-binding check:** Whether `k` actually constrained the model. A pooled metric that averages across unbinding days overstates performance; the harness flags this.
 
 ## Evaluation pipeline
 
@@ -46,7 +44,7 @@ A pooled metric that averages across unbinding days overstates performance. The 
 
 The pipeline runs from raw synthetic transactions through feature engineering, a ring-aware temporal train/test split with ring-participant disjointness, per-seed model fits, account-day budget metric computation, artifact archival, and a publication gate.
 
-**The publication gate refuses to publish a number not backed by a committed artifact.** `make release-check` runs the full suite, then rejects any decimal not found in a committed artifact, any value from a superseded lineage, or any value the retraction registry has withdrawn.
+`make release-check` runs the full suite, then rejects any decimal not found in a committed artifact, any value from a superseded lineage, or any value the retraction registry has withdrawn. No number ships without a committed artifact backing it.
 
 ## Azure execution (HI-Large run)
 
@@ -78,13 +76,12 @@ Three findings from one synthetic generator (not generalizable without further s
 
 ## Scale and reproducibility
 
-| Item | Value |
-|---|---|
-| HI-Large transactions | 179,702,229 |
-| Training matrix (HI-Large) | 124,992,128 x 32 |
-| LightGBM peak memory | 14.9 GB |
-| scikit-learn equivalent | 33.5 GB (overflows 31 GB) |
-| Test assertions | 568 collected |
-| Reproducibility tiers | Synthetic demo · Aggregate verification · Full replay |
+**HI-Large transactions:** 179,702,229
 
-The full replay tier recomputes budget metrics exactly from stored rows and requires the licensed AMLworld CSVs or generated bundles. The aggregate verification tier traces every published figure to a committed artifact with no dataset needed.
+**Training matrix (HI-Large):** 124,992,128 x 32
+
+**LightGBM peak memory:** 14.9 GB (scikit-learn equivalent needs 33.5 GB and overflows 31 GB)
+
+**Test assertions:** 568 collected
+
+**Reproducibility tiers:** Synthetic demo (no dataset needed) · Aggregate verification (every published figure traces to a committed artifact) · Full replay (requires licensed AMLworld CSVs)
