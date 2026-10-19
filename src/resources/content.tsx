@@ -169,7 +169,7 @@ const about: About = {
       {
         company: "Ideatec Softwares",
         timeframe: "January 2024 – May 2024",
-        role: "Data Science Intern (Analytics & ML Engineering)",
+        role: "Data Science Intern",
         achievements: [
           <>
             Developed an LSTM autoencoder in Azure ML to detect anomalies in multivariate sensor
@@ -211,7 +211,7 @@ const about: About = {
       {
         company: "Qwings",
         timeframe: "July 2023 – November 2023",
-        role: "Data Analyst Intern (Machine Learning & AI)",
+        role: "Data Analyst Intern",
         achievements: [
           <>
             Built an Excel Solver allocation model using deployment forecasts and location-level
